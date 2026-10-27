@@ -1,0 +1,20 @@
+# Swansea Family Events: static site, no build step.
+[build]
+  publish = "."
+  command = ""
+
+# The page changes twice a week, so browsers and the CDN must always check for a newer copy.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Any unknown path goes to the guide rather than a Netlify error page.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
