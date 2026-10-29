@@ -1833,9 +1833,17 @@ footer p{margin:0 0 7px;max-width:64ch}
   function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
   function iso(y,m,d){ return y+"-"+String(m+1).padStart(2,"0")+"-"+String(d).padStart(2,"0"); }
   function isFree(e){ var c=(e.cost||"").toLowerCase(); return c.indexOf("free")===0||c.indexOf("pay what you can")===0; }
-  function hay(e){ return (e.t+" "+e.venue+" "+e.areaLabel+" "+CATS[e.cat].label+" "+(e.ages||"")+" "+e.desc+(e.xmas?" christmas":"")).toLowerCase(); }
+  function hay(e){ return (e.t+" "+e.venue+" "+e.areaLabel+" "+CATS[e.cat].label+" "+(e.ages||"")+" "+e.desc+(isXmas(e)?" christmas":"")).toLowerCase(); }
+  /* Christmas: the xmas flag, or a festive word in the title or description on a date from November to January */
+  var XMAS_RE = /christmas|xmas|santa|festive|panto|grotto|nadolig|\belf\b|reindeer|winterland|luminate|mrs claus/i;
+  function isXmas(e){
+    if(e.xmas) return true;
+    if(e.cat==="halloween") return false;
+    var inSeason = e.days.some(function(d){ var m=d.slice(5,7); return m==="11"||m==="12"||m==="01"; });
+    return inSeason && XMAS_RE.test(e.t+" "+(e.desc||""));
+  }
   function passes(e){
-    if(!state.cats[e.cat] && !(e.xmas && state.cats.christmas)) return false;
+    if(!state.cats[e.cat] && !(isXmas(e) && state.cats.christmas)) return false;
     if(state.area!=="all" && e.area!==state.area) return false;
     if(state.freeOnly && !isFree(e)) return false;
     if(state.indoor && e.indoor!=="in" && e.indoor!=="mixed") return false;
@@ -1908,7 +1916,7 @@ footer p{margin:0 0 7px;max-width:64ch}
     var facts = [];
     if(toHT > 0) facts.push("Half term starts in <b>"+toHT+"</b> days");
     else if(toHT >= -6) facts.push("<b>Half term is on now</b>");
-    var xm = EVENTS.filter(function(e){ return e.xmas; }).length;
+    var xm = EVENTS.filter(isXmas).length;
     var jump = document.getElementById("seasonJump");
     if(skin==="halloween"){
       facts.push("<b>"+hw+"</b> Halloween events already listed");
@@ -1972,7 +1980,7 @@ footer p{margin:0 0 7px;max-width:64ch}
     add(todays[0], "On today");
     var sk = currentSkin();
     if(sk==="halloween") add(pool.filter(function(e){ return e.cat==="halloween"; }).sort(sortByDate)[0], "Halloween season");
-    else if(sk==="festive") add(pool.filter(function(e){ return e.xmas; }).sort(sortByDate)[0], "Festive season");
+    else if(sk==="festive") add(pool.filter(isXmas).sort(sortByDate)[0], "Festive season");
     var big = pool.filter(function(e){ return e.span && e.days.length > 3; }).sort(sortByDate)[0];
     add(big, "Running for weeks");
     var soon = pool.slice().sort(sortByDate);
@@ -1996,7 +2004,7 @@ footer p{margin:0 0 7px;max-width:64ch}
       '<span class="kicker"><i class="pulse"></i>'+esc(s.kick)+(s.kick==="On today"?"":" · "+pretty(nextDay(e)))+'</span>'+
       '<h1>'+esc(e.t)+'</h1>'+
       '<div class="hero-meta">'+
-        '<span class="tag strong">'+esc(CATS[e.cat].label)+'</span>'+(e.xmas&&e.cat!=="christmas"?'<span class="tag strong">Christmas</span>':'')+
+        '<span class="tag strong">'+esc(CATS[e.cat].label)+'</span>'+(isXmas(e)?'<span class="tag strong">Christmas</span>':'')+
         '<span class="tag">'+esc(e.areaLabel)+'</span>'+
         (e.cost?'<span class="tag'+(isFree(e)?' free':'')+'">'+esc(e.cost)+'</span>':'<span class="tag unknown">Price not published</span>')+
         (e.ages?'<span class="tag">'+esc(e.ages)+'</span>':'<span class="tag unknown">Ages not stated</span>')+
@@ -2081,7 +2089,7 @@ footer p{margin:0 0 7px;max-width:64ch}
       {t:"Everything coming up",s:"In date order",f:function(){return true;}}
     ];
     /* Christmas rail: near the top from 1 November to 31 December, otherwise after Halloween */
-    var xmasRail = {t:"Christmas",s:"Santa, pantos, light trails and markets",f:function(e){return !!e.xmas;}};
+    var xmasRail = {t:"Christmas",s:"Santa, pantos, light trails and markets",f:isXmas};
     var mo = Number(TODAY.slice(5,7)), slot = defs.map(function(r){return !!r.xmasSlot;}).indexOf(true);
     if(mo===11 || mo===12){ defs.splice(slot,1); defs.splice(2,0,xmasRail); } else defs[slot] = xmasRail;
     var out = "";
@@ -2119,7 +2127,7 @@ footer p{margin:0 0 7px;max-width:64ch}
         '<h3 id="sheetTitle">'+esc(e.t)+'</h3></div>'+
       '<div class="sheet-body">'+
         (dayCtx ? '<button type="button" class="backday" data-backday="1">&#8249; All events on '+esc(pretty(dayCtx))+'</button>' : '')+
-        '<div class="srow"><span class="tag strong">'+esc(CATS[e.cat].label)+'</span>'+(e.xmas&&e.cat!=="christmas"?'<span class="tag strong">Christmas</span>':'')+
+        '<div class="srow"><span class="tag strong">'+esc(CATS[e.cat].label)+'</span>'+(isXmas(e)?'<span class="tag strong">Christmas</span>':'')+
         '<span class="tag">'+esc(e.areaLabel)+'</span>'+
         (e.cost?'<span class="tag'+(isFree(e)?' free':'')+'">'+esc(e.cost)+'</span>':'<span class="tag unknown">Price not published</span>')+
         (e.ages?'<span class="tag">'+esc(e.ages)+'</span>':'<span class="tag unknown">Age suitability not stated</span>')+
