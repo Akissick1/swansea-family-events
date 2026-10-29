@@ -16,6 +16,40 @@ DESC = ("Family and children's events across Swansea, Gower, Neath Port Talbot, 
         "Llanelli and nearby: Halloween, Christmas, half term, shows, workshops and "
         "indoor places for rainy days. Every listing links to the page that confirms its date.")
 
+# Visitor analytics (PostHog, EU cloud, cookieless: no cookies or local storage, so no consent banner).
+# Website only: the Claude guide never carries this. Added 29 October 2026.
+ANALYTICS = """<script>
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https://eu.i.posthog.com",cookieless_mode:"always",person_profiles:"identified_only",capture_pageview:true,capture_pageleave:true,autocapture:false,disable_session_recording:true});
+(function(){
+  function cap(n,p){ try{ window.posthog && posthog.capture(n,p||{}); }catch(e){} }
+  function sheetTitle(){ var h=document.getElementById("sheetTitle"); return h ? h.textContent.trim() : ""; }
+  document.addEventListener("click", function(ev){
+    var t = ev.target; if(!t || !t.closest) return;
+    var evBtn = t.closest("[data-ev]");
+    if(evBtn){ var id = evBtn.getAttribute("data-ev"); setTimeout(function(){ cap("event_opened",{event_id:id, event_title:sheetTitle()}); },80); return; }
+    var tab = t.closest("[data-view]");
+    if(tab){ cap("tab_viewed",{tab:tab.getAttribute("data-view")}); return; }
+    if(t.closest("#seasonJump")){ cap("season_button",{label:t.closest("#seasonJump").textContent.trim()}); return; }
+    var a = t.closest("a[href]");
+    if(a && a.closest("#sheet")){
+      var h = a.getAttribute("href")||"";
+      var kind = /calendar\\.google\\.com|outlook\\.live\\.com/.test(h) ? "calendar_added" : /^mailto:|whatsapp|facebook\\.com\\/sharer/.test(h) ? "event_shared" : "listing_opened";
+      cap(kind,{event_title:sheetTitle(), url: kind==="listing_opened" ? h : undefined});
+      return;
+    }
+    if(a && /^mailto:ashleykissick1/.test(a.getAttribute("href")||"")){ cap("post_event_email"); }
+  }, true);
+  var q, timer;
+  document.addEventListener("input", function(ev){
+    if(!ev.target || ev.target.type!=="search" && ev.target.id!=="q") return;
+    q = ev.target.value.trim(); clearTimeout(timer);
+    timer = setTimeout(function(){ if(q.length>=3) cap("search_used",{query:q.slice(0,60)}); },1500);
+  }, true);
+})();
+</script>
+"""
+
 def build(src):
     s = src
     # Drop the hosting wrapper if the input came from an Artifact read.
@@ -50,7 +84,7 @@ def build(src):
 <meta name="twitter:card" content="summary_large_image">
 <style>html{{scroll-padding-top:env(safe-area-inset-top,0px)}}body{{margin:0;padding:0}}img{{max-width:100%}}[hidden]{{display:none!important}}</style>
 """
-    out = (meta + head_part.strip() + "\n</head>\n<body>\n"
+    out = (meta + head_part.strip() + "\n" + ANALYTICS + "</head>\n<body>\n"
            + '<noscript><p style="padding:20px;font-family:sans-serif">This guide needs JavaScript switched on to show the events.</p></noscript>\n'
            + body_part.strip() + "\n</body>\n</html>\n")
     return out

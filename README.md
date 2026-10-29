@@ -16,3 +16,7 @@ https://swansea-family-events.netlify.app/
 The scheduled refresh (Mondays and Thursdays, early morning) updates the guide on Claude, then runs
 `python3 tools/build_site.py <page> index.html`, commits `index.html` here and pushes to `main`.
 Netlify publishes every push to `main` automatically, usually within a minute.
+
+## Visitor analytics
+
+`tools/build_site.py` adds PostHog (EU cloud, project "Default project", id 302061) to the website only, in cookieless mode: no cookies or local storage, so no consent banner. It records page views plus these events: event_opened, listing_opened, calendar_added, event_shared, tab_viewed, search_used, season_button, post_event_email. The Claude version of the guide carries no analytics.
