@@ -66,20 +66,24 @@ export default async (req) => {
   if (loc) L.push("LOCATION:" + esc(loc));
   if (desc) L.push("DESCRIPTION:" + esc(desc));
   if (url) L.push("URL:" + url);
+  // Reminders are written relative to the event start, the form every calendar reads the same way.
+  // An all day entry starts at midnight, so 6pm the evening before is 6 hours earlier.
+  const startMin = timed ? s[0] * 60 + s[1] : 0;
+  const dur = (m) => (m < 0 ? "-" : "") + "PT" + Math.floor(Math.abs(m) / 60) + "H" + (Math.abs(m) % 60) + "M";
   if (q.get("eve") === "1") {
     L.push("BEGIN:VALARM", "ACTION:DISPLAY", "DESCRIPTION:" + esc("Tomorrow: " + title),
-      "TRIGGER;VALUE=DATE-TIME:" + stamp(london(prevDay(d), 18, 0)), "END:VALARM");
+      "TRIGGER:" + dur(-(startMin + 6 * 60)), "END:VALARM");
   }
   const start = timed ? s : r;
   if (start) {
-    const at = new Date(london(d, start[0], start[1]).getTime() - 2 * 3600000);
+    const at = start[0] * 60 + start[1] - 120;            // 2 hours before the published start
     L.push("BEGIN:VALARM", "ACTION:DISPLAY", "DESCRIPTION:" + esc("In 2 hours: " + title),
-      "TRIGGER;VALUE=DATE-TIME:" + stamp(at), "END:VALARM");
+      "TRIGGER:" + dur(at - startMin), "END:VALARM");
   }
   L.push("END:VEVENT", "END:VCALENDAR");
 
   const body = L.map(fold).join("\r\n") + "\r\n";
-  const name = (title.replace(/[^A-Za-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 60) || "event") + ".ics";
+  const name = (title.replace(/[^A-Za-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 50) || "event") + "-" + d + ".ics";
   return new Response(body, { headers: {
     "Content-Type": "text/calendar; charset=utf-8",
     "Content-Disposition": 'inline; filename="' + name + '"',

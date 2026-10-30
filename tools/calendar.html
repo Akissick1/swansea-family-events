@@ -143,8 +143,7 @@
              '<button type="button" class="cx-more" data-more>Using Google or Outlook instead?</button>'+
              '<div class="cx-opts" hidden>'+opt(L,"google","Google Calendar")+opt(L,"outlook","Outlook")+'</div>';
       } else if(ANDROID){
-        h += '<button type="button" class="cx-go" data-pick aria-disabled="'+dis+'">'+CALICON+'Add to my calendar</button>'+
-             '<div class="cx-opts" hidden>'+opt(L,"google","Google Calendar")+opt(L,"ics","Phone calendar (Samsung and others)")+opt(L,"outlook","Outlook")+'</div>';
+        h += '<div class="cx-opts">'+opt(L,"ics","Phone calendar (Samsung and others)")+opt(L,"google","Google Calendar")+opt(L,"outlook","Outlook")+'</div>';
       } else {
         h += '<div class="cx-opts">'+opt(L,"google","Google Calendar")+opt(L,"outlook","Outlook")+opt(L,"ics","Apple or other calendar")+'</div>';
       }

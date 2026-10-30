@@ -32,6 +32,6 @@ Netlify publishes every push to `main` automatically, usually within a minute.
 
 `tools/calendar.html` (added by `tools/build_site.py`, website only) replaces the guide's Google/Outlook row:
 - Asks "Which date are you going?" when an event has several upcoming dates (chips up to 8, a list beyond), unless the event was opened from a day in the Calendar tab.
-- iPhone, iPad and Mac: one "Add to my calendar" button that opens Apple Calendar. Android: the same button offers Google Calendar, Phone calendar (Samsung and others) and Outlook. Computers: Google, Outlook, Apple or other.
+- iPhone, iPad and Mac: one "Add to my calendar" button that opens Apple Calendar. Android: Phone calendar (Samsung and others), Google Calendar and Outlook shown directly. Computers: Google, Outlook, Apple or other.
 - Apple and phone calendars get a calendar file from `netlify/functions/ics.mjs` with reminders at 6pm the evening before and 2 hours before the published start. Google and Outlook links cannot carry reminders.
 - Times are saved only when the organiser published one clear start and finish, otherwise all day (same rule as the guide).
