@@ -2,6 +2,7 @@
 [build]
   publish = "."
   command = ""
+  functions = "netlify/functions"
 
 # The page changes twice a week, so browsers and the CDN must always check for a newer copy.
 [[headers]]

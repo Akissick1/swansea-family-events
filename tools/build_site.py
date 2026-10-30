@@ -32,7 +32,7 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
     if(tab){ cap("tab_viewed",{tab:tab.getAttribute("data-view")}); return; }
     if(t.closest("#seasonJump")){ cap("season_button",{label:t.closest("#seasonJump").textContent.trim()}); return; }
     var a = t.closest("a[href]");
-    if(a && a.closest("#sheet")){
+    if(a && a.closest("#sheet") && !a.hasAttribute("data-cal")){
       var h = a.getAttribute("href")||"";
       var kind = /calendar\\.google\\.com|outlook\\.live\\.com/.test(h) ? "calendar_added" : /^mailto:|whatsapp|facebook\\.com\\/sharer/.test(h) ? "event_shared" : "listing_opened";
       cap(kind,{event_title:sheetTitle(), url: kind==="listing_opened" ? h : undefined});
@@ -60,7 +60,11 @@ def add_weather(page):
         print("warning: weather widget skipped (anchor or tools/weather.html missing)")
         return page
     page = page.replace(EVENTS_ANCHOR, EVENTS_ANCHOR + " window.SFE_EVENTS = EVENTS;")
-    return page.replace("\n</body>", "\n" + open(path, encoding="utf-8").read().strip() + "\n</body>")
+    extras = [path]
+    cal = os.path.join(os.path.dirname(path), "calendar.html")   # Save to your calendar, added 30 October 2026
+    if os.path.exists(cal): extras.append(cal)
+    blocks = "\n".join(open(x, encoding="utf-8").read().strip() for x in extras)
+    return page.replace("\n</body>", "\n" + blocks + "\n</body>")
 
 def build(src):
     s = src

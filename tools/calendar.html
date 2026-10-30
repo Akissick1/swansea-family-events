@@ -1,0 +1,176 @@
+<!-- Save to your calendar (website only). Added by tools/build_site.py. Replaces the guide's Google/Outlook row with:
+     which-date chips when needed, one "Add to my calendar" button suited to the device, and a calendar file
+     (netlify/functions/ics) with reminders the evening before at 6pm and 2 hours before the start. -->
+<style>
+.cx p{border:0}
+.cx{margin-top:16px;border-top:1px solid var(--line);padding-top:15px}
+.cx .cx-lab{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin:0 0 10px}
+.cx .cx-q{font-size:13.5px;font-weight:600;margin:0 0 8px}
+.cx .cx-chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}
+.cx .cx-chip{font:inherit;font-size:13px;font-weight:600;padding:7px 12px;border-radius:999px;cursor:pointer;
+  background:var(--surface);color:var(--ink);border:1px solid var(--line-2);transition:background .15s,border-color .15s,color .15s}
+.cx .cx-chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.cx select{font:inherit;font-size:14px;padding:9px 10px;border-radius:8px;border:1px solid var(--line-2);background:var(--surface);
+  color:var(--ink);margin-bottom:12px;max-width:100%}
+.cx .cx-for{font-size:13.5px;margin:0 0 12px}
+.cx .cx-for b{font-weight:700}
+.cx .cx-for button{font:inherit;font-size:13px;background:none;border:0;color:var(--accent);text-decoration:underline;cursor:pointer;padding:0 0 0 6px}
+.cx .cx-go{display:inline-flex;align-items:center;gap:9px;font:inherit;font-weight:700;font-size:14.5px;padding:12px 18px;border-radius:9px;
+  background:var(--accent);color:#fff;border:0;text-decoration:none;cursor:pointer;transition:opacity .2s}
+.cx .cx-go svg{width:17px;height:17px}
+.cx .cx-go[aria-disabled="true"]{opacity:.45;pointer-events:none}
+.cx .cx-opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.cx .cx-opts[hidden]{display:none}
+.cx .cx-opts a{display:inline-flex;align-items:center;gap:7px;background:var(--surface);color:var(--ink);border:1px solid var(--line-2);
+  font-weight:700;font-size:13px;padding:10px 13px;border-radius:8px;text-decoration:none}
+.cx .cx-opts a svg{width:15px;height:15px;flex:none;color:var(--accent)}
+.cx .cx-opts a:hover{border-color:var(--ink-3);background:var(--surface-2)}
+.cx .cx-more{font:inherit;font-size:12.5px;background:none;border:0;color:var(--ink-3);text-decoration:underline;cursor:pointer;padding:0;margin-top:10px;display:block}
+.cx .cx-note{font-size:12px;color:var(--ink-3);margin:10px 0 0;line-height:1.45;max-width:60ch}
+</style>
+<script>
+(function(){
+  var ICS = "/.netlify/functions/ics";
+  var MON = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  var WD = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  function iso(d){ return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+  function today(){ return iso(new Date()); }
+  function dt(s){ var p=s.split("-").map(Number); return new Date(p[0],p[1]-1,p[2]); }
+  function pretty(s){ var d=dt(s); return WD[d.getDay()]+" "+d.getDate()+" "+MON[d.getMonth()]; }
+  function shortDay(s){ var d=dt(s); return WD[d.getDay()].slice(0,3)+" "+d.getDate()+" "+MON[d.getMonth()].slice(0,3); }
+  function next(s){ var d=dt(s); d.setDate(d.getDate()+1); return iso(d); }
+  function pad(n){ return String(n).padStart(2,"0"); }
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+
+  var UA = navigator.userAgent || "";
+  var APPLE = /iPhone|iPad|iPod/.test(UA) || (/Macintosh/.test(UA) && navigator.maxTouchPoints > 1) || /Macintosh/.test(UA);
+  var ANDROID = /Android/i.test(UA);
+
+  /* Same rule as the guide: a time is saved only when the organiser published one clear start and finish. */
+  function range(t){
+    if(!t) return null;
+    var m = /^\s*(\d{1,2})(?:[.:](\d{2}))?\s*(am|pm)\s*(?:to|–|—|-)\s*(\d{1,2})(?:[.:](\d{2}))?\s*(am|pm)/i.exec(t);
+    if(!m) return null;
+    function h(x,ap){ x=+x%12; return ap.toLowerCase()==="pm"?x+12:x; }
+    var s=[h(m[1],m[3]),+(m[2]||0)], e=[h(m[4],m[6]),+(m[5]||0)];
+    if(e[0]*60+e[1] <= s[0]*60+s[1]) return null;
+    return {s:s,e:e};
+  }
+  /* First published start, skipping end times ("before 7pm", "until 4pm"). Used only for the 2-hour reminder. */
+  function firstStart(t){
+    if(!t) return null;
+    var re=/(\d{1,2})(?:[.:](\d{2}))?\s*(am|pm)\b/ig, m;
+    while((m=re.exec(t))){ if(/\b(before|until|till|by|no later than)\s*$/i.test(t.slice(0,m.index))) continue; break; }
+    if(!m) return null;
+    var h=+m[1]%12; if(m[3].toLowerCase()==="pm") h+=12;
+    return [h, m[2]?+m[2]:0];
+  }
+  function hm(a){ return pad(a[0])+pad(a[1]); }
+  function clock(a){ var h=a[0]%12||12; return h+(a[1]?"."+pad(a[1]):"")+(a[0]<12?"am":"pm"); }
+  function details(e, day){
+    var bits=[e.desc];
+    if(e.time) bits.push("Published time: "+e.time);
+    if(e.cost) bits.push("Cost: "+e.cost);
+    if(e.ages) bits.push("Ages: "+e.ages);
+    var left=e.days.filter(function(d){ return d>=today() && d!==day; }).sort();
+    if(left.length) bits.push("Other dates: "+left.map(shortDay).join(", "));
+    bits.push("Details and booking: "+e.src);
+    bits.push("From Swansea Family Events. Check the organiser's page before travelling.");
+    return bits.join("\n\n");
+  }
+  function links(e, day){
+    var r = range(e.time), st = r ? r.s : firstStart(e.time), f = function(s){ return s.replace(/-/g,""); };
+    var title = encodeURIComponent(e.t), loc = encodeURIComponent(e.venue||""), det = encodeURIComponent(details(e, day));
+    var g = r ? f(day)+"T"+hm(r.s)+"00/"+f(day)+"T"+hm(r.e)+"00" : f(day)+"/"+f(next(day));
+    var o = r ? "&startdt="+day+"T"+pad(r.s[0])+":"+pad(r.s[1])+":00&enddt="+day+"T"+pad(r.e[0])+":"+pad(r.e[1])+":00"
+              : "&startdt="+day+"&enddt="+next(day)+"&allday=true";
+    var ics = ICS+"?t="+title+"&d="+day+(r?"&s="+hm(r.s)+"&e="+hm(r.e):(st?"&r="+hm(st):""))+
+      "&loc="+loc+"&desc="+det+"&url="+encodeURIComponent(e.src||"")+"&eve=1";
+    return {
+      google:"https://calendar.google.com/calendar/render?action=TEMPLATE&text="+title+"&dates="+g+"&details="+det+"&location="+loc+"&ctz=Europe%2FLondon",
+      outlook:"https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&subject="+title+o+"&location="+loc+"&body="+det,
+      ics:ics, timed:!!r, start:st
+    };
+  }
+  function note(e, L){
+    var t;
+    if(L.timed) t = "Saved with the published start and finish time.";
+    else if(!e.time) t = "Saved as an all day entry, because the organiser has not published a time.";
+    else t = "Saved as an all day entry with the published time ("+e.time+") in the notes, so no time is guessed.";
+    var rem = L.start ? "a reminder at 6pm the evening before and another 2 hours before the "+clock(L.start)+" start"
+                      : "a reminder at 6pm the evening before";
+    return t+" Apple and phone calendars get "+rem+". Google and Outlook use your own reminder settings.";
+  }
+  function cap(n,p){ try{ window.posthog && posthog.capture(n,p||{}); }catch(err){} }
+
+  var CALICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4" stroke-linecap="round"/></svg>';
+
+  function eventById(id){ var a=window.SFE_EVENTS||[]; for(var i=0;i<a.length;i++) if(a[i].id===id) return a[i]; return null; }
+  function contextDay(sheet, up){
+    var back = sheet.querySelector("[data-backday]"); if(!back) return null;
+    var txt = back.textContent.toLowerCase();
+    for(var i=0;i<up.length;i++) if(txt.indexOf(pretty(up[i]).toLowerCase())!==-1) return up[i];
+    return null;
+  }
+
+  function build(sheet){
+    var row = sheet.querySelector(".calrow"); if(!row || row.getAttribute("data-cx")) return;
+    var share = sheet.querySelector("#shareBtn[data-id]"); if(!share) return;
+    var e = eventById(share.getAttribute("data-id")); if(!e) return;
+    var up = e.days.filter(function(d){ return d>=today(); }).sort(); if(!up.length) return;
+    row.setAttribute("data-cx","1"); row.style.display="none";
+    var oldNote = row.nextElementSibling; if(oldNote && oldNote.classList.contains("calnote")) oldNote.style.display="none";
+
+    var known = up.length===1 ? up[0] : contextDay(sheet, up);
+    var box = document.createElement("div"); box.className="cx"; row.after(box);
+    var chosen = known;
+
+    function render(){
+      var h = '<p class="cx-lab">Save to your calendar</p>';
+      if(chosen && (known || up.length===1)){
+        h += '<p class="cx-for">For <b>'+pretty(chosen)+'</b>'+(up.length>1?'<button type="button" data-change>Change date</button>':'')+'</p>';
+      } else if(up.length <= 8){
+        h += '<p class="cx-q">Which date are you going?</p><div class="cx-chips" role="group" aria-label="Choose a date">'+
+          up.map(function(d){ return '<button type="button" class="cx-chip" data-day="'+d+'" aria-pressed="'+(d===chosen)+'">'+shortDay(d)+'</button>'; }).join("")+'</div>';
+      } else {
+        h += '<p class="cx-q">Which date are you going?</p><select aria-label="Choose a date"><option value="">Choose a date</option>'+
+          up.map(function(d){ return '<option value="'+d+'"'+(d===chosen?' selected':'')+'>'+pretty(d)+'</option>'; }).join("")+'</select>';
+      }
+      if(chosen) document.dispatchEvent(new CustomEvent("sfe:day",{detail:{id:e.id, day:chosen}}));
+      var L = chosen ? links(e, chosen) : null, dis = chosen ? 'false' : 'true';
+      if(APPLE){
+        h += '<a class="cx-go" data-cal="ics" aria-disabled="'+dis+'" href="'+(L?esc(L.ics):'#')+'">'+CALICON+'Add to my calendar</a>'+
+             '<button type="button" class="cx-more" data-more>Using Google or Outlook instead?</button>'+
+             '<div class="cx-opts" hidden>'+opt(L,"google","Google Calendar")+opt(L,"outlook","Outlook")+'</div>';
+      } else if(ANDROID){
+        h += '<button type="button" class="cx-go" data-pick aria-disabled="'+dis+'">'+CALICON+'Add to my calendar</button>'+
+             '<div class="cx-opts" hidden>'+opt(L,"google","Google Calendar")+opt(L,"ics","Phone calendar (Samsung and others)")+opt(L,"outlook","Outlook")+'</div>';
+      } else {
+        h += '<div class="cx-opts">'+opt(L,"google","Google Calendar")+opt(L,"outlook","Outlook")+opt(L,"ics","Apple or other calendar")+'</div>';
+      }
+      if(L) h += '<p class="cx-note">'+esc(note(e, L))+'</p>';
+      box.innerHTML = h;
+    }
+    function opt(L, kind, label){
+      return '<a data-cal="'+kind+'" href="'+(L?esc(L[kind]):'#')+'"'+(kind==="ics"?'':' target="_blank" rel="noopener"')+
+        (L?'':' aria-disabled="true" style="opacity:.45;pointer-events:none"')+'>'+CALICON+label+'</a>';
+    }
+    box.addEventListener("click", function(ev){
+      var t = ev.target.closest ? ev.target : null; if(!t) return;
+      var chip = t.closest("[data-day]");
+      if(chip){ chosen = chip.getAttribute("data-day"); var keep = box.querySelector(".cx-opts:not([hidden])"); render();
+        if(keep && ANDROID){ var o=box.querySelector(".cx-opts"); if(o) o.hidden=false; } return; }
+      if(t.closest("[data-change]")){ known = null; render(); return; }
+      if(t.closest("[data-more]")){ var o2=box.querySelector(".cx-opts"); o2.hidden=!o2.hidden; return; }
+      if(t.closest("[data-pick]")){ var o3=box.querySelector(".cx-opts"); o3.hidden=!o3.hidden; return; }
+      var a = t.closest("a[data-cal]");
+      if(a && chosen) cap("calendar_added", {calendar:a.getAttribute("data-cal"), event_title:e.t, date:chosen,
+        device: APPLE?"apple":ANDROID?"android":"other"});
+    });
+    box.addEventListener("change", function(ev){ if(ev.target.tagName==="SELECT"){ chosen = ev.target.value || null; render(); } });
+    render();
+  }
+  var sheetEl = document.getElementById("sheet");
+  if(sheetEl) new MutationObserver(function(){ build(sheetEl); }).observe(sheetEl, {childList:true, subtree:true});
+})();
+</script>

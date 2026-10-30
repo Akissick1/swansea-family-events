@@ -121,7 +121,7 @@
   function today(){ return iso(new Date()); }
   function daysBetween(a,b){ var x=new Date(a+"T12:00:00"), y=new Date(b+"T12:00:00"); return Math.round((y-x)/864e5); }
   function addDays(a,n){ var d=new Date(a+"T12:00:00"); d.setDate(d.getDate()+n); return iso(d); }
-  function prettyDay(d){ try{ return new Date(d+"T12:00:00").toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long"}); }catch(e){ return d; } }
+  function prettyDay(d){ var x=new Date(d+"T12:00:00"); return ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][x.getDay()]+" "+x.getDate()+" "+["January","February","March","April","May","June","July","August","September","October","November","December"][x.getMonth()]; }
   function hourLabel(h){ var ap=h<12?"am":"pm", x=h%12||12; return x+ap; }
 
   /* First start time in the organiser's wording, rounded to the nearest hour.
@@ -259,6 +259,14 @@
       var html = res.html + (res.nocredit ? '' : CREDIT); lastHtml = html; dd.classList.toggle("quiet", !!res.quiet); swap(dd, html);
     }).catch(function(){ dd.innerHTML = '<span class="wx-sub">Forecast unavailable right now.</span>'; });
   }
+  /* When a date is picked in "Save to your calendar", show that day's forecast. */
+  document.addEventListener("sfe:day", function(ev){
+    var dd = document.querySelector(".sheet dd.wx-dd"), e = eventById(ev.detail.id); if(!dd || !e) return;
+    weatherLine(e, ev.detail.day).then(function(res){
+      if(!res) return; var html = res.html + (res.nocredit ? '' : CREDIT); lastHtml = html;
+      dd.classList.toggle("quiet", !!res.quiet); swap(dd, html);
+    }).catch(function(){});
+  });
   var sheetEl = document.getElementById("sheet");
   if(sheetEl) new MutationObserver(paintSheet).observe(sheetEl, {childList:true, subtree:true});
 })();

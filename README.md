@@ -27,3 +27,11 @@ Netlify publishes every push to `main` automatically, usually within a minute.
 - Header pill: Swansea, now. Tap for today's range, rain chance and wind.
 - Event panel: a Weather line for the venue's area, on the event's day. Hourly at the start time up to 5 days ahead, daily summary for days 6 to 10, "Forecast from <date>" beyond that. Indoor events show it as "For the journey".
 - Venues are matched to 31 places by keywords in the venue and area; coordinates came from Open-Meteo's geocoding service. A new town not in the list falls back to Swansea: add it to PLACES and RULES.
+
+## Save to your calendar
+
+`tools/calendar.html` (added by `tools/build_site.py`, website only) replaces the guide's Google/Outlook row:
+- Asks "Which date are you going?" when an event has several upcoming dates (chips up to 8, a list beyond), unless the event was opened from a day in the Calendar tab.
+- iPhone, iPad and Mac: one "Add to my calendar" button that opens Apple Calendar. Android: the same button offers Google Calendar, Phone calendar (Samsung and others) and Outlook. Computers: Google, Outlook, Apple or other.
+- Apple and phone calendars get a calendar file from `netlify/functions/ics.mjs` with reminders at 6pm the evening before and 2 hours before the published start. Google and Outlook links cannot carry reminders.
+- Times are saved only when the organiser published one clear start and finish, otherwise all day (same rule as the guide).
