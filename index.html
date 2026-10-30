@@ -187,6 +187,25 @@ button,input,select{font:inherit}
 .reset{height:var(--ctl);border:0;background:none;color:var(--accent);font-size:13px;font-weight:700;
   cursor:pointer;padding-inline:6px;text-decoration:underline;text-underline-offset:3px}
 .tally{font-size:12.5px;color:var(--ink-3);margin-left:auto;font-variant-numeric:tabular-nums}
+.qres{flex:1 0 100%;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:11px 14px;margin-top:2px;
+  background:var(--accent-soft);border:1px solid var(--accent);border-radius:var(--r);font-size:14px;color:var(--ink);
+  animation:qresIn .25s ease}
+.qres[hidden]{display:none}
+.qres b{font-weight:700}
+.qres .qres-msg{flex:1 1 220px}
+.qres button{font:inherit;font-size:13px;font-weight:700;border-radius:999px;padding:7px 13px;cursor:pointer}
+.qres .qres-go{background:var(--accent);color:#fff;border:1px solid var(--accent)}
+.qres .qres-x{background:var(--surface);color:var(--ink);border:1px solid var(--line-2)}
+@keyframes qresIn{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:none}}
+.results .rail-head h2{transition:color .3s}
+.results.flash .rail-head h2{color:var(--accent)}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:20px 12px;padding-top:12px}
+@media (min-width:700px){.rgrid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}}
+.rgrid .card{width:auto;transform:none!important;z-index:auto!important}
+.rgrid .card .peek{display:none!important}
+.rgrid .card .cmeta{display:block!important;opacity:1!important}
+.noresults{padding:18px 0;color:var(--ink-2);font-size:15px;line-height:1.5;max-width:52ch}
+@media (prefers-reduced-motion:reduce){.qres{animation:none}}
 @media (max-width:760px){.field.search{flex-basis:100%;max-width:none}.tally{margin-left:0;width:100%}}
 
 /* ---------- rails ---------- */
@@ -677,6 +696,7 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
     </button>
     <button class="reset" id="reset" hidden>Reset</button>
     <span class="tally" id="tally"></span>
+    <div class="qres" id="qres" role="status" aria-live="polite" hidden></div>
   </div>
 
   <div class="rails gut" id="rails"></div>
@@ -2100,8 +2120,44 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
   }
 
   /* ---------- rails ---------- */
+  function otherFiltersOn(){
+    return !!(state.freeOnly || state.indoor || state.area!=="all" || state.age!=="any" ||
+      Object.keys(CATS).some(function(k){ return !state.cats[k]; }));
+  }
+  /* Search: a results bar under the box, and one results grid in place of the rows. */
+  var lastResultCount = null;
+  function renderResults(pool){
+    var raw = document.getElementById("q").value.trim(), n = pool.length, others = otherFiltersOn();
+    var bar = document.getElementById("qres");
+    bar.hidden = false;
+    bar.innerHTML = n
+      ? '<span class="qres-msg"><b>'+n+' '+(n===1?'event matches':'events match')+'</b> &ldquo;'+esc(raw)+'&rdquo;'+
+        (others?' (with your other filters)':'')+'</span>'+
+        '<button type="button" class="qres-go" data-qgo>Show results &darr;</button>'+
+        '<button type="button" class="qres-x" data-qclear>Clear search</button>'
+      : '<span class="qres-msg"><b>No events match</b> &ldquo;'+esc(raw)+'&rdquo;'+(others?' with your other filters':'')+'.</span>'+
+        '<button type="button" class="qres-x" data-qclear>Clear search</button>';
+    var html = '<section class="results" id="results"><div class="rail-head"><h2>Results</h2><span>for &ldquo;'+esc(raw)+'&rdquo; &middot; '+n+'</span></div>';
+    html += n ? '<div class="rgrid">'+pool.map(function(e){ return card(e); }).join("")+'</div>'
+      : '<p class="noresults">Nothing found. Try a town or venue (Mumbles, Margam, Plantasia), or a word like Santa, panto, swim or craft.'+
+        (others?' Your other filters are switched on too, so try Reset.':'')+'</p>';
+    html += '</section>';
+    document.getElementById("rails").innerHTML = html;
+    if(lastResultCount !== null && lastResultCount !== n){
+      var sec = document.getElementById("results"); sec.classList.add("flash");
+      setTimeout(function(){ sec.classList.remove("flash"); }, 700);
+    }
+    lastResultCount = n;
+  }
   function renderRails(){
     var pool = EVENTS.filter(passes).sort(sortByDate);
+    if(state.q){
+      renderResults(pool);
+      document.getElementById("tally").textContent = pool.length+" of "+EVENTS.length+" listings";
+      document.getElementById("reset").hidden = false;
+      return;
+    }
+    document.getElementById("qres").hidden = true; lastResultCount = null;
     var week = plus(7);
     var defs = [
       {t:"On today",s:pretty(TODAY),win:[TODAY,TODAY],f:function(e){return e.days.indexOf(TODAY)!==-1;}},
@@ -2622,6 +2678,20 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
   qEl.addEventListener("input", function(){
     clearTimeout(qTimer);
     qTimer = setTimeout(function(){ state.q = qEl.value.trim().toLowerCase(); renderAll(); }, 160);
+  });
+  function showResults(){
+    qEl.blur();
+    var rails = document.getElementById("rails"), head = document.querySelector("header.top");
+    var y = rails.getBoundingClientRect().top + window.scrollY - (head ? head.offsetHeight : 0) - 10;
+    window.scrollTo({top: Math.max(0, y), behavior: "smooth"});
+  }
+  qEl.addEventListener("keydown", function(ev){
+    if(ev.key === "Enter"){ ev.preventDefault(); clearTimeout(qTimer);
+      state.q = qEl.value.trim().toLowerCase(); renderAll(); if(state.q) showResults(); }
+  });
+  document.getElementById("qres").addEventListener("click", function(ev){
+    if(ev.target.closest("[data-qgo]")) showResults();
+    else if(ev.target.closest("[data-qclear]")){ qEl.value = ""; state.q = ""; renderAll(); qEl.focus(); }
   });
   document.getElementById("areaSel").addEventListener("change", function(ev){ state.area = ev.target.value; renderAll(); });
   document.getElementById("ageSel").addEventListener("change", function(ev){ state.age = ev.target.value; renderAll(); });
