@@ -788,13 +788,39 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
   /* BUILT is the morning this data was last verified against the sources.
      TODAY is read from the device every time the page opens, so the page is
      never stuck on the day it was published. */
-  var BUILT = "2026-10-29";
+  var BUILT = "2026-10-30";
   function isoOf(dt){
     return dt.getFullYear()+"-"+String(dt.getMonth()+1).padStart(2,"0")+"-"+String(dt.getDate()).padStart(2,"0");
   }
   var TODAY = isoOf(new Date());
   if(TODAY < BUILT) TODAY = BUILT;   // a device clock set behind the build date must not revive past events
-  var HALFTERM = ["2026-10-26","2026-10-27","2026-10-28","2026-10-29","2026-10-30"];
+  /* Swansea school holidays, weekdays only (gov.wales term dates 2026 to 2027). */
+  var HOLS = [
+    {n:"Half term", key:"Swansea school half term, Monday 26 to Friday 30 October 2026", from:"2026-10-26", to:"2026-10-30"},
+    {n:"Christmas holidays", key:"Swansea schools off for Christmas, Monday 21 December 2026 to Friday 1 January 2027", from:"2026-12-21", to:"2027-01-01"},
+    {n:"Half term", key:"Swansea school half term, Monday 8 to Friday 12 February 2027", from:"2027-02-08", to:"2027-02-12"}
+  ];
+  var HALFTERM = [], HOLNAME = {};
+  HOLS.forEach(function(H){
+    var p = H.from.split("-").map(Number), dt = new Date(p[0],p[1]-1,p[2]);
+    while(isoOf(dt) <= H.to){ var k = isoOf(dt); if(dt.getDay()%6) { HALFTERM.push(k); HOLNAME[k] = H.n; } dt.setDate(dt.getDate()+1); }
+  });
+  function nextHol(){ for(var i=0;i<HOLS.length;i++) if(HOLS[i].to >= TODAY) return HOLS[i]; return null; }
+  /* Special occasions for the next few months. Each one gets its own row while it is coming up, and only if it has events.
+     m: words that tie an event to the occasion. any: every event on those dates counts. */
+  var OCCASIONS = [
+    {t:"Bonfire Night", s:"Fireworks and bonfires", from:"2026-10-31", to:"2026-11-08", m:/firework|bonfire|guy fawkes/i},
+    {t:"Diwali", s:"Festival of lights, Sunday 8 November", from:"2026-11-01", to:"2026-11-15", m:/diwali/i},
+    {t:"Christmas holidays", s:"Schools off 21 December to 1 January", from:"2026-12-19", to:"2027-01-03", any:true},
+    {t:"New Year", s:"New Year's Eve and New Year's Day", from:"2026-12-31", to:"2027-01-01", any:true, m:/new year|nos galan/i},
+    {t:"Hen Galan and the Mari Lwyd", s:"Old Welsh New Year, 13 January", from:"2027-01-02", to:"2027-01-17", m:/mari lwyd|hen galan|calennig/i},
+    {t:"Santes Dwynwen", s:"Welsh day of love, 25 January", from:"2027-01-18", to:"2027-01-25", m:/dwynwen/i},
+    {t:"Lunar New Year", s:"Saturday 6 February", from:"2027-01-30", to:"2027-02-14", m:/lunar new year|chinese new year/i},
+    {t:"Pancake Day", s:"Shrove Tuesday, 9 February", from:"2027-02-06", to:"2027-02-09", m:/pancake|shrove/i},
+    {t:"February half term", s:"Schools off 8 to 12 February", from:"2027-02-06", to:"2027-02-14", any:true}
+  ];
+  function inWin(e,a,b){ return e.days.some(function(d){ return d>=a && d<=b; }); }
+  function occMatch(o){ return function(e){ return inWin(e,o.from,o.to) && (o.any || o.m.test(e.t+" "+(e.desc||""))); }; }
   var uid = 0;
 
   /* ---------- key art, drawn and animated for this page ---------- */
@@ -1580,6 +1606,15 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
     {"id": "santarun","xmas":true, "indoor": "out", "t": "Santa Run on Aberavon Seafront", "cat": "sport", "scene": "bay", "area": "nearby", "areaLabel": "Port Talbot", "days": ["2026-12-12"], "time": "10.30am", "venue": "Aberavon Seafront, Princess Margaret Way, Port Talbot SA12 6QW (race HQ Aberavon Leisure Centre)", "cost": "Not listed", "ages": "5k for 11 and over, plus a 1km junior fun run", "ageTags": ["5-11", "12+"], "desc": "Run 4 All Neath's Christmas fancy dress 5k, chip timed, with a 1km junior fun run for younger children.", "src": "https://www.npt.gov.uk/culture-and-tourism/whats-on-in-npt/event-details/?id=60237", "added": "2026-10-25"},
     {"id": "britonferryfw", "indoor": "out", "t": "Briton Ferry RFC Fireworks", "cat": "outdoors", "scene": "bay", "area": "nearby", "areaLabel": "Briton Ferry", "days": ["2026-11-07"], "time": "7pm", "venue": "Briton Ferry Rugby Ground, Briton Ferry, Neath", "cost": "Not listed, ask on 01639 820012", "ages": "All ages", "desc": "A firework display at the rugby ground.", "src": "https://www.npt.gov.uk/culture-and-tourism/whats-on-in-npt/event-details/?id=59623", "added": "2026-10-25", "ageTags": []},
     {"id": "bar98xmas","xmas":true, "indoor": "in", "t": "Children's Christmas Party at Bar 98", "cat": "shows", "scene": "market", "area": "nearby", "areaLabel": "Pontardawe", "days": ["2026-12-12"], "time": "12pm to 3pm", "venue": "Bar 98, 98 Herbert Street, Pontardawe SA8 4ED", "cost": "£10 a child", "desc": "Meet Father Christmas and Anna and Elsa, a gift from Santa for each child and a kids' Christmas disco. Festive outfits encouraged.", "src": "https://www.eventbrite.co.uk/e/childrens-christmas-party-at-bar-98-tickets-2002623636205", "added": "2026-10-25", "ageTags": [], "ages": ""},
+    {"id": "kingarthurfw", "indoor": "out", "t": "Bonfire Night at the King Arthur Hotel", "cat": "outdoors", "scene": "gower", "area": "swansea", "areaLabel": "Reynoldston, Gower", "days": ["2026-11-05"], "time": "Gates 5pm, fireworks about 7pm, ends 11pm", "venue": "King Arthur Hotel, Reynoldston, Gower SA3 1AD", "cost": "£8 a person. Everyone aged 2 and over needs a ticket", "ages": "All ages", "ageTags": ["u5", "5-11", "12+"], "desc": "Bonfire Night with fireworks at the King Arthur in Reynoldston. Book tickets online in advance.", "src": "https://www.tickettailor.com/events/kingarthurhotel/2437452", "added": "2026-10-30"},
+    {"id": "scarletsfw", "indoor": "out", "t": "Parc y Scarlets Fireworks Extravaganza", "cat": "outdoors", "scene": "bay", "area": "nearby", "areaLabel": "Llanelli", "days": ["2026-11-04"], "time": "Fair from 3.30pm, gates 5pm, entertainment 6pm, fireworks 6.55pm to 7.15pm, closes 9pm", "venue": "Parc y Scarlets, Llanelli", "cost": "Adult £11, under 16s £6.50, under 6s £2", "ages": "All ages", "ageTags": ["u5", "5-11", "12+"], "desc": "The Scarlets' annual fireworks night with a fair from mid afternoon and live entertainment before the display.", "src": "https://www.scarlets.wales/article/fireworks-extravaganza-tickets-on-sale-now/", "added": "2026-10-30"},
+    {"id": "ffoslasfw", "indoor": "out", "t": "Ffos Las Fireworks Night", "cat": "outdoors", "scene": "bay", "area": "nearby", "areaLabel": "Trimsaran, Carmarthenshire", "days": ["2026-11-06"], "time": "Gates 4pm (last entry 6.30pm), early show 6pm, main show 7.30pm", "venue": "Ffos Las Racecourse, Trimsaran", "cost": "Adult (13+) £10, child (3 to 12) £8, under 3s free, plus booking fees", "ages": "All ages. An early 6pm show suits younger children", "ageTags": ["u5", "5-11", "12+"], "desc": "Two firework displays at the racecourse, an early one at 6pm and the main show at 7.30pm.", "src": "https://feverup.com/m/739564", "added": "2026-10-30"},
+    {"id": "neathrfcfw", "indoor": "out", "t": "Neath RFC Fireworks Night", "cat": "outdoors", "scene": "bay", "area": "nearby", "areaLabel": "Neath", "days": ["2026-11-05"], "time": "Gates 5pm, fireworks 6.45pm", "venue": "The Gnoll, Gnoll Park Road, Neath SA11 3BU", "cost": "Adult £12, under 16s £5, under 3s free, family (2 adults and 3 under 16s) £30", "ages": "All ages", "ageTags": ["u5", "5-11", "12+"], "desc": "Fireworks at The Gnoll with food and refreshments all evening. The club advises booking early as last year was busy.", "src": "https://neathrfc.com/neath-rfc-fireworks-night-2026/", "added": "2026-10-30"},
+    {"id": "carmarthenfw", "indoor": "out", "t": "Carmarthen Fireworks Bonanza", "cat": "outdoors", "scene": "bay", "area": "nearby", "areaLabel": "Carmarthen", "days": ["2026-11-05"], "time": "Gates 4.30pm, special guest 6.30pm, junior display 7pm, main display 8pm, closes 10pm", "venue": "Carmarthen Park, Carmarthen SA31 3DF", "cost": "£7, group of 4 £25, under 5s free", "ages": "All ages. A separate junior display at 7pm", "ageTags": ["u5", "5-11", "12+"], "desc": "Carmarthen Round Table's charity fireworks with a junior display before the main show. Proceeds go to local groups and charities.", "src": "https://www.visitmidwales.co.uk/showmewales/whats-on/carmarthen-fireworks-bonanza-2026-p1811441", "added": "2026-10-30"},
+    {"id": "aberglasneyfair", "xmas": true, "indoor": "mixed", "t": "Aberglasney Winter Fair", "cat": "outdoors", "scene": "garden", "area": "nearby", "areaLabel": "Llangathen, Carmarthenshire", "days": ["2026-12-04", "2026-12-05", "2026-12-06"], "span": "4 to 6 December", "time": "10am to 4.30pm. Grotto and decoration painting Sat and Sun 11am to 3pm", "venue": "Aberglasney Gardens, Llangathen SA32 8QH", "cost": "Santa's Grotto £5 a child with a gift. Fair entry on the event page. Free park and ride", "ages": "The whole family", "ageTags": ["u5", "5-11"], "desc": "Christmas fair at Aberglasney with Santa's Grotto in English or Welsh, children's decoration painting, a festive trail, and school, youth group and choir performances.", "src": "https://aberglasney.org/event/aberglasney-winter-fair/", "added": "2026-10-30"},
+    {"id": "aberglasneycarols", "xmas": true, "indoor": "in", "t": "Aberglasney Christmas Carol Service", "cat": "shows", "scene": "garden", "area": "nearby", "areaLabel": "Llangathen, Carmarthenshire", "days": ["2026-12-20"], "time": "6pm to 8pm", "venue": "Mansion main hall, Aberglasney Gardens, Llangathen SA32 8QH", "cost": "Free, with mulled wine and mince pies", "ages": "", "ageTags": [], "desc": "A free carol service in the mansion hall. The page does not say if booking is needed: ask on 01558 668998 or info@aberglasney.org.", "src": "https://aberglasney.org/event/carol-service/", "added": "2026-10-30"},
+    {"id": "porthcawlswim", "xmas": true, "indoor": "out", "t": "Porthcawl Christmas Day Swim", "cat": "outdoors", "scene": "bay", "area": "nearby", "areaLabel": "Porthcawl", "days": ["2026-12-25"], "time": "Christmas morning (start time not yet published)", "venue": "Sandy Bay, Porthcawl", "cost": "Free to watch. Swimmers raise money for good causes", "ages": "Swimmers of all ages take part", "ageTags": ["u5", "5-11", "12+"], "desc": "The charity Christmas morning dip at Sandy Bay, with crowds cheering from the shore.", "src": "https://www.justgiving.com/campaign/christmasswim2026", "added": "2026-10-30"},
+    {"id": "saundersfootswim", "indoor": "out", "t": "Saundersfoot New Year's Day Swim", "cat": "outdoors", "scene": "bay", "area": "nearby", "areaLabel": "Saundersfoot, Pembrokeshire", "days": ["2027-01-01"], "time": "2pm", "venue": "Saundersfoot beach, Pembrokeshire", "cost": "Free to watch. Swimmers £5, under 16s £3, book at saundersfoot.co.uk/nyds", "ages": "All ages. Under 16s can enter at a lower fee", "ageTags": ["u5", "5-11", "12+"], "desc": "The 41st New Year's Day charity swim. This year's fancy dress theme is Ruby, so swimmers and supporters are asked to wear ruby red.", "src": "https://www.saundersfootharbour.co.uk/news/new-years-day-swim-2027/", "added": "2026-10-30"},
     {"id": "bgbonfire", "indoor": "out", "t": "Guy Fawkes Night Bonfire at the Botanic Garden", "cat": "outdoors", "scene": "garden", "area": "nearby", "areaLabel": "Carmarthenshire", "days": ["2026-11-06"], "time": "6pm to 9pm", "venue": "National Botanic Garden of Wales", "cost": "£5 entry from 6pm, members free. Pre-booking essential", "desc": "A traditional bonfire with no fireworks, billed as a nature friendly alternative. Well behaved dogs on a lead welcome.", "src": "https://botanicgarden.wales/visit/whats-on/event/guy-fawkes-night/", "added": "2026-10-25", "ageTags": [], "ages": ""},
     {"id": "bgreindeer","xmas":true, "indoor": "mixed", "t": "Reindeer Experience at the Botanic Garden", "cat": "outdoors", "scene": "garden", "area": "nearby", "areaLabel": "Carmarthenshire", "days": ["2026-12-19", "2026-12-20", "2026-12-21", "2026-12-22"], "span": "19 to 22 December", "time": "1pm to 4pm, sessions about 10 minutes", "venue": "Garden Centre, National Botanic Garden of Wales", "cost": "Price on the booking page. No Garden admission needed", "ages": "The whole family", "desc": "Meet two reindeer and feed them lichen with Miss Claus and one of Santa's elves. Children can sit in a decorated sleigh for a photo (bring your own camera).", "src": "https://botanicgarden.wales/visit/whats-on/event/reindeer-experience/", "added": "2026-10-25", "ageTags": []},
     {"id": "pembreypumpkin", "indoor": "out", "t": "Pumpkin Trail at Pembrey", "cat": "halloween", "scene": "trail", "area": "nearby", "areaLabel": "Pembrey, Llanelli", "days": ["2026-10-24", "2026-10-25", "2026-10-26", "2026-10-27", "2026-10-28", "2026-10-29", "2026-10-30", "2026-10-31"], "span": "24 to 31 October", "time": "11am to 4pm, arrive any time", "venue": "Pembrey Country Park, Pembrey, Llanelli SA16 0EJ", "cost": "£7 a child", "ages": "Perfect for younger children", "ageTags": ["u5", "5-11"], "desc": "Collect a clue sheet from the Visitor Centre, follow the spooky trail and solve a Halloween mystery for a prize or treat at the end. Spaces are limited, book online.", "src": "https://www.pembreycountrypark.wales/whats-on/whats-on/pumpkin-trail-24-31-october/", "added": "2026-10-25"},
@@ -1644,6 +1679,8 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
       {n:"Singleton Park on Songkick",u:"https://www.songkick.com/venues/16114-singleton-park",s:"watch",note:"Same venue, same picture. Zero upcoming concerts listed."}
     ],
     nearby:[
+      {n:"Aberglasney Gardens",u:"https://aberglasney.org/events-exhibitions/",s:"live",note:"Added 30 October. Llangathen, Carmarthenshire. Dated event pages with times and prices. Gave the Winter Fair and the Carol Service. Workshops and exhibitions are aimed at adults and left out."},
+      {n:"Bonfire Night organisers",u:"https://www.visitmidwales.co.uk/showmewales/whats-on/carmarthen-fireworks-bonanza-2026-p1811441",s:"live",note:"Added 30 October. Fireworks are taken only from a 2026 page: King Arthur Reynoldston, Parc y Scarlets, Ffos Las, Neath RFC, Carmarthen. Dunvant RFC still shows 2025 and is left out."},
       {n:"Margam Country Park",u:"https://www.margamcountrypark.co.uk/whats-on/",s:"live",note:"Neath Port Talbot. Strongest nearby source, individual event pages carry times and ages."},
       {n:"Scream Time at Margam",u:"https://screamtime.co.uk/family/",s:"live",note:"Family trail dates and age guidance published separately from the park listing"},
       {n:"WWT Llanelli Wetland Centre",u:"https://www.wwt.org.uk/wetland-centres/llanelli/whats-on/",s:"live",note:"Carmarthenshire. Dated event pages for every session."},
@@ -1945,7 +1982,8 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
       bar.hidden = true;
     }
     var ht = document.getElementById("htKey");
-    if(ht) ht.hidden = HALFTERM[HALFTERM.length-1] < TODAY;
+    var nh = nextHol();
+    if(ht){ ht.hidden = !nh; if(nh) ht.innerHTML = '<span class="ht-swatch"></span> '+esc(nh.key); }
   }
 
   /* ---------- seasonal skin ---------- */
@@ -1962,12 +2000,12 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
     var label = {halloween:"Halloween season",festive:"Festive season",autumn:"Autumn in Swansea",
                  "default":"What's on in Swansea"}[skin];
     document.body.setAttribute("data-skin", skin);
-    var htStart = HALFTERM[0];
-    var toHT = daysBetween(TODAY, htStart);
+    var nh = nextHol();
+    var toHT = nh ? daysBetween(TODAY, nh.from) : -99;
     var hw = EVENTS.filter(function(e){ return e.cat==="halloween"; }).length;
     var facts = [];
-    if(toHT > 0) facts.push("Half term starts in <b>"+toHT+"</b> days");
-    else if(toHT >= -6) facts.push("<b>Half term is on now</b>");
+    if(nh && toHT > 0) facts.push(esc(nh.n)+" start"+(nh.n==="Half term"?"s":"")+" in <b>"+toHT+"</b> day"+(toHT===1?"":"s"));
+    else if(nh) facts.push("<b>"+esc(nh.n)+" "+(nh.n==="Half term"?"is":"are")+" on now</b>");
     var xm = EVENTS.filter(isXmas).length;
     var jump = document.getElementById("seasonJump");
     if(skin==="halloween"){
@@ -2171,6 +2209,7 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
       {t:"Little ones",s:"Where the organiser says under 5s are welcome",f:function(e){return e.ageTags.indexOf("u5")!==-1;}},
       {t:"Halloween",s:"",f:function(e){return e.cat==="halloween";}},
       {xmasSlot:true},
+      {occLater:true},
       {t:"Science Festival weekend",s:"30 and 31 October, National Waterfront Museum",win:["2026-10-30","2026-10-31"],
        f:function(e){return e.days.indexOf("2026-10-30")!==-1||e.days.indexOf("2026-10-31")!==-1;}},
       {t:"Worth the drive",s:"Margam, Llanelli and beyond",f:function(e){return e.area==="nearby";}},
@@ -2180,6 +2219,15 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
     var xmasRail = {t:"Christmas",s:"Santa, pantos, light trails and markets",f:isXmas};
     var mo = Number(TODAY.slice(5,7)), slot = defs.map(function(r){return !!r.xmasSlot;}).indexOf(true);
     if(mo===11 || mo===12){ defs.splice(slot,1); defs.splice(2,0,xmasRail); } else defs[slot] = xmasRail;
+    var soonTo = plus(14), soon = [], later = [];
+    OCCASIONS.forEach(function(o){
+      if(o.to < TODAY) return;
+      var r = {t:o.t, s:o.s, win:[o.from<TODAY?TODAY:o.from, o.to], f:occMatch(o)};
+      (o.from <= soonTo ? soon : later).push(r);
+    });
+    var li = defs.map(function(r){return !!r.occLater;}).indexOf(true);
+    defs.splice.apply(defs, [li,1].concat(later));
+    defs.splice.apply(defs, [2,0].concat(soon));
     var out = "";
     defs.forEach(function(r,i){
       if(r.places){ out += placesRail(i); return; }
@@ -2264,7 +2312,7 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
     dayCtx = d;
     var p = d.split("-").map(Number);
     var dt = new Date(p[0],p[1]-1,p[2]);
-    var kick = d===TODAY ? "Today" : (HALFTERM.indexOf(d)!==-1 ? "Half term" : DN[dt.getDay()]);
+    var kick = d===TODAY ? "Today" : (HOLNAME[d] || DN[dt.getDay()]);
     var rows = evs.map(function(e){
       var fl = "";
       if(isFree(e)) fl += '<span class="dp-fl free">Free</span>';
@@ -2846,9 +2894,13 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
     pembrey:["Pembrey",51.68747,-4.27625], kidwelly:["Kidwelly",51.73639,-4.30333], laugharne:["Laugharne",51.7714,-4.46253],
     llanelli:["Llanelli",51.68195,-4.16191], carmarthen:["Carmarthen",51.85552,-4.30535], ammanford:["Ammanford",51.79279,-3.98833],
     llandeilo:["Llandeilo",51.88459,-3.99154], abercraf:["Abercraf",51.80094,-3.71126], aberdare:["Aberdare",51.71438,-3.44918],
-    bridgend:["Bridgend",51.50583,-3.57722], kilgetty:["Kilgetty",51.73203,-4.71983]
+    bridgend:["Bridgend",51.50583,-3.57722], kilgetty:["Kilgetty",51.73203,-4.71983],
+    llangathen:["Aberglasney, Llangathen",51.8757,-4.0446], reynoldston:["Reynoldston, Gower",51.5945,-4.1897],
+    trimsaran:["Trimsaran",51.7186,-4.2387], saundersfoot:["Saundersfoot",51.7097,-4.6969], porthcawl:["Porthcawl",51.4790,-3.7040]
   };
   var RULES = [
+    [/aberglasney|llangathen/,"llangathen"],[/reynoldston|king arthur/,"reynoldston"],[/ffos las|trimsaran/,"trimsaran"],
+    [/saundersfoot/,"saundersfoot"],[/porthcawl/,"porthcawl"],
     [/margam/,"margam"],[/rhosili|rhossili/,"rhossili"],[/parkmill|gower heritage/,"parkmill"],[/mumbles|oystermouth/,"mumbles"],
     [/bishopston/,"bishopston"],[/three crosses/,"threecrosses"],[/fairwood|swansea airport/,"fairwood"],
     [/penllergare|penllergaer/,"penllergaer"],[/pontarddulais|pontardulais|bont elim/,"pontarddulais"],

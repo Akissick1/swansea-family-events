@@ -60,9 +60,13 @@
     pembrey:["Pembrey",51.68747,-4.27625], kidwelly:["Kidwelly",51.73639,-4.30333], laugharne:["Laugharne",51.7714,-4.46253],
     llanelli:["Llanelli",51.68195,-4.16191], carmarthen:["Carmarthen",51.85552,-4.30535], ammanford:["Ammanford",51.79279,-3.98833],
     llandeilo:["Llandeilo",51.88459,-3.99154], abercraf:["Abercraf",51.80094,-3.71126], aberdare:["Aberdare",51.71438,-3.44918],
-    bridgend:["Bridgend",51.50583,-3.57722], kilgetty:["Kilgetty",51.73203,-4.71983]
+    bridgend:["Bridgend",51.50583,-3.57722], kilgetty:["Kilgetty",51.73203,-4.71983],
+    llangathen:["Aberglasney, Llangathen",51.8757,-4.0446], reynoldston:["Reynoldston, Gower",51.5945,-4.1897],
+    trimsaran:["Trimsaran",51.7186,-4.2387], saundersfoot:["Saundersfoot",51.7097,-4.6969], porthcawl:["Porthcawl",51.4790,-3.7040]
   };
   var RULES = [
+    [/aberglasney|llangathen/,"llangathen"],[/reynoldston|king arthur/,"reynoldston"],[/ffos las|trimsaran/,"trimsaran"],
+    [/saundersfoot/,"saundersfoot"],[/porthcawl/,"porthcawl"],
     [/margam/,"margam"],[/rhosili|rhossili/,"rhossili"],[/parkmill|gower heritage/,"parkmill"],[/mumbles|oystermouth/,"mumbles"],
     [/bishopston/,"bishopston"],[/three crosses/,"threecrosses"],[/fairwood|swansea airport/,"fairwood"],
     [/penllergare|penllergaer/,"penllergaer"],[/pontarddulais|pontardulais|bont elim/,"pontarddulais"],
