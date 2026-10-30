@@ -2875,6 +2875,7 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
     return {hi:f.daily.temperature_2m_max[i], lo:f.daily.temperature_2m_min[i], p:f.daily.precipitation_probability_max[i], c:f.daily.weather_code[i]};
   }
   function r(n){ return n==null ? "?" : Math.round(n); }
+  function cap1(x){ return x.charAt(0).toUpperCase()+x.slice(1); }
   function rain(p){ return p==null ? "" : r(p)+"% chance of rain"; }
 
   /* Soft crossfade between contents; numbers ease rather than jump. */
@@ -2938,19 +2939,19 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
   function weatherLine(e, day){
     var key = placeFor(e), name = PLACES[key][0], away = daysBetween(today(), day), h = startHour(e.time);
     var journey = e.indoor==="in" ? "For the journey. " : "";
-    if(away > 10) return Promise.resolve({html:'<span class="wx-sub">Forecast for '+name+' from '+prettyDay(addDays(day,-10))+'.</span>', quiet:true, nocredit:true});
+    if(away > 10) return Promise.resolve({html:'<span class="wx-sub">Too far ahead to predict. The forecast for '+name+' on '+prettyDay(day)+' appears from '+prettyDay(addDays(day,-10))+'.</span>', quiet:true, nocredit:true});
     return forecast(key).then(function(f){
       if(h!=null && away<=5){
         var x = hourly(f, day, h);
         if(x) return {quiet:e.indoor==="in", html: icon(kind(x.c,x.d))+
           '<span class="wx-main"><span data-temp="'+r(x.t)+'" data-suffix="°C">'+r(x.t)+'°C</span>, '+words(x.c).toLowerCase()+'</span>'+
-          '<span class="wx-sub">'+journey+'At '+hourLabel(h)+' in '+name+(x.p!=null?', '+rain(x.p):'')+', wind '+r(x.w)+' mph</span>'};
+          '<span class="wx-sub">'+journey+'Predicted for '+hourLabel(h)+' on '+prettyDay(day)+' in '+name+'. '+(x.p!=null?cap1(rain(x.p))+', wind ':'Wind ')+r(x.w)+' mph.</span>'};
       }
       var dy = daily(f, day); if(!dy) return null;
       return {quiet:e.indoor==="in", html: icon(kind(dy.c,true))+
         '<span class="wx-main"><span data-temp="'+r(dy.hi)+'" data-suffix="°C">'+r(dy.hi)+'°C</span> high, '+words(dy.c).toLowerCase()+'</span>'+
-        '<span class="wx-sub">'+journey+'Low '+r(dy.lo)+'°C in '+name+(dy.p!=null?', '+rain(dy.p):'')+
-        (away>5?'. Longer range, may change':'')+'</span>'};
+        '<span class="wx-sub">'+journey+'Predicted for '+prettyDay(day)+' in '+name+(h==null?' (no start time published)':'')+'. Low '+r(dy.lo)+'°C'+(dy.p!=null?', '+rain(dy.p):'')+
+        (away>5?'. Longer range, may change.':'.')+'</span>'};
     });
   }
   var lastHtml = "";
@@ -2962,7 +2963,7 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
     var day = dayFor(e, sheet); if(!day) return;
     var dts = dl.querySelectorAll("dt"), anchor = null;
     for(var i=0;i<dts.length;i++) if(/^(time|when)$/i.test(dts[i].textContent.trim())) anchor = dts[i].nextElementSibling;
-    var dt = document.createElement("dt"); dt.textContent = "Weather";
+    var dt = document.createElement("dt"); dt.textContent = "Predicted weather";
     var dd = document.createElement("dd"); dd.className = "wx-dd wx-fade";
     dd.innerHTML = '<span class="wx-sub">Checking the forecast...</span>';
     if(anchor){ anchor.after(dt); dt.after(dd); } else { dl.appendChild(dt); dl.appendChild(dd); }
