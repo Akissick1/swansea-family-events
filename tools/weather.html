@@ -124,10 +124,16 @@
   function prettyDay(d){ try{ return new Date(d+"T12:00:00").toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long"}); }catch(e){ return d; } }
   function hourLabel(h){ var ap=h<12?"am":"pm", x=h%12||12; return x+ap; }
 
-  /* First clock time in the organiser's wording, rounded to the nearest hour. */
+  /* First start time in the organiser's wording, rounded to the nearest hour.
+     A time after "before", "until" or "by" is an end time, not a start, so it is skipped. */
   function startHour(t){
     if(!t) return null;
-    var m = /(\d{1,2})(?:[.:](\d{2}))?\s*(am|pm)\b/i.exec(t); if(!m) return null;
+    var re = /(\d{1,2})(?:[.:](\d{2}))?\s*(am|pm)\b/ig, m;
+    while((m = re.exec(t))){
+      if(/\b(before|until|till|by|no later than)\s*$/i.test(t.slice(0, m.index))) continue;
+      break;
+    }
+    if(!m) return null;
     var h = +m[1] % 12, min = m[2] ? +m[2] : 0; if(m[3].toLowerCase()==="pm") h += 12;
     if(min>=30) h += 1; return h>23 ? 23 : h;
   }
