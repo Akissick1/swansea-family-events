@@ -1,7 +1,7 @@
 // Calendar file for one Swansea Family Events date. Website only (added 30 October 2026).
 // Apple Calendar and Samsung Calendar open a real text/calendar URL directly, which a page cannot do on its own.
 //
-// Query: t title, d YYYY-MM-DD, s/e HHMM (only when the organiser published one clear start and finish),
+// Query: title, d YYYY-MM-DD, s/e HHMM (only when the organiser published one clear start and finish),
 //        r HHMM published start for the "2 hours before" reminder on an all day entry, loc, desc, url,
 //        eve=1 adds a reminder at 6pm the evening before.
 // Times are UK local and are converted to UTC here.
@@ -47,7 +47,7 @@ export default async (req) => {
   const q = new URL(req.url).searchParams;
   const d = q.get("d") || "";
   if (!/^\d{4}-\d{2}-\d{2}$/.test(d)) return new Response("Missing or invalid date", { status: 400 });
-  const title = clip(q.get("t"), 200) || "Family event";
+  const title = clip(q.get("title"), 200) || "Family event";
   const loc = clip(q.get("loc"), 300), desc = clip(q.get("desc"), 2000);
   const url = /^https:\/\//.test(q.get("url") || "") ? clip(q.get("url"), 500) : "";
   const s = hhmm(q.get("s")), e = hhmm(q.get("e")), r = hhmm(q.get("r"));

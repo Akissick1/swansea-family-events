@@ -3071,7 +3071,7 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
     var g = r ? f(day)+"T"+hm(r.s)+"00/"+f(day)+"T"+hm(r.e)+"00" : f(day)+"/"+f(next(day));
     var o = r ? "&startdt="+day+"T"+pad(r.s[0])+":"+pad(r.s[1])+":00&enddt="+day+"T"+pad(r.e[0])+":"+pad(r.e[1])+":00"
               : "&startdt="+day+"&enddt="+next(day)+"&allday=true";
-    var ics = ICS+"?t="+title+"&d="+day+(r?"&s="+hm(r.s)+"&e="+hm(r.e):(st?"&r="+hm(st):""))+
+    var ics = ICS+"?title="+title+"&d="+day+(r?"&s="+hm(r.s)+"&e="+hm(r.e):(st?"&r="+hm(st):""))+
       "&loc="+loc+"&desc="+det+"&url="+encodeURIComponent(e.src||"")+"&eve=1";
     return {
       google:"https://calendar.google.com/calendar/render?action=TEMPLATE&text="+title+"&dates="+g+"&details="+det+"&location="+loc+"&ctz=Europe%2FLondon",
