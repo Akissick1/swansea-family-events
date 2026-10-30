@@ -8,7 +8,7 @@ small <!doctype ...><body> wrapper). The guide itself is not changed: this only
 moves the title, icons, fonts and styles into a proper <head> and adds the
 details a normal website has (language, description, social sharing preview).
 """
-import re, sys
+import os, re, sys
 
 SITE = "https://swansea-family-events.netlify.app/"
 TITLE = "Swansea Family Events | What's on for kids in Swansea and nearby"
@@ -50,6 +50,18 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
 </script>
 """
 
+# Weather widget (website only, added 30 October 2026). The page keeps its events inside a closed function,
+# so the build exposes them as window.SFE_EVENTS for tools/weather.html. If the anchor ever changes,
+# the site still builds, just without weather.
+EVENTS_ANCHOR = "EVENTS = EVENTS.filter(function(e){ return lastDayOf(e) >= TODAY; });"
+def add_weather(page):
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "weather.html")
+    if not os.path.exists(path) or page.count(EVENTS_ANCHOR) != 1:
+        print("warning: weather widget skipped (anchor or tools/weather.html missing)")
+        return page
+    page = page.replace(EVENTS_ANCHOR, EVENTS_ANCHOR + " window.SFE_EVENTS = EVENTS;")
+    return page.replace("\n</body>", "\n" + open(path, encoding="utf-8").read().strip() + "\n</body>")
+
 def build(src):
     s = src
     # Drop the hosting wrapper if the input came from an Artifact read.
@@ -87,7 +99,7 @@ def build(src):
     out = (meta + head_part.strip() + "\n" + ANALYTICS + "</head>\n<body>\n"
            + '<noscript><p style="padding:20px;font-family:sans-serif">This guide needs JavaScript switched on to show the events.</p></noscript>\n'
            + body_part.strip() + "\n</body>\n</html>\n")
-    return out
+    return add_weather(out)
 
 if __name__ == "__main__":
     src = open(sys.argv[1], encoding="utf-8").read()

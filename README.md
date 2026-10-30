@@ -20,3 +20,10 @@ Netlify publishes every push to `main` automatically, usually within a minute.
 ## Visitor analytics
 
 `tools/build_site.py` adds PostHog (EU cloud, project "Default project", id 302061) to the website only, in cookieless mode: no cookies or local storage, so no consent banner. It records page views plus these events: event_opened, listing_opened, calendar_added, event_shared, tab_viewed, search_used, season_button, post_event_email. The Claude version of the guide carries no analytics.
+
+## Weather
+
+`tools/weather.html` is added to the website by `tools/build_site.py` (not to the Claude guide). It fetches forecasts live in the visitor's browser from Open-Meteo (free, CC BY 4.0, Met Office data) and stores nothing on the device.
+- Header pill: Swansea, now. Tap for today's range, rain chance and wind.
+- Event panel: a Weather line for the venue's area, on the event's day. Hourly at the start time up to 5 days ahead, daily summary for days 6 to 10, "Forecast from <date>" beyond that. Indoor events show it as "For the journey".
+- Venues are matched to 31 places by keywords in the venue and area; coordinates came from Open-Meteo's geocoding service. A new town not in the list falls back to Swansea: add it to PLACES and RULES.
