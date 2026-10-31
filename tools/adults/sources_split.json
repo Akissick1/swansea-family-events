@@ -584,20 +584,12 @@
   "half": "Tuesday"
  },
  {
-  "n": "Maesteg Town Hall",
-  "u": "https://www.ents24.com/whatson/maesteg",
-  "s": "blocked",
-  "note": "Its box office (Awen) and Ents24 both load by script.",
-  "group": "nearby",
-  "half": "Friday"
- },
- {
   "n": "National Botanic Garden of Wales",
   "u": "https://botanicgarden.wales/whats-on/",
   "s": "blocked",
   "note": "Site refused automatic reading on 31 October.",
   "group": "nearby",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Planet Rockstock",
@@ -605,7 +597,7 @@
   "s": "blocked",
   "note": "Blocks automatic reading; its date comes through Songkick.",
   "group": "nearby",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Cardiff Castle",
@@ -613,7 +605,7 @@
   "s": "live",
   "note": "Underground cinema, Winter Wonderland and the summer DEPOT Live concerts.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Cardiff City FC fixtures",
@@ -621,7 +613,7 @@
   "s": "live",
   "note": "Home games. Kick-off times not set yet.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Cardiff Rugby fixtures",
@@ -629,7 +621,7 @@
   "s": "live",
   "note": "Home games at Cardiff Arms Park with kick-off times.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Chortle comedy guide (Wales)",
@@ -637,7 +629,7 @@
   "s": "live",
   "note": "Every touring stand-up date in Wales; fills gaps for New Theatre, WMC, Gwyn Hall and Volcano.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Clwb Ifor Bach",
@@ -645,7 +637,7 @@
   "s": "live",
   "note": "Cardiff's indie gig and club venue on Womanby Street.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Depot Cardiff",
@@ -653,7 +645,7 @@
   "s": "live",
   "note": "Warehouse gigs, DJ day parties and Bingo Lingo; also promotes the Singleton Park summer shows.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Eventslist Cardiff",
@@ -661,7 +653,7 @@
   "s": "live",
   "note": "Cardiff club nights, quizzes, speed dating, book clubs, murder mysteries and New Theatre shows (whose own site blocks reading).",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Eventslist Cardiff: comedy",
@@ -669,7 +661,7 @@
   "s": "live",
   "note": "Smaller Cardiff comedy and live podcast nights.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Eventslist Cardiff: food and drink",
@@ -677,7 +669,7 @@
   "s": "live",
   "note": "Brunch shows, food festivals and tastings in Cardiff.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "MySpeedDate (Swansea and Cardiff)",
@@ -685,7 +677,7 @@
   "s": "live",
   "note": "Speed dating and Lock & Key singles nights at Peppermint, Swansea and The Cardiff Stable.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Sherman Theatre",
@@ -693,7 +685,7 @@
   "s": "live",
   "note": "Stand-up and new theatre.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "The Gate Arts Centre",
@@ -701,7 +693,7 @@
   "s": "live",
   "note": "Gigs, comedy and talks in Roath.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "The Glee Club Cardiff",
@@ -709,7 +701,7 @@
   "s": "live",
   "note": "Comedy club in Cardiff Bay. Times shown are doors.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Tramshed Cardiff",
@@ -717,7 +709,7 @@
   "s": "live",
   "note": "Gigs, tribute nights and club events with age limits.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Utilita Arena Cardiff",
@@ -725,7 +717,7 @@
   "s": "live",
   "note": "Loads by script. November listings read on 31 October; later months still to add.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Wales rugby internationals",
@@ -733,7 +725,7 @@
   "s": "live",
   "note": "Principality Stadium home games with kick-off times.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Cardiff Devils",
@@ -741,7 +733,7 @@
   "s": "watch",
   "note": "Ice hockey. Home game dates not readable on 31 October.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Cardiff Philharmonic Orchestra",
@@ -749,7 +741,7 @@
   "s": "watch",
   "note": "No dated concerts on 31 October.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Chapter Arts Centre",
@@ -757,7 +749,7 @@
   "s": "watch",
   "note": "Page shows no dates for live events on 31 October.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Glamorgan Cricket",
@@ -765,7 +757,7 @@
   "s": "watch",
   "note": "2027 fixtures not published yet. Summer only.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Llandaff Cathedral",
@@ -773,7 +765,7 @@
   "s": "watch",
   "note": "No dated concerts on its own page on 31 October; candlelight concerts come through Eventslist.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "St David's Hall",
@@ -781,7 +773,7 @@
   "s": "watch",
   "note": "Concert hall; nothing listed since 2022 on its site (closed for repairs).",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "The Globe, Cardiff",
@@ -789,7 +781,7 @@
   "s": "watch",
   "note": "Lists tribute nights and gigs but without dates on the listing page.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "The Moon, Cardiff",
@@ -797,7 +789,7 @@
   "s": "watch",
   "note": "No dated events readable on 31 October.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Wales Millennium Centre",
@@ -805,7 +797,7 @@
   "s": "watch",
   "note": "Its calendar failed to load on 31 October, so only featured shows are listed.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Welsh National Opera",
@@ -813,7 +805,7 @@
   "s": "watch",
   "note": "No Cardiff or Swansea dates listed on 31 October.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "BBC National Orchestra of Wales",
@@ -821,7 +813,7 @@
   "s": "blocked",
   "note": "Blocked to automatic reading. Its Swansea concerts come through the Grand's box office.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Cardiff Christmas Market",
@@ -829,7 +821,7 @@
   "s": "blocked",
   "note": "Blocks automatic reading.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Cardiff Students' Union (Great Hall)",
@@ -837,7 +829,7 @@
   "s": "blocked",
   "note": "Refused automatic reading on 31 October.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Football Association of Wales fixtures",
@@ -845,7 +837,7 @@
   "s": "blocked",
   "note": "Refused automatic reading on 31 October.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "New Theatre Cardiff",
@@ -853,7 +845,7 @@
   "s": "blocked",
   "note": "The site blocks automatic reading.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Principality Stadium",
@@ -861,6 +853,6 @@
   "s": "blocked",
   "note": "Refused automatic reading. Wales internationals come from the fixture list.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  }
 ]
