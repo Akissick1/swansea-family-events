@@ -209,21 +209,39 @@ button,input,select{font:inherit}
 @media (max-width:760px){.field.search{flex-basis:100%;max-width:none}.tally{margin-left:0;width:100%}}
 /* ---------- jump strip: coloured section tiles under On today ---------- */
 .jumpwrap{position:relative;margin-block:4px 6px}
-.jumplabel{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin:0 0 8px}
+.jumphead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 8px}
+.jumplabel{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin:0}
+.jumpmore{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--accent);background:var(--accent-soft);color:var(--accent);
+  font-size:12.5px;font-weight:700;border-radius:999px;padding:5px 11px;cursor:pointer;white-space:nowrap}
+.jumpmore i{font-style:normal;font-size:16px;line-height:1;display:inline-block;animation:jnudge 1.4s ease-in-out 4}
+@keyframes jnudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+.jumpwrap.at-end .jumpmore i{animation:none}
+.jm-mouse{display:none}
+@media (hover:hover) and (pointer:fine){.jm-touch{display:none}.jm-mouse{display:inline}}
+.jumpfade{position:absolute;right:0;top:30px;bottom:14px;width:64px;pointer-events:none;z-index:5;
+  background:linear-gradient(90deg,rgba(255,255,255,0),var(--ground) 78%);transition:opacity .2s}
+.jumpnext{position:absolute;right:4px;top:calc(30px + 41px - 19px);z-index:6;width:38px;height:38px;border-radius:50%;
+  border:1px solid var(--line-2);background:var(--surface);color:var(--ink);font-size:22px;line-height:1;cursor:pointer;
+  display:grid;place-items:center;box-shadow:0 4px 14px rgba(25,22,18,.22);transition:opacity .2s}
+.jumpwrap.at-end .jumpfade,.jumpwrap.at-end .jumpnext{opacity:0;pointer-events:none}
+.jumpbar{height:4px;border-radius:2px;background:var(--surface-3);margin:2px 2px 0;overflow:hidden}
+.jumpbar i{display:block;height:100%;width:30%;border-radius:2px;background:var(--accent);transform-origin:left;transition:margin-left .15s linear}
+@media (prefers-reduced-motion:reduce){.jumpmore i{animation:none}}
 .jumptrack{display:flex;gap:10px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;
   scrollbar-width:none;scroll-behavior:smooth;padding:2px 2px 8px}
 .jumptrack::-webkit-scrollbar{display:none}
-.jump-tile{flex:0 0 auto;width:150px;min-height:82px;scroll-snap-align:start;border:0;border-radius:12px;cursor:pointer;
+.jump-tile{flex:0 0 40%;max-width:190px;min-height:82px;scroll-snap-align:start;border:0;border-radius:12px;cursor:pointer;
   padding:12px 13px 11px;text-align:left;color:#fff;display:flex;flex-direction:column;justify-content:space-between;gap:8px;
   background:var(--jt,#C2451A);background-image:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,0) 55%);
   box-shadow:0 4px 12px rgba(25,22,18,.14);transition:transform .16s ease,box-shadow .16s ease}
-@media (min-width:700px){.jump-tile{width:172px}}
+@media (min-width:700px){.jump-tile{flex-basis:calc((100% - 50px)/5.5);max-width:none}}
 .jump-tile:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(25,22,18,.2)}
 .jump-tile:active{transform:scale(.97)}
 .jump-tile b{font-family:"Anton",Impact,sans-serif;font-weight:400;text-transform:uppercase;font-size:15px;line-height:1.08;letter-spacing:.02em}
 .jump-tile span{display:flex;align-items:center;justify-content:space-between;font-size:11.5px;font-weight:600;color:rgba(255,255,255,.9)}
 .jump-tile span i{font-style:normal;font-size:15px;line-height:1}
-.jumpwrap .arrow{top:22px;bottom:8px}
+.jumpwrap .arrow{top:30px;bottom:14px}
+.jumpwrap .arrow.r{display:none!important}
 .rail-wrap.jumped .rail-head h2{color:var(--accent);transition:color .3s}
 @media (prefers-reduced-motion:reduce){.jump-tile{transition:none}}
 
@@ -2271,7 +2289,8 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
     var below = secs.slice(after);
     var strip = below.length < 2 ? "" :
       '<section class="jumpwrap" aria-label="Jump to a section">'+
-        '<p class="jumplabel">Jump to a section</p>'+
+        '<div class="jumphead"><p class="jumplabel">Jump to a section</p>'+
+          '<button type="button" class="jumpmore" data-scroll="1" data-rail="jump"><span class="jm-touch">Swipe for all '+below.length+'</span><span class="jm-mouse">Scroll for all '+below.length+'</span> <i aria-hidden="true">&#8250;</i></button></div>'+
         '<button class="arrow l" data-scroll="-1" data-rail="jump" aria-label="Scroll left">&#8249;</button>'+
         '<div class="jumptrack" id="trackjump">'+
           below.map(function(x,k){
@@ -2279,11 +2298,15 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
               '<b>'+esc(x.t)+'</b><span>'+x.n+' '+(x.n===1 ? x.unit.replace(/s$/,"") : x.unit)+'<i aria-hidden="true">&#8595;</i></span></button>';
           }).join("")+
         '</div>'+
+        '<span class="jumpfade" aria-hidden="true"></span>'+
+        '<button type="button" class="jumpnext" data-scroll="1" data-rail="jump" aria-label="Scroll right for more sections">&#8250;</button>'+
+        '<div class="jumpbar" aria-hidden="true"><i></i></div>'+
         '<button class="arrow r" data-scroll="1" data-rail="jump" aria-label="Scroll right">&#8250;</button></section>';
     var out = secs.slice(0,after).map(function(x){return x.html;}).join("") + strip +
               below.map(function(x){return x.html;}).join("");
     document.getElementById("rails").innerHTML = out ||
       '<p style="color:var(--ink-2);padding-block:20px">Nothing matches that. Try clearing the search.</p>';
+    wireJump();
     document.getElementById("tally").textContent = pool.length+" of "+EVENTS.length+" listings";
     document.getElementById("reset").hidden = !(state.q || state.freeOnly || state.indoor || state.area!=="all" ||
       state.age!=="any" || Object.keys(CATS).some(function(k){ return !state.cats[k]; }));
@@ -2680,6 +2703,34 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
   function closeCat(){
     document.getElementById("catPanel").hidden = true;
     document.getElementById("catBtn").setAttribute("aria-expanded","false");
+  }
+
+  var jumpPeeked = false;
+  function wireJump(){
+    var wrap = document.querySelector(".jumpwrap"), tr = document.getElementById("trackjump");
+    if(!wrap || !tr) return;
+    var bar = wrap.querySelector(".jumpbar i");
+    function upd(){
+      var max = tr.scrollWidth - tr.clientWidth;
+      var vis = tr.scrollWidth ? tr.clientWidth / tr.scrollWidth : 1;
+      bar.style.width = Math.max(12, vis*100) + "%";
+      bar.style.marginLeft = (max > 0 ? (tr.scrollLeft/max) * (100 - Math.max(12, vis*100)) : 0) + "%";
+      wrap.classList.toggle("at-end", max <= 4 || tr.scrollLeft >= max - 4);
+    }
+    tr.addEventListener("scroll", upd, {passive:true});
+    window.addEventListener("resize", upd);
+    upd();
+    if(jumpPeeked || !("IntersectionObserver" in window)) return;
+    if(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var io = new IntersectionObserver(function(en){
+      if(!en[0].isIntersecting || jumpPeeked) return;
+      jumpPeeked = true; io.disconnect();
+      setTimeout(function(){
+        tr.scrollBy({left:90,behavior:"smooth"});
+        setTimeout(function(){ tr.scrollBy({left:-90,behavior:"smooth"}); }, 650);
+      }, 400);
+    }, {threshold:0.8});
+    io.observe(wrap);
   }
 
   function renderAll(){ renderHero(); renderRails(); renderCal(); }
