@@ -65,3 +65,13 @@
       '<g fill="#081016"><circle cx="146" cy="352" r="13"/><path d="M134 368 h24 l8 102 h-40z"/></g>'+
       '<g fill="#14232C"><path d="M220 380 H300 L292 470 H228Z"/><rect x="214" y="370" width="92" height="14" rx="3"/></g>'+
       '<rect x="252" y="350" width="4" height="22" fill="#14232C"/><circle cx="254" cy="348" r="5" fill="#14232C"/>';},
+    dine:function(u){return sky(u,"#1E1410","#3A2418","#5A3420")+
+      '<g fill="#FFD27A" opacity=".85">'+[60,120,180,240,300,350].map(function(x,i){ return '<circle class="a-flick" style="animation-delay:'+(i*0.3)+'s" cx="'+x+'" cy="'+(120+(i%2)*14)+'" r="4"/>'; }).join("")+'</g>'+
+      '<path d="M20 116 Q200 150 380 116" stroke="#2A1A10" stroke-width="2" fill="none"/>'+
+      '<rect y="380" width="400" height="220" fill="#2A170E"/><path d="M0 380 H400 V398 H0Z" fill="#6B3E22"/>'+
+      '<ellipse cx="200" cy="430" rx="170" ry="34" fill="#F3E9D8"/><ellipse cx="200" cy="430" rx="150" ry="26" fill="#FBF5EA"/>'+
+      '<ellipse cx="130" cy="428" rx="40" ry="10" fill="#E8DCC6"/><ellipse cx="270" cy="428" rx="40" ry="10" fill="#E8DCC6"/>'+
+      '<circle cx="130" cy="424" r="14" fill="#C2405A" opacity=".85"/><circle cx="270" cy="424" r="14" fill="#8FC46B" opacity=".9"/>'+
+      '<g transform="translate(200 360)"><rect x="-6" y="0" width="12" height="60" rx="3" fill="#F7F1E6"/><path class="a-flick" d="M0 -26 C10 -12 8 -4 0 0 C-8 -4 -10 -12 0 -26Z" fill="#FFC86B"/><circle class="a-glow" cy="-12" r="40" fill="#FFC86B" opacity=".18"/></g>'+
+      '<g transform="translate(90 360)"><path d="M-14 0 C-14 26 14 26 14 0Z" fill="#8E1F2F" opacity=".9"/><path d="M-16 -2 H16" stroke="#F7F1E6" stroke-width="2.5"/><rect x="-2" y="24" width="4" height="34" fill="#F7F1E6"/><rect x="-12" y="56" width="24" height="4" rx="2" fill="#F7F1E6"/></g>'+
+      '<g transform="translate(310 360)"><path d="M-14 0 C-14 26 14 26 14 0Z" fill="#F2D17A" opacity=".85"/><path d="M-16 -2 H16" stroke="#F7F1E6" stroke-width="2.5"/><rect x="-2" y="24" width="4" height="34" fill="#F7F1E6"/><rect x="-12" y="56" width="24" height="4" rx="2" fill="#F7F1E6"/></g>';},

@@ -26,7 +26,7 @@ def rep_re(pat, new, flags=re.S):
 
 # ---------- data ----------
 SCENE = {"comedy": "mic", "music": "gig", "theatre": "stage", "film": "cinema", "sport": "stadium",
-         "talks": "talk", "nights": "nightout", "classes": "paint", "social": "paint"}
+         "talks": "talk", "nights": "nightout", "classes": "paint", "social": "paint", "food": "dine"}
 KEEP = ["id", "t", "cat", "scene", "area", "areaLabel", "indoor", "days", "span", "time", "venue", "cost",
         "ages", "ageTags", "sold", "caveat", "added", "desc", "src", "xmas"]
 events = []
@@ -67,6 +67,17 @@ SOURCES = {
     {"n": "Wales rugby internationals", "u": "https://www.rugbyworld.com/news/wales-rugby-fixtures-171083", "s": "live", "note": "Principality Stadium home games with kick-off times."},
   ],
 }
+G2K = {"swansea": "swansea", "nearby": "nearby", "cardiff": "touring"}
+for line in open(os.path.join(HERE, "sources.jsonl"), encoding="utf-8"):
+    x = json.loads(line)
+    SOURCES[G2K[x["g"]]].append({"n": x["n"], "u": x["u"], "s": x["s"], "note": x["note"]})
+for k in SOURCES:
+    SOURCES[k].sort(key=lambda x: ({"live": 0, "watch": 1, "blocked": 2}[x["s"]], x["n"].lower()))
+allsrc = [dict(x, group=k) for k in ("swansea", "nearby", "touring") for x in SOURCES[k]]
+for i, x in enumerate(allsrc):
+    x["half"] = "Tuesday" if i % 2 == 0 else "Friday"
+json.dump(allsrc, open(os.path.join(HERE, "sources_split.json"), "w"), ensure_ascii=False, indent=1)
+print("sources:", len(allsrc), "live:", sum(1 for x in allsrc if x["s"] == "live"))
 src_js = "  var SOURCES = " + json.dumps(SOURCES, ensure_ascii=False, indent=2).replace("\n", "\n  ") + ";\n"
 
 # swap the data blocks (EVENTS ... SOURCES ... PLACES)
@@ -82,7 +93,8 @@ rep_re(r'  var CATS = \{.*?\n  \};\n',
   '    comedy:{label:"Comedy",short:"Comedy"}, music:{label:"Live music",short:"Music"},\n'
   '    theatre:{label:"Theatre & musicals",short:"Theatre"}, sport:{label:"Sport",short:"Sport"},\n'
   '    film:{label:"Film & screenings",short:"Film"}, talks:{label:"Talks & evenings with",short:"Talk"},\n'
-  '    nights:{label:"Nights out",short:"Night out"}, classes:{label:"Get creative",short:"Creative"},\n'
+  '    nights:{label:"Nights out",short:"Night out"}, classes:{label:"Classes & activities",short:"Activity"},\n'
+  '    food:{label:"Food & drink",short:"Food"},\n'
   '    christmas:{label:"Christmas",short:"Christmas"}\n'
   '  };\n')
 rep_re(r'  var WF = .*?\n  var MG = [^\n]*\n', '')
@@ -106,7 +118,7 @@ rep('  var SC = {\n', '  var SC = {\n' + open(os.path.join(HERE, "scenes.js"), e
 # ---------- look ----------
 rep_re(r'  --museum-a:[^\n]*\n  --halloween-a:[^\n]*\n',
   '  --comedy-a:#C2405A; --music-a:#6A3FC4; --theatre-a:#A9542A; --sport-a:#2F6DB5;\n'
-  '  --film-a:#3A3F8F; --talks-a:#0E7C77; --nights-a:#B5307A; --classes-a:#4C7A2E; --christmas-a:#1C6D46;\n')
+  '  --film-a:#3A3F8F; --talks-a:#0E7C77; --nights-a:#B5307A; --classes-a:#4C7A2E; --food-a:#B5651D; --christmas-a:#1C6D46;\n')
 rep('  --accent:#C2451A; --accent-bright:#FF6A3D; --accent-soft:#FCEDE6;',
     '  --accent:#4338A8; --accent-bright:#6C5CE7; --accent-soft:#EEEBFB;')
 rep('  --ground:#F8F6F2;', '  --ground:#F6F5F9;')
@@ -169,7 +181,10 @@ rep_re(r'    var defs = \[\n      \{t:"On today".*?\n    \];\n',
   '      {t:"Theatre & musicals",s:"",f:function(e){return e.cat==="theatre";}},\n'
   '      {t:"Sport",s:"Home fixtures, rugby and football",f:function(e){return e.cat==="sport";}},\n'
   '      {t:"Nights out",s:"Club nights, bingo, cabaret and quizzes",f:function(e){return e.cat==="nights";}},\n'
-  '      {t:"Get creative",s:"Paint and sip, wreaths, pottery and classes",f:function(e){return e.cat==="classes";}},\n'
+  '      {t:"Food & drink",s:"Brunches, supper clubs, tastings and markets",f:function(e){return e.cat==="food";}},\n'
+  '      {t:"Classes & activities",s:"Paint and sip, wreaths, pottery, salsa and more",f:function(e){return e.cat==="classes";}},\n'
+  '      {t:"Mumbles",s:"Bars, cafes and restaurants on the front and Newton Road",f:function(e){return /mumbles|west cross|langland|newton/i.test(e.areaLabel+" "+e.venue);}},\n'
+  '      {t:"Regular nights",s:"Weekly and monthly: quizzes, open mics, jams and clubs",f:function(e){return /every|weekly|sundays|saturdays|first sunday|first tuesday/i.test((e.span||"")+" "+e.desc);}},\n'
   '      {t:"Film & screenings",s:"Film clubs, event cinema and live broadcasts",f:function(e){return e.cat==="film";}},\n'
   '      {t:"Talks & evenings with",s:"",f:function(e){return e.cat==="talks";}},\n'
   '      {occLater:true},\n'
@@ -185,6 +200,20 @@ rep('    var xmasRail = {t:"Christmas",s:"Santa, pantos, light trails and market
 rep('    if(mo===11 || mo===12){ defs.splice(slot,1); defs.splice(2,0,xmasRail); } else defs[slot] = xmasRail;',
     '    if(mo===11 || mo===12){ defs.splice(slot,1); defs.splice(3,0,xmasRail); } else defs.splice(slot,1);')
 rep('    defs.splice.apply(defs, [2,0].concat(soon));', '    defs.splice.apply(defs, [3,0].concat(soon));')
+
+# ---------- long rows: show the first 16 cards, the rest on request (page was ~13s to draw 2,300 cards) ----------
+rep('          items.map(function(e,n){ return r.rank ? rankedCard(e,n,r.win) : card(e,r.win); }).join("")+',
+    '          items.slice(0,CAP).map(function(e,n){ return r.rank ? rankedCard(e,n,r.win) : card(e,r.win); }).join("")+\n'
+    '          (items.length>CAP ? (MORE[i]={items:items.slice(CAP),win:r.win}, \'<button type="button" class="card morecard" data-more="\'+i+\'"><b>See all \'+items.length+\'</b><span>\'+(items.length-CAP)+\' more in this row</span><i aria-hidden="true">&#8250;</i></button>\') : "")+')
+rep('  function renderRails(){\n', '  var CAP = 16, MORE = {};\n  function renderRails(){\n    MORE = {};\n')
+rep('  document.addEventListener("click", function(ev){\n',
+    '  document.addEventListener("click", function(ev){\n'
+    '    var mo = ev.target.closest && ev.target.closest("[data-more]");\n'
+    '    if(mo){ var m = MORE[mo.getAttribute("data-more")]; if(m){ mo.insertAdjacentHTML("afterend", m.items.map(function(e){ return card(e,m.win); }).join("")); mo.remove(); } return; }\n')
+rep('/* ---------- card ---------- */\n',
+    '/* ---------- card ---------- */\n'
+    '.track .morecard{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;border:2px dashed var(--accent);background:var(--accent-soft);color:var(--accent);border-radius:12px;font:inherit;cursor:pointer;aspect-ratio:2/3;align-self:flex-start;padding:14px}\n'
+    '.track .morecard b{font-size:18px}.track .morecard span{color:var(--ink-2);font-size:13px}.track .morecard i{font-style:normal;font-size:28px;line-height:1}\n')
 
 open(OUT, "w", encoding="utf-8").write(s)
 print("ok", len(events), "events", len(s), "bytes")
