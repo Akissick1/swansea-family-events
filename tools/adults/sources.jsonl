@@ -12,7 +12,7 @@
 {"g": "swansea", "n": "Skiddle Swansea", "u": "https://www.skiddle.com/whats-on/Swansea/", "s": "blocked", "note": "Loads by script; nothing readable automatically."}
 {"g": "swansea", "n": "Ents24 Swansea", "u": "https://www.ents24.com/whatson/swansea", "s": "blocked", "note": "Loads by script; nothing readable automatically."}
 {"g": "nearby", "n": "Ffos Las Racecourse", "u": "https://www.ffoslas-racecourse.co.uk/", "s": "live", "note": "Race days and the fireworks night. 2027 dates confirmed but not yet published."}
-{"g": "nearby", "n": "Gwyn Hall, Neath", "u": "https://gwynhall.com/whats-on/", "s": "blocked", "note": "Listing loads by script; nothing readable automatically on 31 October."}
+{"g": "nearby", "n": "Gwyn Hall, Neath", "u": "https://gwynhall.com/live-listings/", "s": "live", "note": "Loads by script, read with Firecrawl. Shows 20 at a time; the rest load on scroll."}
 {"g": "nearby", "n": "Awen box office (Grand Pavilion Porthcawl, Maesteg Town Hall)", "u": "https://awenboxoffice.com/whats-on", "s": "blocked", "note": "Listing loads by script. The Grand Pavilion is closed for redevelopment."}
 {"g": "cardiff", "n": "Chapter Arts Centre", "u": "https://www.chapter.org/whats-on/", "s": "watch", "note": "Page shows no dates for live events on 31 October."}
 {"g": "cardiff", "n": "Cardiff Devils", "u": "https://www.cardiffdevils.com/", "s": "watch", "note": "Ice hockey. Home game dates not readable on 31 October."}
@@ -59,7 +59,7 @@
 {"g": "swansea", "n": "WeGotTickets Swansea", "u": "https://wegottickets.com/location/Swansea", "s": "watch", "note": "Only a cancelled Neath RFC hospitality day showing on 31 October."}
 {"g": "swansea", "n": "TicketSource Swansea", "u": "https://www.ticketsource.co.uk/whats-on/swansea", "s": "blocked", "note": "Refused automatic reading on 31 October."}
 {"g": "cardiff", "n": "MySpeedDate (Swansea and Cardiff)", "u": "https://www.myspeeddate.co.uk/", "s": "live", "note": "Speed dating and Lock & Key singles nights at Peppermint, Swansea and The Cardiff Stable."}
-{"g": "nearby", "n": "Neath Port Talbot theatres (Gwyn Hall, Princess Royal)", "u": "https://www.npt.gov.uk/1411?venue=3", "s": "watch", "note": "Council listing for the Gwyn Hall and Princess Royal Theatre; nothing dated on 31 October."}
+{"g": "nearby", "n": "Princess Royal Theatre, Port Talbot", "u": "https://www.npt.gov.uk/1411?venue=3", "s": "watch", "note": "No readable listing of its own on 31 October (council page empty, Skiddle blocked). Run by Celtic Leisure like the Gwyn Hall."}
 {"g": "swansea", "n": "Swansea Minster", "u": "https://www.swanseaminster.org.uk/", "s": "blocked", "note": "Blocks automatic reading. Its organ evenings come through Eventslist."}
 {"g": "cardiff", "n": "Llandaff Cathedral", "u": "https://www.llandaffcathedral.org.uk/events/", "s": "watch", "note": "No dated concerts on its own page on 31 October; candlelight concerts come through Eventslist."}
 {"g": "cardiff", "n": "Football Association of Wales fixtures", "u": "https://www.faw.cymru/en/fixtures/", "s": "blocked", "note": "Refused automatic reading on 31 October."}
@@ -87,3 +87,5 @@
 {"g": "swansea", "n": "Brangwyn Hall", "u": "https://www.brangwyn.co.uk/whatson", "s": "live", "note": "Concerts, organ recitals, tea dances and talks. Cards link here because the box office pages open blank on phones."}
 {"g": "swansea", "n": "Swansea Scoop newsletter", "u": "https://www.swanseascoop.com/archive", "s": "live", "note": "Weekly and monthly round-ups of things to do in Swansea; good for markets, food events and smaller venues."}
 {"g": "swansea", "n": "The New Gower Hotel, Bishopston", "u": "https://thenewgowerhotel.wales/events", "s": "blocked", "note": "Has run murder mysteries; blocks automatic reading."}
+{"g": "nearby", "n": "The Welfare, Ystradgynlais", "u": "https://thewelfare.co.uk/whats-on", "s": "live", "note": "Arts centre: gigs, event cinema, classes. Shows a few at a time with Load More."}
+{"g": "nearby", "n": "Maesteg Town Hall", "u": "https://www.ents24.com/whatson/maesteg", "s": "blocked", "note": "Its box office (Awen) and Ents24 both load by script."}

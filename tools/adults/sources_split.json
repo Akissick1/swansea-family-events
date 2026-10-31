@@ -488,12 +488,20 @@
   "half": "Tuesday"
  },
  {
+  "n": "Gwyn Hall, Neath",
+  "u": "https://gwynhall.com/live-listings/",
+  "s": "live",
+  "note": "Loads by script, read with Firecrawl. Shows 20 at a time; the rest load on scroll.",
+  "group": "nearby",
+  "half": "Friday"
+ },
+ {
   "n": "Margam Country Park",
   "u": "https://www.margamcountrypark.co.uk/events/",
   "s": "live",
   "note": "Luminate light trail, Christmas tree festival and Orangery Christmas parties.",
   "group": "nearby",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "National Trust Aberdulais",
@@ -501,7 +509,7 @@
   "s": "live",
   "note": "Speaker series talks at the waterfall and tinworks.",
   "group": "nearby",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "National Trust Dinefwr",
@@ -509,7 +517,7 @@
   "s": "live",
   "note": "Christmas fair and festive weekends at Newton House, Llandeilo.",
   "group": "nearby",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Pontardawe Arts Centre",
@@ -517,13 +525,21 @@
   "s": "live",
   "note": "Gigs, comedy, talks, event cinema, film club and classes, with times.",
   "group": "nearby",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Scarlets fixtures",
   "u": "https://www.scarlets.wales/article/full-bkt-urc-fixture-list-for-2026-27-season/",
   "s": "live",
   "note": "Home games at Parc y Scarlets with kick-off times.",
+  "group": "nearby",
+  "half": "Tuesday"
+ },
+ {
+  "n": "The Welfare, Ystradgynlais",
+  "u": "https://thewelfare.co.uk/whats-on",
+  "s": "live",
+  "note": "Arts centre: gigs, event cinema, classes. Shows a few at a time with Load More.",
   "group": "nearby",
   "half": "Friday"
  },
@@ -536,10 +552,10 @@
   "half": "Tuesday"
  },
  {
-  "n": "Neath Port Talbot theatres (Gwyn Hall, Princess Royal)",
+  "n": "Princess Royal Theatre, Port Talbot",
   "u": "https://www.npt.gov.uk/1411?venue=3",
   "s": "watch",
-  "note": "Council listing for the Gwyn Hall and Princess Royal Theatre; nothing dated on 31 October.",
+  "note": "No readable listing of its own on 31 October (council page empty, Skiddle blocked). Run by Celtic Leisure like the Gwyn Hall.",
   "group": "nearby",
   "half": "Friday"
  },
@@ -568,10 +584,10 @@
   "half": "Tuesday"
  },
  {
-  "n": "Gwyn Hall, Neath",
-  "u": "https://gwynhall.com/whats-on/",
+  "n": "Maesteg Town Hall",
+  "u": "https://www.ents24.com/whatson/maesteg",
   "s": "blocked",
-  "note": "Listing loads by script; nothing readable automatically on 31 October.",
+  "note": "Its box office (Awen) and Ents24 both load by script.",
   "group": "nearby",
   "half": "Friday"
  },
