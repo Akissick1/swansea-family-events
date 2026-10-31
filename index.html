@@ -254,6 +254,17 @@ button,input,select{font:inherit}
 .rail-head{flex-wrap:wrap;row-gap:2px}
 .rail-head span{white-space:normal;min-width:0}
 .rail-wrap{position:relative}
+/* On today banner: a tinted band running edge to edge, ruled top and bottom */
+.rail-wrap.today-band{--g:clamp(16px,4vw,54px);margin-inline:calc(var(--g) * -1);padding:18px var(--g) 0;
+  margin-block:6px 18px;background:var(--accent-soft);
+  border-top:3px solid var(--accent);border-bottom:3px solid var(--accent);box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}
+.today-band .rail-head{align-items:center;margin-bottom:6px}
+.today-band .rail-head h2{color:var(--accent);font-size:clamp(20px,2.8vw,26px);display:inline-flex;align-items:center;gap:9px}
+.today-band .rail-head h2 .pulse{width:10px;height:10px;border-radius:50%;background:var(--accent-bright);flex:none;
+  box-shadow:0 0 0 0 var(--accent-bright);animation:ping 2.6s ease-out infinite}
+.today-band .rail-head span{color:var(--ink-2);font-weight:600}
+.today-band .arrow{top:62px}
+@media (prefers-reduced-motion:reduce){.today-band .rail-head h2 .pulse{animation:none}}
 .track{display:flex;gap:12px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;
   padding-block:54px 100px;margin-block:-46px -82px;scrollbar-width:none;scroll-behavior:smooth}
 .track::-webkit-scrollbar{display:none}
@@ -2275,8 +2286,9 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
       if(!items.length) return;
       if(r.win) items = items.slice().sort(function(a,b){ var x=dayFor(a,r.win),y=dayFor(b,r.win); return x<y?-1:x>y?1:0; });
       if(r.rank) items = items.slice(0,10);
-      secs.push({i:i,t:r.t,n:items.length,unit:"events",html:'<section class="rail-wrap'+(r.rank?' ranked':'')+'" id="rail-'+i+'">'+
-        '<div class="rail-head"><h2>'+r.t+'</h2><span>'+(r.s?r.s+' · ':'')+items.length+'</span></div>'+
+      var isToday = r.t === "On today";
+      secs.push({i:i,t:r.t,n:items.length,unit:"events",html:'<section class="rail-wrap'+(r.rank?' ranked':'')+(isToday?' today-band':'')+'" id="rail-'+i+'">'+
+        '<div class="rail-head"><h2>'+(isToday?'<i class="pulse" aria-hidden="true"></i>':'')+r.t+'</h2><span>'+(r.s?r.s+' · ':'')+items.length+'</span></div>'+
         '<button class="arrow l" data-scroll="-1" data-rail="'+i+'" aria-label="Scroll left">&#8249;</button>'+
         '<div class="track" id="track'+i+'">'+
           items.map(function(e,n){ return r.rank ? rankedCard(e,n,r.win) : card(e,r.win); }).join("")+
