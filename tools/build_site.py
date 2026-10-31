@@ -28,6 +28,8 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
     var t = ev.target; if(!t || !t.closest) return;
     var evBtn = t.closest("[data-ev]");
     if(evBtn){ var id = evBtn.getAttribute("data-ev"); setTimeout(function(){ cap("event_opened",{event_id:id, event_title:sheetTitle()}); },80); return; }
+    var jmp = t.closest("[data-jump]");
+    if(jmp){ var jb = jmp.querySelector("b"); cap("section_jumped",{section: jb ? jb.textContent.trim() : jmp.getAttribute("data-jump")}); return; }
     var tab = t.closest("[data-view]");
     if(tab){ cap("tab_viewed",{tab:tab.getAttribute("data-view")}); return; }
     if(t.closest("#seasonJump")){ cap("season_button",{label:t.closest("#seasonJump").textContent.trim()}); return; }
