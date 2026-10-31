@@ -45,7 +45,7 @@ ev_js = "  var EVENTS = [\n" + ",\n".join("    " + json.dumps(e, ensure_ascii=Fa
 SOURCES = {
   "swansea": [
     {"n": "Swansea Building Society Arena", "u": "https://www.swansea-arena.co.uk/whats-on", "s": "live", "note": "Every show and its date on one page, through to 2028. Show pages add ages and prices for some shows."},
-    {"n": "Swansea Grand Theatre box office", "u": "https://tickets.visitswanseabay.com/swanseagrandtheatre/website/EventList.aspx", "s": "live", "note": "Month by month listing with dates. Times and prices are on each booking page."},
+    {"n": "Swansea Grand Theatre", "u": "https://www.swanseagrand.co.uk/WhatsOn", "s": "live", "note": "Cards link to the theatre's own show pages, which open on phones. A few shows are only on its box office site, whose pages can open blank on phones; those cards say so."},
     {"n": "Taliesin Arts Centre", "u": "https://www.taliesinartscentre.co.uk/en/all-events", "s": "live", "note": "Theatre, comedy, gigs, talks, film and event cinema at Swansea University, Singleton."},
     {"n": "Swansea City AFC fixtures", "u": "https://www.swanseacity.com/news/swansea-citys-2026-27-championship-fixtures-confirmed", "s": "live", "note": "Home games only. Kick-off times come from the club's TV selection announcements; others are not set yet."},
     {"n": "Ospreys fixtures", "u": "https://www.ospreysrugby.com/news/2627-bkt-urc-fixtures-annouced-st-helens", "s": "live", "note": "Home games at St Helen's with kick-off times. The club says fixtures may change."},
