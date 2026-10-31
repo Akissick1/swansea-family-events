@@ -128,12 +128,20 @@
   "half": "Friday"
  },
  {
+  "n": "Founders & Co., Wind Street",
+  "u": "https://eventslist.co.uk/swansea/venues/founders-co-swansea-swansea",
+  "s": "live",
+  "note": "Bar and social space at 24 Wind Street. No website of its own that lists events, so it's checked through its Eventslist venue page (crochet nights, talks, paint-alongs).",
+  "group": "swansea",
+  "half": "Tuesday"
+ },
+ {
   "n": "Hangar 18 Music Venue",
   "u": "https://ticket247.co.uk/Venue/354",
   "s": "live",
   "note": "Rock and alternative gigs, club nights and a monthly jam night, with age limits.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "King Arthur Hotel, Reynoldston",
@@ -141,7 +149,7 @@
   "s": "live",
   "note": "Gower pub events: fireworks, Christmas parties, New Year's Eve. Has run murder mysteries before.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Morgans Hotel (murder mysteries)",
@@ -149,7 +157,7 @@
   "s": "live",
   "note": "Halloween and Valentine's murder mystery dinners with Dead On Cue / Murder On Cue.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Mumbles Pier",
@@ -157,7 +165,7 @@
   "s": "live",
   "note": "Christmas events at the pier, including clay nights at Copperfish.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Mumbles.life events",
@@ -165,7 +173,7 @@
   "s": "live",
   "note": "Mumbles bars, cafes and restaurants in one calendar: Venue 42, Harry's Bar, The Vic, Waterloo Stores, Ula, The Norton, 1807 Coffee, Coffee @ No26 and more. Shows about a week ahead.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Murder 57 at Mercure Swansea",
@@ -173,7 +181,7 @@
   "s": "live",
   "note": "Murder mystery dinners at the Mercure, Phoenix Way. Search the listing for Mercure Swansea Hotel.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "National Waterfront Museum (adult events)",
@@ -181,7 +189,7 @@
   "s": "live",
   "note": "Adult courses, sound baths, singing, makers markets. Free or priced on each page.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Ospreys fixtures",
@@ -189,7 +197,7 @@
   "s": "live",
   "note": "Home games at St Helen's with kick-off times. The club says fixtures may change.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Songkick Swansea gigs",
@@ -197,7 +205,7 @@
   "s": "live",
   "note": "Month-by-month gig list covering The Bunkhouse, Sin City, CWRW, The Hanging Gardens, Tŷ Tawe, Bank Vault, Hippos and more.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Swansea Building Society Arena",
@@ -205,7 +213,7 @@
   "s": "live",
   "note": "Every show and its date on one page, through to 2028. Show pages add ages and prices for some shows.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Swansea City AFC fixtures",
@@ -213,7 +221,7 @@
   "s": "live",
   "note": "Home games only. Kick-off times come from the club's TV selection announcements; others are not set yet.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Swansea Fringe",
@@ -221,7 +229,7 @@
   "s": "live",
   "note": "26 to 29 November across Urban HQ, The Bunkhouse, Hippos, Down By Here, Sessions by Mumbles Brewery and the Glynn Vivian. Year comes from the ticket link.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Swansea Grand Theatre",
@@ -229,7 +237,7 @@
   "s": "live",
   "note": "Cards link to the theatre's own show pages, which open on phones. A few shows are only on its box office site, whose pages can open blank on phones; those cards say so.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Swansea Jazzland",
@@ -237,7 +245,7 @@
   "s": "live",
   "note": "Weekly jazz club at The Swigg, The Observatory and the Grand's Arts Wing.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Swansea Scoop newsletter",
@@ -245,7 +253,7 @@
   "s": "live",
   "note": "Weekly and monthly round-ups of things to do in Swansea; good for markets, food events and smaller venues.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Taliesin Arts Centre",
@@ -253,7 +261,7 @@
   "s": "live",
   "note": "Theatre, comedy, gigs, talks, film and event cinema at Swansea University, Singleton.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "The Patti Pavilion",
@@ -261,7 +269,7 @@
   "s": "live",
   "note": "Tribute nights, Bingo Lingo and gigs in Singleton Park.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Visit Swansea Bay: theatre and performing arts",
@@ -269,7 +277,7 @@
   "s": "live",
   "note": "Smaller theatre such as Volcano's window shows and the Dylan Thomas Theatre.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Volcano Theatre",
@@ -277,7 +285,7 @@
   "s": "live",
   "note": "Window shows and Christmas theatre; listings found through Swansea Scoop and Visit Swansea Bay.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Cinema & Co., Swansea",
@@ -285,7 +293,7 @@
   "s": "watch",
   "note": "Independent cafe cinema. Checked 31 October: nothing dated after mid September is listed yet.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Dylan Thomas Theatre",
@@ -293,7 +301,7 @@
   "s": "watch",
   "note": "Amateur theatre in the Maritime Quarter. Its site shows no current productions.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Glynn Vivian Art Gallery",
@@ -301,7 +309,7 @@
   "s": "watch",
   "note": "Adult workshops page shows nothing after April 2026 on 31 October.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Gower Heritage Centre",
@@ -309,7 +317,7 @@
   "s": "watch",
   "note": "No dated events on 31 October.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Mission Gallery",
@@ -317,7 +325,7 @@
   "s": "watch",
   "note": "Gallery in the Maritime Quarter; no dated events on its site on 31 October. Its craft club shows up on Eventslist.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Mumbles Events",
@@ -325,7 +333,7 @@
   "s": "watch",
   "note": "Checked 31 October: no dated events published.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Problematic Pub Comedy Club",
@@ -333,7 +341,7 @@
   "s": "watch",
   "note": "Checked 31 October: latest listed date is February 2026.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Super Rygbi Cymru fixtures (Swansea RFC, Aberavon, Llanelli)",
@@ -341,7 +349,7 @@
   "s": "watch",
   "note": "Fixture list is published as an image, so dates can't be read.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Swansea City Centre events",
@@ -349,7 +357,7 @@
   "s": "watch",
   "note": "Christmas market, parade and continental markets mentioned with no dates on 31 October.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Swansea Council what's on",
@@ -357,7 +365,7 @@
   "s": "watch",
   "note": "Council events page. Nothing dated after July 2026 on 31 October.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Swansea Museum",
@@ -365,7 +373,7 @@
   "s": "watch",
   "note": "No dated adult events on 31 October.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "WeGotTickets Swansea",
@@ -373,7 +381,7 @@
   "s": "watch",
   "note": "Only a cancelled Neath RFC hospitality day showing on 31 October.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Ents24 Swansea",
@@ -381,7 +389,7 @@
   "s": "blocked",
   "note": "Loads by script; nothing readable automatically.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Eventbrite Mumbles",
@@ -389,7 +397,7 @@
   "s": "blocked",
   "note": "Refused automatic reading on 31 October.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Oystermouth Castle",
@@ -397,7 +405,7 @@
   "s": "blocked",
   "note": "Blocks automatic reading; its evening tours come through Allevents.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Sin City",
@@ -405,7 +413,7 @@
   "s": "blocked",
   "note": "Blocks automatic reading. Its gigs come through Songkick and Allevents.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Skiddle Swansea",
@@ -413,7 +421,7 @@
   "s": "blocked",
   "note": "Loads by script; nothing readable automatically.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Swansea Bay News what's on",
@@ -421,7 +429,7 @@
   "s": "blocked",
   "note": "Refused automatic reading on 31 October.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Swansea Minster",
@@ -429,7 +437,7 @@
   "s": "blocked",
   "note": "Blocks automatic reading. Its organ evenings come through Eventslist.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Swansea University public events",
@@ -437,7 +445,7 @@
   "s": "blocked",
   "note": "Refused automatic reading on 31 October.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Swansea University Students' Union events",
@@ -445,7 +453,7 @@
   "s": "blocked",
   "note": "Loads by script; nothing readable.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "The New Gower Hotel, Bishopston",
@@ -453,7 +461,7 @@
   "s": "blocked",
   "note": "Has run murder mysteries; blocks automatic reading.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "TicketSource Swansea",
@@ -461,7 +469,7 @@
   "s": "blocked",
   "note": "Refused automatic reading on 31 October.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Tŷ Tawe",
@@ -469,7 +477,7 @@
   "s": "blocked",
   "note": "Welsh-language centre; blocks automatic reading. Its gigs come through Songkick.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Craig-y-Nos Castle",
@@ -477,7 +485,7 @@
   "s": "live",
   "note": "Murder mystery dinners almost every month; some dates sell out early.",
   "group": "nearby",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Ffos Las Racecourse",
@@ -485,7 +493,7 @@
   "s": "live",
   "note": "Race days and the fireworks night. 2027 dates confirmed but not yet published.",
   "group": "nearby",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Gwyn Hall, Neath",
@@ -493,7 +501,7 @@
   "s": "live",
   "note": "Loads by script, read with Firecrawl. Shows 20 at a time; the rest load on scroll.",
   "group": "nearby",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Margam Country Park",
@@ -501,7 +509,7 @@
   "s": "live",
   "note": "Luminate light trail, Christmas tree festival and Orangery Christmas parties.",
   "group": "nearby",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "National Trust Aberdulais",
@@ -509,7 +517,7 @@
   "s": "live",
   "note": "Speaker series talks at the waterfall and tinworks.",
   "group": "nearby",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "National Trust Dinefwr",
@@ -517,7 +525,7 @@
   "s": "live",
   "note": "Christmas fair and festive weekends at Newton House, Llandeilo.",
   "group": "nearby",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Pontardawe Arts Centre",
@@ -525,7 +533,7 @@
   "s": "live",
   "note": "Gigs, comedy, talks, event cinema, film club and classes, with times.",
   "group": "nearby",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Scarlets fixtures",
@@ -533,7 +541,7 @@
   "s": "live",
   "note": "Home games at Parc y Scarlets with kick-off times.",
   "group": "nearby",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "The Welfare, Ystradgynlais",
@@ -541,7 +549,7 @@
   "s": "live",
   "note": "Arts centre: gigs, event cinema, classes. Shows a few at a time with Load More.",
   "group": "nearby",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Theatrau Sir Gar (Lyric, Ffwrnes, Miners')",
@@ -549,7 +557,7 @@
   "s": "live",
   "note": "Listing gives day and month with no year; dates are read as their next occurrence. Most listings don't name which of the three theatres.",
   "group": "nearby",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Princess Royal Theatre, Port Talbot",
@@ -557,7 +565,7 @@
   "s": "watch",
   "note": "No readable listing of its own on 31 October (council page empty, Skiddle blocked). Run by Celtic Leisure like the Gwyn Hall.",
   "group": "nearby",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Aberglasney Gardens",
@@ -565,7 +573,7 @@
   "s": "blocked",
   "note": "Site refused automatic reading on 31 October.",
   "group": "nearby",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Awen box office (Grand Pavilion Porthcawl, Maesteg Town Hall)",
@@ -573,7 +581,7 @@
   "s": "blocked",
   "note": "Listing loads by script. The Grand Pavilion is closed for redevelopment.",
   "group": "nearby",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Cadw events",
@@ -581,7 +589,7 @@
   "s": "blocked",
   "note": "Refused automatic reading on 31 October.",
   "group": "nearby",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "National Botanic Garden of Wales",
@@ -589,7 +597,7 @@
   "s": "blocked",
   "note": "Site refused automatic reading on 31 October.",
   "group": "nearby",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Planet Rockstock",
@@ -597,7 +605,7 @@
   "s": "blocked",
   "note": "Blocks automatic reading; its date comes through Songkick.",
   "group": "nearby",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Cardiff Castle",
@@ -605,7 +613,7 @@
   "s": "live",
   "note": "Underground cinema, Winter Wonderland and the summer DEPOT Live concerts.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Cardiff City FC fixtures",
@@ -613,7 +621,7 @@
   "s": "live",
   "note": "Home games. Kick-off times not set yet.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Cardiff Rugby fixtures",
@@ -621,7 +629,7 @@
   "s": "live",
   "note": "Home games at Cardiff Arms Park with kick-off times.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Chortle comedy guide (Wales)",
@@ -629,7 +637,7 @@
   "s": "live",
   "note": "Every touring stand-up date in Wales; fills gaps for New Theatre, WMC, Gwyn Hall and Volcano.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Clwb Ifor Bach",
@@ -637,7 +645,7 @@
   "s": "live",
   "note": "Cardiff's indie gig and club venue on Womanby Street.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Depot Cardiff",
@@ -645,7 +653,7 @@
   "s": "live",
   "note": "Warehouse gigs, DJ day parties and Bingo Lingo; also promotes the Singleton Park summer shows.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Eventslist Cardiff",
@@ -653,7 +661,7 @@
   "s": "live",
   "note": "Cardiff club nights, quizzes, speed dating, book clubs, murder mysteries and New Theatre shows (whose own site blocks reading).",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Eventslist Cardiff: comedy",
@@ -661,7 +669,7 @@
   "s": "live",
   "note": "Smaller Cardiff comedy and live podcast nights.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Eventslist Cardiff: food and drink",
@@ -669,7 +677,7 @@
   "s": "live",
   "note": "Brunch shows, food festivals and tastings in Cardiff.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "MySpeedDate (Swansea and Cardiff)",
@@ -677,7 +685,7 @@
   "s": "live",
   "note": "Speed dating and Lock & Key singles nights at Peppermint, Swansea and The Cardiff Stable.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Sherman Theatre",
@@ -685,7 +693,7 @@
   "s": "live",
   "note": "Stand-up and new theatre.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "The Gate Arts Centre",
@@ -693,7 +701,7 @@
   "s": "live",
   "note": "Gigs, comedy and talks in Roath.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "The Glee Club Cardiff",
@@ -701,7 +709,7 @@
   "s": "live",
   "note": "Comedy club in Cardiff Bay. Times shown are doors.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Tramshed Cardiff",
@@ -709,7 +717,7 @@
   "s": "live",
   "note": "Gigs, tribute nights and club events with age limits.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Utilita Arena Cardiff",
@@ -717,7 +725,7 @@
   "s": "live",
   "note": "Loads by script. November listings read on 31 October; later months still to add.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Wales rugby internationals",
@@ -725,7 +733,7 @@
   "s": "live",
   "note": "Principality Stadium home games with kick-off times.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Cardiff Devils",
@@ -733,7 +741,7 @@
   "s": "watch",
   "note": "Ice hockey. Home game dates not readable on 31 October.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Cardiff Philharmonic Orchestra",
@@ -741,7 +749,7 @@
   "s": "watch",
   "note": "No dated concerts on 31 October.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Chapter Arts Centre",
@@ -749,7 +757,7 @@
   "s": "watch",
   "note": "Page shows no dates for live events on 31 October.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Glamorgan Cricket",
@@ -757,7 +765,7 @@
   "s": "watch",
   "note": "2027 fixtures not published yet. Summer only.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Llandaff Cathedral",
@@ -765,7 +773,7 @@
   "s": "watch",
   "note": "No dated concerts on its own page on 31 October; candlelight concerts come through Eventslist.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "St David's Hall",
@@ -773,7 +781,7 @@
   "s": "watch",
   "note": "Concert hall; nothing listed since 2022 on its site (closed for repairs).",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "The Globe, Cardiff",
@@ -781,7 +789,7 @@
   "s": "watch",
   "note": "Lists tribute nights and gigs but without dates on the listing page.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "The Moon, Cardiff",
@@ -789,7 +797,7 @@
   "s": "watch",
   "note": "No dated events readable on 31 October.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Wales Millennium Centre",
@@ -797,7 +805,7 @@
   "s": "watch",
   "note": "Its calendar failed to load on 31 October, so only featured shows are listed.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Welsh National Opera",
@@ -805,7 +813,7 @@
   "s": "watch",
   "note": "No Cardiff or Swansea dates listed on 31 October.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "BBC National Orchestra of Wales",
@@ -813,7 +821,7 @@
   "s": "blocked",
   "note": "Blocked to automatic reading. Its Swansea concerts come through the Grand's box office.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Cardiff Christmas Market",
@@ -821,7 +829,7 @@
   "s": "blocked",
   "note": "Blocks automatic reading.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Cardiff Students' Union (Great Hall)",
@@ -829,7 +837,7 @@
   "s": "blocked",
   "note": "Refused automatic reading on 31 October.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Football Association of Wales fixtures",
@@ -837,7 +845,7 @@
   "s": "blocked",
   "note": "Refused automatic reading on 31 October.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "New Theatre Cardiff",
@@ -845,7 +853,7 @@
   "s": "blocked",
   "note": "The site blocks automatic reading.",
   "group": "touring",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Principality Stadium",
@@ -853,6 +861,6 @@
   "s": "blocked",
   "note": "Refused automatic reading. Wales internationals come from the fixture list.",
   "group": "touring",
-  "half": "Tuesday"
+  "half": "Friday"
  }
 ]
