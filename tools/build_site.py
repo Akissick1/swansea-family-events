@@ -68,8 +68,18 @@ def add_weather(page):
     blocks = "\n".join(open(x, encoding="utf-8").read().strip() for x in extras)
     return page.replace("\n</body>", "\n" + blocks + "\n</body>")
 
+# Grown-ups guide (added 31 October 2026): same build, its own title, description and address.
+ADULT_TITLE = "Swansea Grown-Ups | What's on for adults in Swansea, nearby and Cardiff"
+ADULT_DESC = ("Comedy, gigs, theatre, sport, nights out and classes for grown-ups across Swansea, "
+              "Neath, Pontardawe, Llanelli, Carmarthenshire and Cardiff. Every listing links to the page that confirms its date.")
+
 def build(src):
+    global SITE, TITLE, DESC
     s = src
+    adult = "<title>Swansea Grown-Ups</title>" in s[:6000]
+    site_root = SITE
+    if adult:
+        SITE, TITLE, DESC = SITE + "adults/", ADULT_TITLE, ADULT_DESC
     # Drop the hosting wrapper if the input came from an Artifact read.
     head = s[:4000].lower()
     if head.lstrip().startswith("<!doctype") and "<body>" in head:
@@ -91,11 +101,11 @@ def build(src):
 <link rel="canonical" href="{SITE}">
 <meta name="theme-color" content="#F8F6F2">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Swansea Family Events">
-<meta property="og:title" content="Swansea Family Events">
+<meta property="og:site_name" content="{'Swansea Grown-Ups' if adult else 'Swansea Family Events'}">
+<meta property="og:title" content="{'Swansea Grown-Ups' if adult else 'Swansea Family Events'}">
 <meta property="og:description" content="{DESC}">
 <meta property="og:url" content="{SITE}">
-<meta property="og:image" content="{SITE}og-image.png">
+<meta property="og:image" content="{site_root}og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_GB">
@@ -105,6 +115,10 @@ def build(src):
     out = (meta + head_part.strip() + "\n" + ANALYTICS + "</head>\n<body>\n"
            + '<noscript><p style="padding:20px;font-family:sans-serif">This guide needs JavaScript switched on to show the events.</p></noscript>\n'
            + body_part.strip() + "\n</body>\n</html>\n")
+    SITE = site_root
+    # The Family | Grown-ups switch uses full addresses so it also works on Claude; on the website keep it on-site.
+    out = out.replace('href="' + site_root + 'adults/"><i></i>', 'href="/adults/"><i></i>').replace('href="' + site_root + '"><i></i>', 'href="/"><i></i>')
+    out = out.replace('href="' + site_root + 'adults/" aria-current="page"><i></i>', 'href="/adults/" aria-current="page"><i></i>').replace('href="' + site_root + '" aria-current="page"><i></i>', 'href="/" aria-current="page"><i></i>')
     return add_weather(out)
 
 if __name__ == "__main__":
