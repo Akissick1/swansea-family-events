@@ -26,7 +26,7 @@ def rep_re(pat, new, flags=re.S):
 
 # ---------- data ----------
 SCENE = {"comedy": "mic", "music": "gig", "theatre": "stage", "film": "cinema", "sport": "stadium",
-         "talks": "talk", "nights": "nightout", "classes": "paint", "social": "paint", "food": "dine"}
+         "talks": "talk", "nights": "nightout", "classes": "paint", "social": "paint", "food": "dine", "mystery": "mystery"}
 KEEP = ["id", "t", "cat", "scene", "area", "areaLabel", "indoor", "days", "span", "time", "venue", "cost",
         "ages", "ageTags", "sold", "caveat", "added", "desc", "src", "xmas"]
 events = []
@@ -94,7 +94,7 @@ rep_re(r'  var CATS = \{.*?\n  \};\n',
   '    theatre:{label:"Theatre & musicals",short:"Theatre"}, sport:{label:"Sport",short:"Sport"},\n'
   '    film:{label:"Film & screenings",short:"Film"}, talks:{label:"Talks & evenings with",short:"Talk"},\n'
   '    nights:{label:"Nights out",short:"Night out"}, classes:{label:"Classes & activities",short:"Activity"},\n'
-  '    food:{label:"Food & drink",short:"Food"},\n'
+  '    food:{label:"Food & drink",short:"Food"}, mystery:{label:"Murder mysteries",short:"Murder mystery"},\n'
   '    christmas:{label:"Christmas",short:"Christmas"}\n'
   '  };\n')
 rep_re(r'  var WF = .*?\n  var MG = [^\n]*\n', '')
@@ -118,7 +118,7 @@ rep('  var SC = {\n', '  var SC = {\n' + open(os.path.join(HERE, "scenes.js"), e
 # ---------- look ----------
 rep_re(r'  --museum-a:[^\n]*\n  --halloween-a:[^\n]*\n',
   '  --comedy-a:#C2405A; --music-a:#6A3FC4; --theatre-a:#A9542A; --sport-a:#2F6DB5;\n'
-  '  --film-a:#3A3F8F; --talks-a:#0E7C77; --nights-a:#B5307A; --classes-a:#4C7A2E; --food-a:#B5651D; --christmas-a:#1C6D46;\n')
+  '  --film-a:#3A3F8F; --talks-a:#0E7C77; --nights-a:#B5307A; --classes-a:#4C7A2E; --food-a:#B5651D; --mystery-a:#7A1F2B; --christmas-a:#1C6D46;\n')
 rep('  --accent:#C2451A; --accent-bright:#FF6A3D; --accent-soft:#FCEDE6;',
     '  --accent:#4338A8; --accent-bright:#6C5CE7; --accent-soft:#EEEBFB;')
 rep('  --ground:#F8F6F2;', '  --ground:#F6F5F9;')
@@ -175,6 +175,7 @@ rep_re(r'    var defs = \[\n      \{t:"On today".*?\n    \];\n',
   '      {t:"On today",s:pretty(TODAY),win:[TODAY,TODAY],f:function(e){return e.days.indexOf(TODAY)!==-1;}},\n'
   '      {t:"This weekend",s:"Friday to Sunday",win:[wkA,wkB],f:function(e){return e.days.some(function(d){return d>=wkA&&d<=wkB;});}},\n'
   '      {t:"In the next seven days",s:"",win:[TODAY,week],f:function(e){return e.days.some(function(d){return d>=TODAY&&d<=week;});}},\n'
+  '      {t:"Murder mysteries",s:"Dinners, plays and whodunnits in the next three months",win:[TODAY,plus(92)],f:function(e){return e.cat==="mystery" && e.days.some(function(d){return d>=TODAY&&d<=plus(92);});}},\n'
   '      {xmasSlot:true},\n'
   '      {t:"Comedy",s:"Stand-up and comedy clubs",f:function(e){return e.cat==="comedy";}},\n'
   '      {t:"Live music",s:"Gigs, tributes and concerts",f:function(e){return e.cat==="music";}},\n'
@@ -198,8 +199,8 @@ rep("    if(e.indoor===\"in\") f += '<span class=\"flag in\">Indoors</span>';\n 
 rep('    var xmasRail = {t:"Christmas",s:"Santa, pantos, light trails and markets",f:isXmas};',
     '    var xmasRail = {t:"Christmas",s:"Festive gigs, comedy, parties and carols",f:isXmas};')
 rep('    if(mo===11 || mo===12){ defs.splice(slot,1); defs.splice(2,0,xmasRail); } else defs[slot] = xmasRail;',
-    '    if(mo===11 || mo===12){ defs.splice(slot,1); defs.splice(3,0,xmasRail); } else defs.splice(slot,1);')
-rep('    defs.splice.apply(defs, [2,0].concat(soon));', '    defs.splice.apply(defs, [3,0].concat(soon));')
+    '    if(mo===11 || mo===12){ defs.splice(slot,1); defs.splice(4,0,xmasRail); } else defs.splice(slot,1);')
+rep('    defs.splice.apply(defs, [2,0].concat(soon));', '    defs.splice.apply(defs, [4,0].concat(soon));')
 
 # ---------- long rows: show the first 16 cards, the rest on request (page was ~13s to draw 2,300 cards) ----------
 rep('          items.map(function(e,n){ return r.rank ? rankedCard(e,n,r.win) : card(e,r.win); }).join("")+',

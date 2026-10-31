@@ -25,7 +25,7 @@
 {"g": "cardiff", "n": "The Gate Arts Centre", "u": "https://www.thegate.org.uk/whats-on/", "s": "live", "note": "Gigs, comedy and talks in Roath."}
 {"g": "cardiff", "n": "St David's Hall", "u": "https://www.stdavidshallcardiff.co.uk/whats-on/", "s": "watch", "note": "Concert hall; nothing listed since 2022 on its site (closed for repairs)."}
 {"g": "swansea", "n": "Tŷ Tawe", "u": "https://www.tytawe.cymru/", "s": "blocked", "note": "Welsh-language centre; blocks automatic reading. Its gigs come through Songkick."}
-{"g": "swansea", "n": "Volcano Theatre", "u": "https://www.volcanotheatre.co.uk/", "s": "watch", "note": "Nothing dated listed on 31 October."}
+{"g": "swansea", "n": "Volcano Theatre", "u": "https://volcanotheatre.wales/", "s": "live", "note": "Window shows and Christmas theatre; listings found through Swansea Scoop and Visit Swansea Bay."}
 {"g": "nearby", "n": "Aberglasney Gardens", "u": "https://www.aberglasney.org/whats-on/", "s": "blocked", "note": "Site refused automatic reading on 31 October."}
 {"g": "swansea", "n": "Eventslist Swansea: food and drink", "u": "https://eventslist.co.uk/swansea/food-and-drink", "s": "live", "note": "Brunches, supper clubs, tastings and food fairs. Checked separately from the main list because it shows different events."}
 {"g": "swansea", "n": "Eventslist Swansea: nightlife", "u": "https://eventslist.co.uk/swansea/nightlife", "s": "live", "note": "Club nights, Bingo Lingo dates, day parties and New Year's Eve."}
@@ -49,7 +49,7 @@
 {"g": "swansea", "n": "Swansea Jazzland", "u": "https://www.swanseajazzland.co.uk/", "s": "live", "note": "Weekly jazz club at The Swigg, The Observatory and the Grand's Arts Wing."}
 {"g": "swansea", "n": "Mission Gallery", "u": "https://www.missiongallery.co.uk/", "s": "watch", "note": "Gallery in the Maritime Quarter; no dated events on its site on 31 October. Its craft club shows up on Eventslist."}
 {"g": "swansea", "n": "Gower Heritage Centre", "u": "https://www.gowerheritagecentre.co.uk/events/", "s": "watch", "note": "No dated events on 31 October."}
-{"g": "nearby", "n": "Craig-y-Nos Castle", "u": "https://www.craigynoscastle.com/events/", "s": "watch", "note": "Its own page lists none; its murder mystery dinners show up on Eventslist."}
+{"g": "nearby", "n": "Craig-y-Nos Castle", "u": "https://www.mosthauntedcastle.com/murder-mystery.html", "s": "live", "note": "Murder mystery dinners almost every month; some dates sell out early."}
 {"g": "swansea", "n": "Eventbrite Swansea: workshops", "u": "https://www.eventbrite.co.uk/d/united-kingdom--swansea/workshops/", "s": "live", "note": "Wreath, pottery, carving, poetry and card workshops in cafes, pubs and community halls."}
 {"g": "swansea", "n": "Eventbrite Swansea: nightlife", "u": "https://www.eventbrite.co.uk/d/united-kingdom--swansea/nightlife/", "s": "live", "note": "Club nights, tribute gigs, social clubs and New Year's Eve parties."}
 {"g": "swansea", "n": "Eventbrite Swansea: comedy", "u": "https://www.eventbrite.co.uk/d/united-kingdom--swansea/comedy/", "s": "live", "note": "Smaller comedy and cabaret nights."}
@@ -81,3 +81,9 @@
 {"g": "cardiff", "n": "Cardiff Philharmonic Orchestra", "u": "https://www.cardiffphilharmonic.co.uk/", "s": "watch", "note": "No dated concerts on 31 October."}
 {"g": "cardiff", "n": "Glamorgan Cricket", "u": "https://www.glamorgancricket.com/fixtures", "s": "watch", "note": "2027 fixtures not published yet. Summer only."}
 {"g": "swansea", "n": "Swansea Bay News what's on", "u": "https://swanseabaynews.com/whats-on/", "s": "blocked", "note": "Refused automatic reading on 31 October."}
+{"g": "swansea", "n": "Morgans Hotel (murder mysteries)", "u": "https://www.morganshotel.co.uk/upcoming-events/murder-mystery/", "s": "live", "note": "Halloween and Valentine's murder mystery dinners with Dead On Cue / Murder On Cue."}
+{"g": "swansea", "n": "Murder 57 at Mercure Swansea", "u": "https://murder57.com/events", "s": "live", "note": "Murder mystery dinners at the Mercure, Phoenix Way. Search the listing for Mercure Swansea Hotel."}
+{"g": "swansea", "n": "King Arthur Hotel, Reynoldston", "u": "https://www.kingarthurhotel.co.uk/news-events/", "s": "live", "note": "Gower pub events: fireworks, Christmas parties, New Year's Eve. Has run murder mysteries before."}
+{"g": "swansea", "n": "Brangwyn Hall", "u": "https://www.brangwyn.co.uk/whatson", "s": "live", "note": "Concerts, organ recitals, tea dances and talks. Cards link here because the box office pages open blank on phones."}
+{"g": "swansea", "n": "Swansea Scoop newsletter", "u": "https://www.swanseascoop.com/archive", "s": "live", "note": "Weekly and monthly round-ups of things to do in Swansea; good for markets, food events and smaller venues."}
+{"g": "swansea", "n": "The New Gower Hotel, Bishopston", "u": "https://thenewgowerhotel.wales/events", "s": "blocked", "note": "Has run murder mysteries; blocks automatic reading."}

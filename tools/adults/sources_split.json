@@ -8,12 +8,20 @@
   "half": "Tuesday"
  },
  {
+  "n": "Brangwyn Hall",
+  "u": "https://www.brangwyn.co.uk/whatson",
+  "s": "live",
+  "note": "Concerts, organ recitals, tea dances and talks. Cards link here because the box office pages open blank on phones.",
+  "group": "swansea",
+  "half": "Friday"
+ },
+ {
   "n": "Data Thistle (Mumbles and Swansea)",
   "u": "https://www.datathistle.com/events/location:Mumbles(51.5693,-3.9998)/",
   "s": "live",
   "note": "Listings feed that also confirmed G4 Christmas is at the Brangwyn Hall.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Eventbrite Swansea: comedy",
@@ -21,7 +29,7 @@
   "s": "live",
   "note": "Smaller comedy and cabaret nights.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Eventbrite Swansea: nightlife",
@@ -29,7 +37,7 @@
   "s": "live",
   "note": "Club nights, tribute gigs, social clubs and New Year's Eve parties.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Eventbrite Swansea: workshops",
@@ -37,7 +45,7 @@
   "s": "live",
   "note": "Wreath, pottery, carving, poetry and card workshops in cafes, pubs and community halls.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Eventbrite, Swansea",
@@ -45,7 +53,7 @@
   "s": "live",
   "note": "Paint and sip nights, workshops, gigs and club nights. Only events with a stated date are used.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Eventslist Swansea",
@@ -53,7 +61,7 @@
   "s": "live",
   "note": "Wide Swansea listing: club nights, bottomless brunches, quiz and game nights, speed dating, workshops, talks, markets.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Eventslist Swansea: comedy",
@@ -61,7 +69,7 @@
   "s": "live",
   "note": "Comedy, murder mystery dinners and comedy workshops.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Eventslist Swansea: film",
@@ -69,7 +77,7 @@
   "s": "live",
   "note": "Community screenings and film-with-afternoon-tea.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Eventslist Swansea: food and drink",
@@ -77,7 +85,7 @@
   "s": "live",
   "note": "Brunches, supper clubs, tastings and food fairs. Checked separately from the main list because it shows different events.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Eventslist Swansea: LGBTQ+",
@@ -85,7 +93,7 @@
   "s": "live",
   "note": "Drag nights, drag workshops and singles parties.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Eventslist Swansea: markets",
@@ -93,7 +101,7 @@
   "s": "live",
   "note": "Christmas markets and craft fairs across Swansea, Llanelli and Llandeilo.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Eventslist Swansea: nightlife",
@@ -101,7 +109,7 @@
   "s": "live",
   "note": "Club nights, Bingo Lingo dates, day parties and New Year's Eve.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Eventslist Swansea: talks",
@@ -109,7 +117,7 @@
   "s": "live",
   "note": "Wildlife, history and author talks.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Eventslist Swansea: workshops",
@@ -117,7 +125,7 @@
   "s": "live",
   "note": "Adult craft, felting, sewing and computing workshops. Shows 24 of about 100 at a time.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Hangar 18 Music Venue",
@@ -125,7 +133,23 @@
   "s": "live",
   "note": "Rock and alternative gigs, club nights and a monthly jam night, with age limits.",
   "group": "swansea",
+  "half": "Tuesday"
+ },
+ {
+  "n": "King Arthur Hotel, Reynoldston",
+  "u": "https://www.kingarthurhotel.co.uk/news-events/",
+  "s": "live",
+  "note": "Gower pub events: fireworks, Christmas parties, New Year's Eve. Has run murder mysteries before.",
+  "group": "swansea",
   "half": "Friday"
+ },
+ {
+  "n": "Morgans Hotel (murder mysteries)",
+  "u": "https://www.morganshotel.co.uk/upcoming-events/murder-mystery/",
+  "s": "live",
+  "note": "Halloween and Valentine's murder mystery dinners with Dead On Cue / Murder On Cue.",
+  "group": "swansea",
+  "half": "Tuesday"
  },
  {
   "n": "Mumbles Pier",
@@ -133,13 +157,21 @@
   "s": "live",
   "note": "Christmas events at the pier, including clay nights at Copperfish.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Mumbles.life events",
   "u": "https://www.mumbles.life/event-list",
   "s": "live",
   "note": "Mumbles bars, cafes and restaurants in one calendar: Venue 42, Harry's Bar, The Vic, Waterloo Stores, Ula, The Norton, 1807 Coffee, Coffee @ No26 and more. Shows about a week ahead.",
+  "group": "swansea",
+  "half": "Tuesday"
+ },
+ {
+  "n": "Murder 57 at Mercure Swansea",
+  "u": "https://murder57.com/events",
+  "s": "live",
+  "note": "Murder mystery dinners at the Mercure, Phoenix Way. Search the listing for Mercure Swansea Hotel.",
   "group": "swansea",
   "half": "Friday"
  },
@@ -208,12 +240,20 @@
   "half": "Friday"
  },
  {
+  "n": "Swansea Scoop newsletter",
+  "u": "https://www.swanseascoop.com/archive",
+  "s": "live",
+  "note": "Weekly and monthly round-ups of things to do in Swansea; good for markets, food events and smaller venues.",
+  "group": "swansea",
+  "half": "Tuesday"
+ },
+ {
   "n": "Taliesin Arts Centre",
   "u": "https://www.taliesinartscentre.co.uk/en/all-events",
   "s": "live",
   "note": "Theatre, comedy, gigs, talks, film and event cinema at Swansea University, Singleton.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "The Patti Pavilion",
@@ -221,13 +261,21 @@
   "s": "live",
   "note": "Tribute nights, Bingo Lingo and gigs in Singleton Park.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Visit Swansea Bay: theatre and performing arts",
   "u": "https://www.visitswanseabay.com/whats-on/theatre-and-performing-arts/",
   "s": "live",
   "note": "Smaller theatre such as Volcano's window shows and the Dylan Thomas Theatre.",
+  "group": "swansea",
+  "half": "Friday"
+ },
+ {
+  "n": "Volcano Theatre",
+  "u": "https://volcanotheatre.wales/",
+  "s": "live",
+  "note": "Window shows and Christmas theatre; listings found through Swansea Scoop and Visit Swansea Bay.",
   "group": "swansea",
   "half": "Tuesday"
  },
@@ -320,20 +368,12 @@
   "half": "Friday"
  },
  {
-  "n": "Volcano Theatre",
-  "u": "https://www.volcanotheatre.co.uk/",
-  "s": "watch",
-  "note": "Nothing dated listed on 31 October.",
-  "group": "swansea",
-  "half": "Tuesday"
- },
- {
   "n": "WeGotTickets Swansea",
   "u": "https://wegottickets.com/location/Swansea",
   "s": "watch",
   "note": "Only a cancelled Neath RFC hospitality day showing on 31 October.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Ents24 Swansea",
@@ -341,7 +381,7 @@
   "s": "blocked",
   "note": "Loads by script; nothing readable automatically.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Eventbrite Mumbles",
@@ -349,7 +389,7 @@
   "s": "blocked",
   "note": "Refused automatic reading on 31 October.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Oystermouth Castle",
@@ -357,7 +397,7 @@
   "s": "blocked",
   "note": "Blocks automatic reading; its evening tours come through Allevents.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Sin City",
@@ -365,7 +405,7 @@
   "s": "blocked",
   "note": "Blocks automatic reading. Its gigs come through Songkick and Allevents.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Skiddle Swansea",
@@ -373,7 +413,7 @@
   "s": "blocked",
   "note": "Loads by script; nothing readable automatically.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Swansea Bay News what's on",
@@ -381,7 +421,7 @@
   "s": "blocked",
   "note": "Refused automatic reading on 31 October.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Swansea Minster",
@@ -389,7 +429,7 @@
   "s": "blocked",
   "note": "Blocks automatic reading. Its organ evenings come through Eventslist.",
   "group": "swansea",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Swansea University public events",
@@ -397,13 +437,21 @@
   "s": "blocked",
   "note": "Refused automatic reading on 31 October.",
   "group": "swansea",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Swansea University Students' Union events",
   "u": "https://events.swansea-union.co.uk/",
   "s": "blocked",
   "note": "Loads by script; nothing readable.",
+  "group": "swansea",
+  "half": "Friday"
+ },
+ {
+  "n": "The New Gower Hotel, Bishopston",
+  "u": "https://thenewgowerhotel.wales/events",
+  "s": "blocked",
+  "note": "Has run murder mysteries; blocks automatic reading.",
   "group": "swansea",
   "half": "Tuesday"
  },
@@ -424,12 +472,20 @@
   "half": "Tuesday"
  },
  {
+  "n": "Craig-y-Nos Castle",
+  "u": "https://www.mosthauntedcastle.com/murder-mystery.html",
+  "s": "live",
+  "note": "Murder mystery dinners almost every month; some dates sell out early.",
+  "group": "nearby",
+  "half": "Friday"
+ },
+ {
   "n": "Ffos Las Racecourse",
   "u": "https://www.ffoslas-racecourse.co.uk/",
   "s": "live",
   "note": "Race days and the fireworks night. 2027 dates confirmed but not yet published.",
   "group": "nearby",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Margam Country Park",
@@ -437,7 +493,7 @@
   "s": "live",
   "note": "Luminate light trail, Christmas tree festival and Orangery Christmas parties.",
   "group": "nearby",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "National Trust Aberdulais",
@@ -445,7 +501,7 @@
   "s": "live",
   "note": "Speaker series talks at the waterfall and tinworks.",
   "group": "nearby",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "National Trust Dinefwr",
@@ -453,7 +509,7 @@
   "s": "live",
   "note": "Christmas fair and festive weekends at Newton House, Llandeilo.",
   "group": "nearby",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Pontardawe Arts Centre",
@@ -461,7 +517,7 @@
   "s": "live",
   "note": "Gigs, comedy, talks, event cinema, film club and classes, with times.",
   "group": "nearby",
-  "half": "Friday"
+  "half": "Tuesday"
  },
  {
   "n": "Scarlets fixtures",
@@ -469,21 +525,13 @@
   "s": "live",
   "note": "Home games at Parc y Scarlets with kick-off times.",
   "group": "nearby",
-  "half": "Tuesday"
+  "half": "Friday"
  },
  {
   "n": "Theatrau Sir Gar (Lyric, Ffwrnes, Miners')",
   "u": "https://www.theatrausirgar.co.uk/en/whats-on/",
   "s": "live",
   "note": "Listing gives day and month with no year; dates are read as their next occurrence. Most listings don't name which of the three theatres.",
-  "group": "nearby",
-  "half": "Friday"
- },
- {
-  "n": "Craig-y-Nos Castle",
-  "u": "https://www.craigynoscastle.com/events/",
-  "s": "watch",
-  "note": "Its own page lists none; its murder mystery dinners show up on Eventslist.",
   "group": "nearby",
   "half": "Tuesday"
  },
