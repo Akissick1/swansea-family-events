@@ -104,3 +104,16 @@ for e in E:
     for k in ["id","t","cat","scene","area","areaLabel","days","time","venue","cost","ages","ageTags","desc","src"]: assert k in e,(e["id"],k)
 json.dump(E,open("/home/claude/baby/events.json","w"),ensure_ascii=False,indent=0)
 print(len(E),"events,",sum(len(e["days"]) for e in E),"dates")
+
+# 1 November, Ashley asked about the Lighthouse in Mumbles: Story Babies classes (Happity venue timetable)
+SBV="The Lighthouse Bar, Kitchen & Lounge, Bracelet Bay, Mumbles Road, Swansea SA3 4JT"
+SBS="https://www.happity.co.uk/venues/baby-groups-swansea-the-lighthouse-bar-kitchen-and-lounge"
+SBD="Story Babies: a new story theme each week, then sensory play with music, movement, bubbles, lights, puppets and parachutes, ending in a relaxation zone. Held upstairs in the function room with no lift, so bring a car seat rather than a pram. Parking at the Lighthouse is £2.50. Happity lists it as term time only. "
+ev(id="bb-sblighthousetiny",t="Story Babies: Tiny Babies, the Lighthouse",scene="baby",areaLabel="Mumbles",days=weekly(["Tue","Fri"]),
+   span="Tuesdays and Fridays to 18 December",time="Tue 10.15am; Fri 10am and 12.30pm",venue=SBV,cost="£8.50 a session",ages="Birth to 6 months",ageTags=["baby"],weekly=True,
+   desc=SBD+"Tuesdays 10.15am to 11am, Fridays 10am to 10.45am and 12.30pm to 1.15pm.",src=SBS)
+ev(id="bb-sblighthousebounce",t="Story Babies: Bouncing Babies, the Lighthouse",scene="baby",areaLabel="Mumbles",days=weekly(["Tue","Fri"]),
+   span="Tuesdays and Fridays to 18 December",time="Tue 11.30am; Fri 11.15am",venue=SBV,cost="£8.50 a session",ages="6 to 14 months",ageTags=["baby"],weekly=True,
+   desc=SBD+"Tuesdays 11.30am to 12.15pm, Fridays 11.15am to 12pm. Story Boppers for 14 months to 3 years runs after these.",src=SBS)
+json.dump(E,open("/home/claude/baby/events.json","w"),ensure_ascii=False,indent=0)
+print(len(E),"events now")

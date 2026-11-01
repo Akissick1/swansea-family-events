@@ -930,5 +930,79 @@
 "cat": "baby",
 "area": "swansea",
 "added": "2026-11-01"
+},
+{
+"id": "bb-sblighthousetiny",
+"t": "Story Babies: Tiny Babies, the Lighthouse",
+"scene": "baby",
+"areaLabel": "Mumbles",
+"days": [
+"2026-11-03",
+"2026-11-06",
+"2026-11-10",
+"2026-11-13",
+"2026-11-17",
+"2026-11-20",
+"2026-11-24",
+"2026-11-27",
+"2026-12-01",
+"2026-12-04",
+"2026-12-08",
+"2026-12-11",
+"2026-12-15",
+"2026-12-18"
+],
+"span": "Tuesdays and Fridays to 18 December",
+"time": "Tue 10.15am; Fri 10am and 12.30pm",
+"venue": "The Lighthouse Bar, Kitchen & Lounge, Bracelet Bay, Mumbles Road, Swansea SA3 4JT",
+"cost": "£8.50 a session",
+"ages": "Birth to 6 months",
+"ageTags": [
+"baby"
+],
+"weekly": true,
+"desc": "Story Babies: a new story theme each week, then sensory play with music, movement, bubbles, lights, puppets and parachutes, ending in a relaxation zone. Held upstairs in the function room with no lift, so bring a car seat rather than a pram. Parking at the Lighthouse is £2.50. Happity lists it as term time only. Tuesdays 10.15am to 11am, Fridays 10am to 10.45am and 12.30pm to 1.15pm.",
+"src": "https://www.happity.co.uk/venues/baby-groups-swansea-the-lighthouse-bar-kitchen-and-lounge",
+"indoor": "in",
+"cat": "baby",
+"area": "swansea",
+"added": "2026-11-01"
+},
+{
+"id": "bb-sblighthousebounce",
+"t": "Story Babies: Bouncing Babies, the Lighthouse",
+"scene": "baby",
+"areaLabel": "Mumbles",
+"days": [
+"2026-11-03",
+"2026-11-06",
+"2026-11-10",
+"2026-11-13",
+"2026-11-17",
+"2026-11-20",
+"2026-11-24",
+"2026-11-27",
+"2026-12-01",
+"2026-12-04",
+"2026-12-08",
+"2026-12-11",
+"2026-12-15",
+"2026-12-18"
+],
+"span": "Tuesdays and Fridays to 18 December",
+"time": "Tue 11.30am; Fri 11.15am",
+"venue": "The Lighthouse Bar, Kitchen & Lounge, Bracelet Bay, Mumbles Road, Swansea SA3 4JT",
+"cost": "£8.50 a session",
+"ages": "6 to 14 months",
+"ageTags": [
+"baby"
+],
+"weekly": true,
+"desc": "Story Babies: a new story theme each week, then sensory play with music, movement, bubbles, lights, puppets and parachutes, ending in a relaxation zone. Held upstairs in the function room with no lift, so bring a car seat rather than a pram. Parking at the Lighthouse is £2.50. Happity lists it as term time only. Tuesdays 11.30am to 12.15pm, Fridays 11.15am to 12pm. Story Boppers for 14 months to 3 years runs after these.",
+"src": "https://www.happity.co.uk/venues/baby-groups-swansea-the-lighthouse-bar-kitchen-and-lounge",
+"indoor": "in",
+"cat": "baby",
+"area": "swansea",
+"added": "2026-11-01"
 }
 ]
