@@ -3059,7 +3059,7 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
         calBlock(e)+
         '<p class="srcnote">Source: '+esc(host(e.src))+'. Checked '+esc(pretty(BUILT).replace(/^\w+ /,""))+'.</p>'+
       '</div>';
-    scrim.classList.add("open");
+    scrim.classList.add("open"); sheetPush();
     document.body.style.overflow = "hidden";
     var x = document.getElementById("closeX");
     if(x){ x.addEventListener("click", closeSheet); x.focus(); }
@@ -3114,7 +3114,7 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
       '<div class="sheet-body daypop">'+
         (rows || '<p class="nothing">No verified listing covers this day. That does not mean nothing is on. It means no public page has published it, or the filters are hiding it. The Indoors tab has places that are open most days.</p>')+
       '</div>';
-    scrim.classList.add("open");
+    scrim.classList.add("open"); sheetPush();
     document.body.style.overflow = "hidden";
     sheet.scrollTop = 0; scrim.scrollTop = 0;
     var x = document.getElementById("closeX");
@@ -3129,7 +3129,12 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
     renderDayList();
     openDay(d);
   }
-  function closeSheet(){
+  /* Back button: opening a panel adds one history step, so Back closes the panel, not the page. */
+  var sheetHist = false;
+  function sheetPush(){ if(sheetHist) return; try{ history.pushState({sfeSheet:1}, ""); sheetHist = true; }catch(err){} }
+  window.addEventListener("popstate", function(){ if(sheetHist){ sheetHist = false; closeSheet(true); } });
+  function closeSheet(fromBack){
+    if(sheetHist && fromBack !== true){ sheetHist = false; try{ history.back(); }catch(err){} }
     dayCtx = null;
     scrim.classList.remove("open"); document.body.style.overflow = "";
     if(lastFocus && lastFocus.focus) lastFocus.focus();
@@ -3333,7 +3338,7 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
         '<div class="sharepanel" id="sharePanel" hidden></div>'+
         '<p class="srcnote">Source: '+esc(host(p.u))+'. Checked '+esc(pretty(p.checked).replace(/^\w+ /,""))+'. Hours change in the holidays, so check before you travel.</p>'+
       '</div>';
-    scrim.classList.add("open");
+    scrim.classList.add("open"); sheetPush();
     document.body.style.overflow = "hidden";
     var x = document.getElementById("closeX");
     if(x){ x.addEventListener("click", closeSheet); x.focus(); }
