@@ -862,5 +862,29 @@
   "note": "Refused automatic reading. Wales internationals come from the fixture list.",
   "group": "touring",
   "half": "Friday"
+ },
+ {
+  "n": "Down By Here",
+  "u": "https://www.downbyhere.co.uk/calendar",
+  "s": "watch",
+  "note": "Swansea venue calendar with comedy (Rogues' Gallery Comedy Club), open mics and gigs. Added 3 November from Swansea Scoop; to be read directly next run.",
+  "group": "swansea",
+  "half": "Tuesday"
+ },
+ {
+  "n": "Royal Institution of South Wales",
+  "u": "https://risw.org/events-and-activities.htm",
+  "s": "watch",
+  "note": "Evening talks at Swansea Museum. Added 3 November from Swansea Scoop; to be read directly next run.",
+  "group": "swansea",
+  "half": "Friday"
+ },
+ {
+  "n": "Norton House Hotel events",
+  "u": "https://www.handpickedhotels.co.uk/norton-house/events",
+  "s": "live",
+  "note": "Mumbles hotel's own events pages, with dated Murder 57 dinners and prices.",
+  "group": "swansea",
+  "half": "Friday"
  }
 ]
