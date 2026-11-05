@@ -33,7 +33,7 @@
   --accent:#C2451A; --accent-bright:#FF6A3D; --accent-soft:#FCEDE6;
   --ok:#1F7145; --warn:#8A6110; --off:#AE3636;
   --museum-a:#A9542A; --science-a:#0E7C77; --outdoors-a:#4C7A2E;
-  --halloween-a:#77397F; --baby-a:#A8467A; --christmas-a:#1C6D46; --food-a:#8A6110; --shows-a:#9C3558; --sport-a:#3A5C99;
+  --halloween-a:#77397F; --baby-a:#A8467A; --christmas-a:#1C6D46; --food-a:#8A6110; --shows-a:#9C3558; --sport-a:#3A5C99; --clubs-a:#0F6A8C;
   --r:9px; --ctl:40px;
 }
 body[data-skin="autumn"]{--accent:#B04A15;--accent-bright:#F2762F;--accent-soft:#FBEDE2;--ground:#F9F5EF}
@@ -1149,13 +1149,21 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
     outdoors:{label:"Outdoors & nature",short:"Outdoors"}, halloween:{label:"Halloween",short:"Halloween"},
     christmas:{label:"Christmas",short:"Christmas"},
     food:{label:"Food & markets",short:"Food"}, shows:{label:"Shows & cinema",short:"Shows"}, sport:{label:"Sport",short:"Sport"},
-    baby:{label:"Babies & bumps",short:"Babies"}
+    baby:{label:"Babies & bumps",short:"Babies"},
+    clubs:{label:"Clubs & drop-ins",short:"Clubs"}
   };
   var WF = "National Waterfront Museum, Maritime Quarter";
   var PL = "Plantasia Tropical Zoo, Parc Tawe";
   var MG = "Margam Country Park, Port Talbot";
 
   var EVENTS = [
+    {"id": "rg-llansamletlego", "t": "Lego Club at Llansamlet Library", "cat": "clubs", "scene": "library", "area": "swansea", "areaLabel": "Llansamlet", "days": ["2026-11-07", "2026-11-14", "2026-11-21", "2026-11-28", "2026-12-05", "2026-12-12", "2026-12-19"], "span": "Saturdays, all year", "time": "10am to 11am", "venue": "Llansamlet Library, 242 Peniel Green Road, Swansea SA7 9BD", "cost": "Ask the library", "ages": "2 and over", "ageTags": ["u5", "5-11"], "weekly": true, "indoor": "in", "desc": "Weekly Lego building session. Happity lists it as every Saturday, all year, with no booking system, so ring the library before a first visit.", "src": "https://www.happity.co.uk/schedules/llansamlet-library-swansea-llansamlet-library-lego-club", "added": "2026-11-03"},
+    {"id": "rg-sandfieldskids", "t": "Saturday Kids Club, Sandfields Library", "cat": "clubs", "scene": "library", "area": "nearby", "areaLabel": "Sandfields", "days": ["2026-11-07", "2026-11-14", "2026-11-21", "2026-11-28"], "span": "Saturdays", "time": "From 10am", "venue": "Sandfields Library, Morrison Road, Sandfields, Port Talbot SA12 6TG", "cost": "Free", "ages": "Children", "ageTags": ["5-11"], "weekly": true, "indoor": "in", "desc": "Board games, colouring, puzzles, Lego and footballs to borrow. Neath Port Talbot lists it every Saturday in November. Call 01639 883616 to book or ask.", "src": "https://www.npt.gov.uk/culture-and-tourism/whats-on-in-npt/event-details/?id=55984", "added": "2026-11-03"},
+    {"id": "rg-baglanlego", "t": "Saturday Lego and Colouring Club, Baglan Library", "cat": "clubs", "scene": "library", "area": "nearby", "areaLabel": "Baglan", "days": ["2026-11-07", "2026-11-14", "2026-11-21", "2026-11-28"], "span": "Saturdays", "time": "From 10am", "venue": "Baglan Library, Laurel Avenue, Baglan, Port Talbot SA12 8PA", "cost": "Free", "ages": "Children", "ageTags": ["5-11"], "weekly": true, "indoor": "in", "desc": "Lego building and colouring. Neath Port Talbot lists it every Saturday in November. Questions to 01639 813477.", "src": "https://www.npt.gov.uk/culture-and-tourism/whats-on-in-npt/event-details/?id=59560", "added": "2026-11-03"},
+    {"id": "rg-ptlego", "t": "Lego Club, Port Talbot Library", "cat": "clubs", "scene": "library", "area": "nearby", "areaLabel": "Port Talbot", "days": ["2026-11-07", "2026-11-14", "2026-11-21", "2026-11-28"], "span": "Saturdays", "time": "2.30pm", "venue": "Port Talbot Library, Aberafan Shopping Centre, Port Talbot SA13 1PB", "cost": "Free", "ages": "Children", "ageTags": ["5-11"], "weekly": true, "indoor": "in", "desc": "Saturday afternoon Lego building. Neath Port Talbot lists it every Saturday in November. Questions to 01639 763490.", "src": "https://www.npt.gov.uk/culture-and-tourism/whats-on-in-npt/event-details/?id=53698", "added": "2026-11-03"},
+    {"id": "rg-ptpokemon", "t": "Pokemon Club, Port Talbot Library", "cat": "clubs", "scene": "library", "area": "nearby", "areaLabel": "Port Talbot", "days": ["2026-11-14", "2026-11-28"], "span": "Alternate Saturdays", "time": "10.30am", "venue": "Port Talbot Library, Aberafan Shopping Centre, Port Talbot SA13 1PB", "cost": "Free", "ages": "6 and over", "ageTags": ["5-11", "12+"], "indoor": "in", "desc": "Bring cards to trade and battle, plus a character hunt and Lego. To reserve a place, email l.hayes@npt.gov.uk.", "src": "https://www.npt.gov.uk/culture-and-tourism/whats-on-in-npt/event-details/?id=53985", "added": "2026-11-03"},
+    {"id": "rg-glynneathlego", "t": "Lego Club, Glynneath Library", "cat": "clubs", "scene": "library", "area": "nearby", "areaLabel": "Glynneath", "days": ["2026-11-07"], "time": "11am", "venue": "Glynneath Library, Park Avenue, Glynneath SA11 5DW", "cost": "Free", "ages": "", "ageTags": [], "indoor": "in", "desc": "Lego building session. Only this date is listed so far. Questions to 01639 720776.", "src": "https://www.npt.gov.uk/culture-and-tourism/whats-on-in-npt/event-details/?id=56962", "added": "2026-11-03"},
+    {"id": "rg-vuemornings", "t": "Mighty Mornings kids' films, Vue Swansea", "cat": "shows", "scene": "cinema", "area": "swansea", "areaLabel": "Swansea", "days": ["2026-11-07", "2026-11-08", "2026-11-14", "2026-11-15", "2026-11-21", "2026-11-22", "2026-11-28", "2026-11-29", "2026-12-05", "2026-12-06", "2026-12-12", "2026-12-13", "2026-12-19", "2026-12-20"], "span": "Every weekend", "time": "Morning showings from about 10am", "venue": "Vue Swansea, Salubrious Place, Swansea", "cost": "Cheap tickets; Vue charged £2.49 online in 2025", "ages": "Family films", "ageTags": ["u5", "5-11"], "weekly": true, "indoor": "in", "desc": "Vue's low-price weekend morning screenings of family films. The film changes each week and listings go up on Tuesdays, so check the Vue Swansea page for this weekend's title and time.", "src": "https://www.myvue.com/cinema/swansea/whats-on", "added": "2026-11-03"},
     {"id":"fw-hitide","indoor":"out","t":"Bonfire Night Fireworks at the Hi Tide","cat":"outdoors","scene":"bay","area":"nearby","areaLabel":"Porthcawl","days":["2026-11-07"],"time":"About 7.30pm, once dark","venue":"The Hi Tide, Mackworth Road, Porthcawl CF36 5BT","cost":"","ages":"","ageTags":[],"desc":"Fireworks set off once it is dark, around 7.30pm. The Hi Tide invites families and suggests arriving early for a good viewing spot. Booking is online or on 01656 782432.","src":"https://www.thehitide.co.uk/event/bonfire-night-fireworks","added":"2026-11-03"},
     {"id":"fw-sketty","indoor":"out","t":"Sketty Scouts Firework Display","cat":"outdoors","scene":"bay","area":"swansea","areaLabel":"Sketty","days":["2026-11-07"],"time":"","venue":"St Paul's Church, De La Beche Road, Sketty SA2 9AR","cost":"Adults £6, under 16s £4, family group discounts","ages":"All ages","ageTags":[],"desc":"Sketty Scout Group's firework display at St Paul's Church, listed in Brit Brief's Swansea Bonfire Night round-up published on 2 November. No start time was given there; in past years tickets have been sold at the gate.","src":"https://britbrief.co.uk/entertainment/festivals/bonfire-night-2026-swansea-displays-this-week.html","added":"2026-11-03"},
     {"id":"fw-dunvant","indoor":"out","t":"Dunvant RFC Firework Display","cat":"outdoors","scene":"bay","area":"swansea","areaLabel":"Killay","days":["2026-11-06"],"time":"Gates 6pm, fireworks 7.15pm","venue":"Dunvant Rugby Football Club, Broadacre, Killay, Swansea SA2 7RU","cost":"£7.50 plus booking fee, under 3s free, parking £10 per car","ages":"All ages, under 3s free","ageTags":["u5","5-11","12+"],"desc":"Ticket-only firework display at Dunvant RFC. Parking is sold separately and still needs an entry ticket.","src":"https://www.skiddle.com/whats-on/Swansea/Dunvant-Rugby-Football-Club/Dunvant-RFC-Firework-Display-2026/42750365/","added":"2026-11-03"},
@@ -1199,7 +1207,7 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
      days:["2026-09-12","2026-09-13"],span:"12 to 13 September",time:"10am to 4pm",venue:WF,cost:"Free",
      ages:"All ages",ageTags:["u5","5-11","12+"],desc:"Vintage sellers and local makers filling the museum for the weekend.",
      src:"https://museum.wales/swansea/whatson/11840/Waterfront-Vintage-and-Makers-Market/"},
-    {id:"quiet",indoor:"in",t:"Quiet Hour at the Museum",cat:"museum",scene:"waterfront",area:"swansea",areaLabel:"Swansea",
+    {id:"quiet",weekly:true,indoor:"in",t:"Quiet Hour at the Museum",cat:"museum",scene:"waterfront",area:"swansea",areaLabel:"Swansea",
      days:["2026-10-26","2026-11-02","2026-11-09","2026-11-16","2026-11-23","2026-11-30","2026-12-07","2026-12-14","2026-12-21","2026-12-28"],span:"Every Monday",
      time:"3pm to 4pm",venue:WF,cost:"Free",ages:"All ages",ageTags:["u5","5-11","12+"],
      desc:"Lights and sound turned down for a calmer visit. Useful if noise is a problem for your child.",
@@ -1241,13 +1249,13 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
      ageTags:["u5","5-11","12+"],
      desc:"Music, comedy and theatrical effects celebrating animals. No live animals in the show.",
      src:"https://www.theatrausirgar.co.uk/en/shows/amazing-animals"},
-    {id:"parkrunjr",indoor:"out",t:"Swansea Prom junior parkrun",cat:"sport",scene:"bay",area:"swansea",areaLabel:"Swansea",
+    {id:"parkrunjr",weekly:true,indoor:"out",t:"Swansea Prom junior parkrun",cat:"sport",scene:"bay",area:"swansea",areaLabel:"Swansea",
      days:["2026-10-25","2026-11-01","2026-11-08","2026-11-15","2026-11-22","2026-11-29","2026-12-06","2026-12-13","2026-12-20","2026-12-27"],span:"Every Sunday",
      time:"9am",venue:"Swansea Promenade, Secret Beach Bar and Kitchen, Mumbles Road, Brynmill, SA2 0AY",
      cost:"Free, registration required beforehand",ages:"Juniors only, 4 to 14 year olds",ageTags:["u5","5-11","12+"],
      desc:"A free weekly 2k run for children, at any pace. The aim is to have fun. Register once online and it works at any junior parkrun.",
      src:"https://www.parkrun.org.uk/swanseaprom-juniors/"},
-    {id:"parkrun",indoor:"out",t:"Swansea Bay parkrun",cat:"sport",scene:"bay",area:"swansea",areaLabel:"Swansea",
+    {id:"parkrun",weekly:true,indoor:"out",t:"Swansea Bay parkrun",cat:"sport",scene:"bay",area:"swansea",areaLabel:"Swansea",
      days:["2026-10-24","2026-10-31","2026-11-07","2026-11-14","2026-11-21","2026-11-28","2026-12-05","2026-12-12","2026-12-19","2026-12-26"],span:"Every Saturday",
      time:"9am",venue:"Secret Beach Bar and Kitchen, Mumbles Road, Swansea, SA2 0AY",
      cost:"Free, registration required beforehand",ages:"",ageTags:[],
@@ -1567,7 +1575,7 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
      days:["2026-10-31"],time:"11.30am to 1pm, or 2pm to 3.30pm",venue:"National Botanic Garden of Wales",cost:"",ages:"Suitable for the whole family",ageTags:[],added:"2026-10-24",
      desc:"Shape and decorate a pumpkin from air drying clay with Oddity Ceramics, then take it home. No experience needed. The price includes Garden admission and is booked through Eventbrite.",
      src:"https://botanicgarden.wales/visit/whats-on/event/clay-pumpkin-workshop/"},
-    {id:"bgwelly",t:"Welly Wednesday for pre-schoolers",cat:"outdoors",scene:"garden",area:"nearby",areaLabel:"Llanarthne",indoor:"out",
+    {id:"bgwelly",weekly:true,t:"Welly Wednesday for pre-schoolers",cat:"outdoors",scene:"garden",area:"nearby",areaLabel:"Llanarthne",indoor:"out",
      days:["2026-10-28","2026-11-04","2026-11-11","2026-11-18","2026-11-25","2026-12-02","2026-12-09","2026-12-16","2026-12-23","2026-12-30","2027-01-06","2027-01-13","2027-01-20","2027-01-27","2027-02-03","2027-02-10","2027-02-17","2027-02-24"],span:"Every Wednesday",time:"11am to 12pm, or 1pm to 2pm",venue:"Woodland, National Botanic Garden of Wales",cost:"£2 a child plus Garden admission",ages:"1 to 4 years, with a grown-up",ageTags:["u5"],added:"2026-10-24",
      desc:"An hour in the woods of treasure hunts, crafts, cooking over the fire, stories and songs, run in Welsh and English. Booking essential.",
      src:"https://botanicgarden.wales/visit/whats-on/event/welly-wednesday-at-1pm/"},
@@ -2350,9 +2358,15 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
     var babyFocus = state.age==="baby" || Object.keys(state.cats).every(function(k){ return k==="baby" ? state.cats[k] : !state.cats[k]; });
     if(!babyFocus) pool = pool.filter(function(e){ return e.cat!=="baby"; });
     var week = plus(7);
+    var dw = (function(){var p=TODAY.split("-").map(Number);return new Date(p[0],p[1]-1,p[2]).getDay();})();
+    var wkS = plus(dw===0 ? -1 : 6-dw), wkE = plus(dw===0 ? 0 : 7-dw);
     var defs = [
       {t:"On today",s:pretty(TODAY),win:[TODAY,TODAY],f:function(e){return e.days.indexOf(TODAY)!==-1;}},
       {t:"In the next seven days",s:"",win:[TODAY,week],f:function(e){return e.days.some(function(d){return d>=TODAY&&d<=week;});}},
+      {t:"This weekend",s:pretty(wkS)+" and "+pretty(wkE),win:[wkS,wkE],
+       f:function(e){return e.days.some(function(d){return d>=wkS&&d<=wkE;});}},
+      {t:"Weekend clubs and regulars",s:"Same time most weeks",
+       f:function(e){return e.weekly && e.days.some(function(d){var p=d.split("-").map(Number),w=new Date(p[0],p[1]-1,p[2]).getDay();return w===0||w===6;});}},
       {t:"With a baby",s:"Rhyme times, classes and bump yoga",all:true,
        f:function(e){return e.ageTags.indexOf("baby")!==-1;}},
       {t:"Rainy day? These are indoors",s:"Where the venue is a building",
