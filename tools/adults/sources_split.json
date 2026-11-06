@@ -458,8 +458,8 @@
  {
   "n": "The New Gower Hotel, Bishopston",
   "u": "https://thenewgowerhotel.wales/events",
-  "s": "blocked",
-  "note": "Has run murder mysteries; blocks automatic reading.",
+  "s": "watch",
+  "note": "Now readable (6 November). Has run murder mysteries; events page says no upcoming events, bookings by phone.",
   "group": "swansea",
   "half": "Friday"
  },
@@ -571,7 +571,7 @@
   "n": "Aberglasney Gardens",
   "u": "https://www.aberglasney.org/whats-on/",
   "s": "blocked",
-  "note": "Site refused automatic reading on 31 October.",
+  "note": "Old what's on address now gives page not found (6 November). Events seem to have moved to aberglasney.org/events-exhibitions/.",
   "group": "nearby",
   "half": "Friday"
  },
@@ -587,7 +587,7 @@
   "n": "Cadw events",
   "u": "https://cadw.gov.wales/events",
   "s": "blocked",
-  "note": "Refused automatic reading on 31 October.",
+  "note": "Old events address now gives page not found (6 November). The event finder is now at cadw.gov.wales/visit/whats-on/find-a-cadw-event.",
   "group": "nearby",
   "half": "Friday"
  },
@@ -603,7 +603,7 @@
   "n": "Planet Rockstock",
   "u": "https://www.planetrockstock.com/",
   "s": "blocked",
-  "note": "Blocks automatic reading; its date comes through Songkick.",
+  "note": "Site now redirects to the Planet Rock radio home page (6 November); its date comes through Songkick.",
   "group": "nearby",
   "half": "Friday"
  },
@@ -683,7 +683,7 @@
   "n": "MySpeedDate (Swansea and Cardiff)",
   "u": "https://www.myspeeddate.co.uk/",
   "s": "live",
-  "note": "Speed dating and Lock & Key singles nights at Peppermint, Swansea and The Cardiff Stable.",
+  "note": "Speed dating and Lock & Key singles nights. The homepage only shows London; local dates are on myspeeddate.co.uk/cardiff and /swansea.",
   "group": "touring",
   "half": "Friday"
  },
@@ -882,9 +882,17 @@
  {
   "n": "Norton House Hotel events",
   "u": "https://www.handpickedhotels.co.uk/norton-house/events",
-  "s": "live",
-  "note": "Mumbles hotel's own events pages, with dated Murder 57 dinners and prices.",
+  "s": "watch",
+  "note": "This Hand Picked Hotels page is Norton House near Edinburgh, not Mumbles (checked 6 November). Mumbles dinners come through Mumbles.life.",
   "group": "swansea",
   "half": "Friday"
+ },
+ {
+  "n": "Gwili Railway (murder mystery trains)",
+  "u": "https://gwili-railway.co.uk/murder-mystery",
+  "s": "live",
+  "note": "Murder mystery dining trains from Abergwili Junction near Carmarthen. Added 6 November.",
+  "group": "nearby",
+  "half": "Tuesday"
  }
 ]
