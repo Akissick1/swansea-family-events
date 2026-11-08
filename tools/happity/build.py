@@ -1,6 +1,8 @@
 """Turn the Happity weekday sweep into family-guide records for every class not already listed.
 
-Usage: python3 build.py sweep_YYYY-MM-DD.tsv page.html  -> writes new_events.json and report.txt
+Usage: python3 build.py sweep_YYYY-MM-DD.tsv page.html [id_prefix] [out_stem]
+  -> writes <out_stem>new_events.json and <out_stem>report.txt (defaults: prefix "hp-", no stem).
+  Use a new prefix for each extra sweep so ids never clash (7 Nov Neath/Port Talbot/Llanelli: "hn-").
 Rules (Ashley, 7 Nov 2026): every class the sweep finds goes on the site unless it is adults only,
 has no usable dates, or is already listed from another source. One card per activity per venue.
 Weekly dates: next sessions to 23 Dec, term-time classes skip HOLS, nothing 24 Dec to 1 Jan.
@@ -24,6 +26,7 @@ COVERED_SLUGS = [
     "story-babies-swansea-the-lighthouse-bar-kitchen-and-lounge-bouncing-babies",
     "baby-sensory-swansea-rhos-community-centre", "baby-sensory-port-talbot-st-theodore",
     "baby-sensory-swansea-mayhill", "baby-sensory-ammanford-penybanc",
+    "baby-sensory-swansea-llys-nini-animal-centre", "baby-sensory-swansea-st-cynog-s-church",
 ]
 # Left out, with the reason given in the report
 EXCLUDE = {
@@ -33,6 +36,18 @@ EXCLUDE = {
     "little-nest-baby-wellness-bridgend-kenfig-national-nature-reserve-luxury-baby-spa-christmas-special": "one-off event, the listing shows no date",
     "little-nest-baby-wellness-bridgend-kenfig-national-nature-reserve-baby-massage-course": "fixed course, the listing shows no course dates",
     "annabel-s-school-of-dance-swansea-st-hilary-church-ballet-class": "selected dates only, no dates shown",
+    # 7 Nov 2026, Neath / Port Talbot / Llanelli pages
+    "splat-messy-play-bridgend-pen-y-fai-scout-hall-splat-messy-play-mondays-10-30-11-30": "same Monday session as Splat Messy Play at 1st Pen-y-Fai Scout and Guide HQ, merged into that card",
+    "little-connections-bridgend-bryntirion-laleston-community-centre-little-connections": "selected dates only, no dates shown",
+    "swimkidz-bridgend-bryntirion-comprehensive-school-swimkidz-wales-baby-toddler-and-independent-swimming-classes": "fixed course, the listing shows no course dates",
+    "singing-mamas-bridgend-laleston-church-hall-singing-mamas-glamorgan-with-nia": "one-off event, the listing shows no date",
+    "monkey-music-bridgend-deaf-social-club-heigh-ho-fridays-09-30-10-00-monkey-music-bridgend-deaf-social-club-heigh-ho-fridays-09-30-10-00-2-2": "selected dates only, no dates shown",
+    "monkey-music-bridgend-deaf-social-club-jiggety-jig-fridays-10-15-10-45-monkey-music-bridgend-deaf-social-club-jiggety-jig-fridays-10-15-10-45-2-2": "selected dates only, no dates shown",
+    "monkey-music-bridgend-deaf-social-club-rock-n-roll-fridays-11-00-11-30": "selected dates only, no dates shown",
+    "babylove-groups-llanelli-antioch-centre-babylove-tinies": "fixed course, the listing shows no course dates",
+    "hartbeeps-tonypandy-hope-church-rhondda-happy-house": "Tonypandy, outside the 45 minute area",
+    "hartbeeps-tonypandy-hope-church-rhondda-baby-bells": "Tonypandy, outside the 45 minute area",
+    "hartbeeps-tonypandy-hope-church-rhondda-baby-beeps": "Tonypandy, outside the 45 minute area",
 }
 # RKLSwims and others marked "Selected dates": only the next date the listing shows
 NEXT_ON = {"RKLSwims": {"Wed": ["2026-11-11"], "Sun": ["2026-11-08"]}}
@@ -72,6 +87,17 @@ PLACE = {  # venue -> (areaLabel, area)
     "Seven Sisters community hall": ("Seven Sisters", "nearby"), "SA13 1RF (Port Talbot)": ("Port Talbot", "nearby"),
     "Parklands Church Swansea": ("Sketty", "swansea"), "Sketty Park Community Centre": ("Sketty Park", "swansea"),
     "Morriston Library": ("Morriston", "swansea"), "Llansamlet Library": ("Llansamlet", "swansea"),
+    # 7 Nov 2026, Neath / Port Talbot / Llanelli pages
+    "1st Pen-y-Fai Scout and Guide HQ": ("Pen-y-fai, Bridgend", "nearby"), "Pen-y-Fai Scout Hall": ("Pen-y-fai, Bridgend", "nearby"),
+    "Nolton Hall": ("Bridgend", "nearby"), "Dare Valley Community Woodland": ("Aberdare", "nearby"),
+    "Blaengarw Workmen's Hall": ("Blaengarw", "nearby"), "Litchard Mission Church": ("Litchard, Bridgend", "nearby"),
+    "Halo Bridgend Life Centre": ("Bridgend", "nearby"), "Freeschool Court Evangelical Church": ("Bridgend", "nearby"),
+    "Bryntirion & Laleston Community Centre": ("Bryntirion, Bridgend", "nearby"), "St John Ambulance Hall": ("Bridgend", "nearby"),
+    "Wesley Church Centre Tondu": ("Tondu", "nearby"), "Halo Ogmore Valley Life Centre": ("Ogmore Vale", "nearby"),
+    "Instrumentally Sound Music Academy": ("Bridgend", "nearby"), "Ysgol Dolau Primary": ("Llanharan", "nearby"),
+    "Brackla Community Council": ("Brackla, Bridgend", "nearby"), "Brackla Tabernacle": ("Brackla, Bridgend", "nearby"),
+    "Vale Cricket Club": ("Bridgend area", "nearby"), "Deaf & Social Club": ("Bridgend", "nearby"),
+    "Jump Jam Trampoline Park": ("Bridgend", "nearby"), "Sgiliau Play Centre, Carmarthen": ("Carmarthen", "nearby"),
 }
 
 def months(txt):
@@ -132,7 +158,7 @@ def t12(hm):
 def slug(s):
     return re.sub(r"[^a-z0-9]+", "", s.lower())[:22]
 
-def main(tsv, page):
+def main(tsv, page, prefix="hp-", stem=""):
     rows = list(csv.DictReader(open(tsv), delimiter="\t"))
     src_page = open(page, encoding="utf-8").read()
     report = {"covered": [], "excluded": [], "added": []}
@@ -220,7 +246,7 @@ def main(tsv, page):
             desc += " Happity lists the session as 9am to 12pm with an age range of 6 to 7 months, which looks like a listing error, so check the class times with Tiny Toes."
         cat = "baby" if (ageTags == ["baby"] or bump) else "clubs"
         scene = "library" if "Library" in venue else ("swim" if re.search(r"swim", cls, re.I) else ("baby" if cat == "baby" else "play"))
-        rec = {"id": "hp-" + str(len(out)+1).zfill(3) + "-" + slug(prov)[:12] + slug(cls)[:10], "t": title, "cat": cat, "scene": scene,
+        rec = {"id": prefix + str(len(out)+1).zfill(3) + "-" + slug(prov)[:12] + slug(cls)[:10], "t": title, "cat": cat, "scene": scene,
                "area": area, "areaLabel": area_label, "days": days, "span": span, "time": time,
                "venue": f"{venue}, {area_label} ({r0['pc']})", "cost": cost, "ages": ages, "ageTags": ageTags,
                "weekly": not bool(sel), "indoor": "in", "desc": desc, "src": BASE + r0["schedule"], "added": ADDED}
@@ -231,11 +257,11 @@ def main(tsv, page):
 
     ids = [o["id"] for o in out]
     assert len(ids) == len(set(ids)), "duplicate ids"
-    json.dump(out, open("new_events.json", "w"), ensure_ascii=False, indent=0)
-    with open("report.txt", "w") as f:
+    json.dump(out, open(stem + "new_events.json", "w"), ensure_ascii=False, indent=0)
+    with open(stem + "report.txt", "w") as f:
         for k in ("added", "covered", "excluded"):
             f.write(f"== {k} ({len(report[k])})\n" + "\n".join(report[k]) + "\n")
     print({k: len(v) for k, v in report.items()}, "records", len(out))
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2])
+    main(*sys.argv[1:5])

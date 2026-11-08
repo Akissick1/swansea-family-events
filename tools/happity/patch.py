@@ -19,19 +19,12 @@ def rep(a, b, optional=False):
 # 1. Category label now covers classes too
 rep('clubs:{label:"Clubs & drop-ins",short:"Clubs"}', 'clubs:{label:"Clubs & classes",short:"Clubs"}', optional=True)
 
-# 2. Weekly under-5 sessions stay out of the date rows (like the baby sessions) and live in
-#    "With a baby", "Little ones", "Weekend clubs and regulars", the calendar, search and filters.
-OLD = '    if(!babyFocus) pool = pool.filter(function(e){ return e.cat!=="baby"; });\n'
-NEW = ('    function isTot(e){ return e.weekly && e.cat==="clubs" && e.ageTags.length>0 &&\n'
-       '      e.ageTags.every(function(a){ return a==="baby"||a==="u5"; }); }\n'
-       '    var totFocus = babyFocus || state.age==="u5" || Object.keys(state.cats).every(function(k){ return k==="clubs" ? state.cats[k] : !state.cats[k]; });\n'
-       '    if(!babyFocus) pool = pool.filter(function(e){ return e.cat!=="baby"; });\n'
-       '    if(!totFocus) pool = pool.filter(function(e){ return !isTot(e); });\n')
-rep(OLD, NEW, optional=True)
+# 2. (7 Nov 2026) Toddler groups now show in the date rows, so there is no filter to add.
+#    Make sure nobody re-adds it by accident.
+if "function isTot(" in s:
+    sys.exit("page still has the old isTot filter: Ashley asked for toddler groups in the date rows")
 rep('{t:"Weekend clubs and regulars",s:"Same time most weeks",\n',
     '{t:"Weekend clubs and regulars",s:"Same time most weeks",all:true,\n', optional=True)
-rep('{t:"Little ones",s:"Where the organiser says under 5s are welcome",f:',
-    '{t:"Little ones",s:"Toddler groups, classes and events for under 5s",all:true,f:', optional=True)
 
 # 3. Events
 anchor = '  var EVENTS = [\n'
