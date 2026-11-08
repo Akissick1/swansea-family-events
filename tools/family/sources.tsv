@@ -1,0 +1,86 @@
+id	schedule	name	url
+1	MON	museum.wales	https://museum.wales/swansea/whatson/
+2	MON	plantasiaswansea.co.uk	https://www.plantasiaswansea.co.uk/whats-on/
+3	MON	oystermouthcastle.org.uk	https://oystermouthcastle.org.uk/whats-on
+4	MON	margamcountrypark.co.uk	https://www.margamcountrypark.co.uk/whats-on/
+5	MON	wwt.org.uk	https://www.wwt.org.uk/wetland-centres/llanelli/whats-on/
+6	MON	nationaltrust.org.uk	https://www.nationaltrust.org.uk/visit/wales/rhosili-and-south-gower-coast/events
+7	EVERY	whatsoninswansea.com	https://www.whatsoninswansea.com/events/
+8	EVERY	visitswanseabay.com	https://www.visitswanseabay.com/whats-on/
+9	EVERY	npt.gov.uk	https://www.npt.gov.uk/culture-and-tourism/whats-on-in-npt/
+10	MON	mumbles-pier.co.uk	https://mumbles-pier.co.uk/whats-on
+11	MON	theatrausirgar.co.uk	https://www.theatrausirgar.co.uk/en/whats-on/
+12	MON	welshwildlife.org	https://www.welshwildlife.org/events
+13	EVERY	swanseabaynews.com	https://swanseabaynews.com/category/news/in-your-area/swansea/
+14	MON	ospreysrugby.com	https://www.ospreysrugby.com/
+14a	MON	botanicgarden.wales	https://botanicgarden.wales/visit/whats-on/
+14b	EVERY	Eventbrite browse pages	https://www.eventbrite.co.uk/b/united-kingdom--swansea/family-and-education/
+14c	MON	events.dobbies.com	https://events.dobbies.com/events-by-venue/?v=49
+14d	MON	pembreycountrypark.wales	https://www.pembreycountrypark.wales/whats-on/whats-on/
+14e	MON	gwili-railway.co.uk	https://gwili-railway.co.uk/train-rides/
+14f	MON	aberglasney.org	https://aberglasney.org/events-exhibitions/
+14g	MON	woodrowscoffee.co.uk	https://www.woodrowscoffee.co.uk/tickets
+15	THU	parkrun.org.uk	https://www.parkrun.org.uk/swanseaprom-juniors/
+16	THU	parkrun.org.uk	https://www.parkrun.org.uk/swanseabay/
+17	THU	visitswanseabay.com	https://www.visitswanseabay.com/swansea-fireworks-display/
+18	THU	gowerheritagecentre.co.uk	https://www.gowerheritagecentre.co.uk/events/
+19	THU	tickets.visitswanseabay.com	https://tickets.visitswanseabay.com/swanseagrandtheatre/website/EventList.aspx
+20	THU	swanseatheatre.co.uk	https://www.swanseatheatre.co.uk/shows
+21	THU	glynnvivian.co.uk	https://www.glynnvivian.co.uk/
+22	THU	taliesinartscentre.co.uk	https://www.taliesinartscentre.co.uk/en/all-events
+23	THU	penllergare.org	https://penllergare.org/news-events/
+24	THU	orielscience.co.uk	https://www.orielscience.co.uk/city-centre-venue
+25	THU	dylanthomasbirthplace.com	https://www.dylanthomasbirthplace.com/events/
+26	THU	letsgowiththechildren.co.uk	https://letsgowiththechildren.co.uk/events/swansea/
+27	THU	westwalesfamilylife.co.uk	https://www.westwalesfamilylife.co.uk/whats-on-in-swansea/
+28	THU	clynefarm.com	https://clynefarm.com/whats-on-in-swansea-in-2026/
+29	THU	screamtime.co.uk	https://screamtime.co.uk/family/
+30	THU	swansea.ac.uk	https://www.swansea.ac.uk/swansea-science-festival/
+31	THU	swanseaminster.org.uk	https://swanseaminster.org.uk/
+32	THU	cadw.gov.wales	https://cadw.gov.wales/visit/whats-on/find-a-cadw-event
+33	THU	visitwales.com	https://www.visitwales.com/things-do/events
+34	THU	ents24.com	https://www.ents24.com/swansea-events/singleton-park
+35	THU	songkick.com	https://www.songkick.com/venues/16114-singleton-park
+36	THU	swansea-arena.co.uk	https://www.swansea-arena.co.uk/whats-on
+37	THU	school-term-dates.co.uk	https://school-term-dates.co.uk/wales/swansea-school-term-dates/
+37a	THU	pontardaweartscentre.com	https://pontardaweartscentre.com/
+37b	THU	freedom-leisure.co.uk	https://www.freedom-leisure.co.uk/news/swansea-school-holidays/
+37c	THU	showcaveschristmas.co.uk	https://showcaveschristmas.co.uk/before-you-visit.php
+37d	THU	folly-farm.co.uk	https://www.folly-farm.co.uk/plan-your-day/whats-on/
+37e	THU	bunkersuk.com	https://bunkersuk.com/location/swansea/
+37f	THU	zipworld.co.uk	https://www.zipworld.co.uk/monsters-of-the-mine
+37g	THU	penllergare.org	https://penllergare.org/whatson/
+37h	THU	visitbridgend.co.uk	https://www.visitbridgend.co.uk/events/
+38	MONTHLY	swansea.gov.uk	https://www.swansea.gov.uk/whatson
+39	MONTHLY	swansea.gov.uk	https://www.swansea.gov.uk/article/23504/COAST---Children-and-young-people-events-calendar
+40	MONTHLY	swanseamuseum.co.uk	http://www.swanseamuseum.co.uk/whats-on/
+41	MONTHLY	swanseacommunityfarm.org.uk	https://www.swanseacommunityfarm.org.uk/
+42	MONTHLY	thelcswansea.com	https://www.thelcswansea.com/
+43	MONTHLY	missiongallery.co.uk	https://www.missiongallery.co.uk/
+44	MONTHLY	nationaltrust.org.uk	https://www.nationaltrust.org.uk/visit/wales/aberdulais/events
+45	MONTHLY	discovercarmarthenshire.com	https://www.discovercarmarthenshire.com/whats-on/
+47	MONTHLY	skiddle.com	https://www.skiddle.com/whats-on/Swansea/
+48	MONTHLY	ticketsource.co.uk	https://www.ticketsource.co.uk/whats-on/swansea
+49	MONTHLY	gwynhall.com	https://gwynhall.com/whats-on/
+T1	EVERY	circus-zyair.co.uk	https://circus-zyair.co.uk/
+T2	EVERY	studtsfunfairs.co.uk	https://www.studtsfunfairs.co.uk/events/index.html
+T3	EVERY	swanseawinterwonderland.co.uk	https://swanseawinterwonderland.co.uk/opening-times/
+T4	EVERY	visitswanseabay.com	https://www.visitswanseabay.com/spooks/
+T5	EVERY	visitswanseabay.com	https://www.visitswanseabay.com/swansea-christmas/christmas-parade/
+T6	EVERY	visitswanseabay.com	https://www.visitswanseabay.com/swansea-prom/swansea-bay-rider/
+T7	EVERY	swanseacitycentre.com	https://www.swanseacitycentre.com/events/christmasmarket
+T8	EVERY	circusvegas.co.uk	https://www.circusvegas.co.uk/
+T9	EVERY	circus-starr.org.uk	https://www.circus-starr.org.uk/events/map/
+T10	EVERY	walesnationalairshow.com	https://www.walesnationalairshow.com/
+H1	MONTHLY	Happity Swansea, all 7 weekday pages	https://www.happity.co.uk/swansea/baby-toddler-classes
+H2	MONTHLY	Happity Neath, all 7 weekday pages	https://www.happity.co.uk/neath/baby-toddler-classes
+H3	MONTHLY	Happity Port Talbot, all 7 weekday pages	https://www.happity.co.uk/port-talbot/baby-toddler-classes
+H4	MONTHLY	Happity Llanelli, all 7 weekday pages	https://www.happity.co.uk/llanelli/baby-toddler-classes
+B1	EVERY	Libraries Wales events (rhyme times)	https://llyfrgelloedd.cymru/
+B2	EVERY	NPT Bookstart song and rhyme	https://www.npt.gov.uk/libraries/learning-and-wellbeing/babies-and-toddlers/
+B3	MON	Baby Sensory Swansea East timetable	https://www.babysensory.com/swanseaeast/timetable
+B4	MON	Baby Sensory Swansea West timetable	https://www.babysensory.com/swanseawest/timetable
+L1	EVERY	Freedom Leisure Swansea timetables, 6 centres (today only)	https://www.freedom-leisure.co.uk/centres/morriston-leisure-centre/timetables/
+L2	EVERY	Wales National Pool Swansea timetable	https://www.swanseabaysportspark.wales/opening-hours/
+L3	MON	Celtic Leisure pool programmes (Aberavon, Neath)	https://celticleisure.org/swimming/
+L4	MONTHLY	Actif Carmarthenshire timetables (Llanelli)	https://actif.wales/timetables/
