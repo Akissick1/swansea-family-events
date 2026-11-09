@@ -656,6 +656,57 @@ footer p{margin:0 0 7px;max-width:64ch}
 .modesw a i{width:8px;height:8px;border-radius:50%;background:currentColor;opacity:.7}
 .modehint{color:var(--ink-3);font-size:13px}
 @media (max-width:520px){.modehint{display:none}.modesw{width:100%}.modesw a{flex:1;justify-content:center}}
+
+/* ---------- SWIPE-HINTS v1: make sideways scrolling and the tabs obvious ---------- */
+.tab .ti{display:none;width:20px;height:20px;flex:none}
+@media (max-width:620px){
+  .top .segmented{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;width:100%;border-radius:14px;padding:4px;gap:3px}
+  .top .tab{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:7px 2px 6px;
+    border-radius:10px;font-size:11.5px;line-height:1.15;white-space:normal;text-align:center;min-height:52px}
+  .top .tab .ti{display:block}
+  .top .tab[aria-selected="true"]{color:var(--accent)}
+  .top.stuck .tab{min-height:44px;padding-block:5px 4px}
+  .top.stuck .tab .ti{width:17px;height:17px}
+}
+.swipechip{margin-left:auto;display:none;align-items:center;gap:6px;border:1px solid var(--accent);background:var(--accent-soft);
+  color:var(--accent);font:inherit;font-size:12.5px;font-weight:700;border-radius:999px;padding:4px 11px;cursor:pointer;white-space:nowrap;align-self:center}
+.swipechip i{font-style:normal;font-size:16px;line-height:1;display:inline-block;animation:jnudge 1.4s ease-in-out infinite}
+.rail-wrap.sw-can .swipechip{display:inline-flex}
+.rail-wrap.sw-can.sw-end .swipechip{opacity:.55}
+.rail-wrap.sw-end .swipechip i{animation:none}
+.rail-head .swipechip span{color:inherit;font-size:inherit;font-weight:inherit;white-space:nowrap}
+.swipechip .sw-m{display:none}
+@media (hover:hover) and (pointer:fine){.swipechip .sw-t{display:none}.swipechip .sw-m{display:inline}}
+.swfade{position:absolute;right:0;width:56px;pointer-events:none;z-index:25;display:none;
+  background:linear-gradient(90deg,rgba(255,255,255,0),var(--ground) 82%)}
+.today-band .swfade{background:linear-gradient(90deg,rgba(255,255,255,0),var(--accent-soft) 82%)}
+.swnext,.swprev{position:absolute;z-index:31;width:42px;height:42px;border-radius:50%;border:1px solid var(--line-2);
+  background:var(--surface);color:var(--ink);font-size:24px;line-height:1;cursor:pointer;display:none;place-items:center;
+  box-shadow:0 4px 14px rgba(25,22,18,.25);padding:0 0 3px}
+.swnext{right:6px}.swprev{left:6px}
+.rail-wrap.sw-can:not(.sw-end) .swfade{display:block}
+.rail-wrap.sw-can:not(.sw-end) .swnext{display:grid;animation:swpulse 2.2s ease-in-out 3}
+.rail-wrap.sw-can:not(.sw-start) .swprev{display:grid}
+@keyframes swpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+.swbar{height:4px;border-radius:2px;background:var(--surface-3);margin:6px 0 4px;overflow:hidden;display:none;position:relative;z-index:2}
+.swbar i{display:block;height:100%;width:30%;border-radius:2px;background:var(--accent);transition:margin-left .12s linear}
+.rail-wrap.sw-can .swbar{display:block}
+.today-band .swbar{margin-bottom:12px}
+@media (hover:hover) and (min-width:760px){
+  .swnext,.swprev,.swfade{display:none!important}
+  .rail-wrap.sw-can:not(.sw-start) .arrow.l,.rail-wrap.sw-can:not(.sw-end) .arrow.r{display:flex}
+}
+.swcoach{position:absolute;z-index:40;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px;
+  background:rgba(25,22,18,.9);color:#fff;border-radius:999px;padding:10px 16px 10px 12px;font-size:14px;font-weight:700;
+  box-shadow:0 10px 30px rgba(25,22,18,.35);white-space:nowrap;cursor:pointer;border:0;font-family:inherit;
+  animation:swcoachin .35s ease both}
+.swcoach .sw-m{display:none}
+@media (hover:hover) and (pointer:fine){.swcoach .sw-t{display:none}.swcoach .sw-m{display:inline}}
+.swcoach svg{width:30px;height:30px;flex:none;animation:swhand 1.6s ease-in-out infinite}
+.swcoach.out{opacity:0;transition:opacity .3s;pointer-events:none}
+@keyframes swhand{0%,100%{transform:translateX(8px)}50%{transform:translateX(-8px)}}
+@keyframes swcoachin{from{opacity:0;transform:translate(-50%,8px)}to{opacity:1;transform:translate(-50%,0)}}
+@media (prefers-reduced-motion:reduce){.swipechip i,.swcoach svg,.rail-wrap .swnext{animation:none!important}}
 </style>
 <script>
 !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
@@ -695,10 +746,10 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
 <header class="top gut">
   <div class="brand"><img class="logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiIHdpZHRoPSIxMDI0IiBoZWlnaHQ9IjEwMjQiPjxyZWN0IHdpZHRoPSIxMDI0IiBoZWlnaHQ9IjEwMjQiIGZpbGw9IiNGOEY2RjIiLz48Y2lyY2xlIGN4PSI1MTIiIGN5PSI1NDAiIHI9IjQ0MCIgZmlsbD0iI0ZCRTNENiIvPjxkZWZzPjxmaWx0ZXIgaWQ9InNoIiB4PSItMzAlIiB5PSItMzAlIiB3aWR0aD0iMTYwJSIgaGVpZ2h0PSIxNjAlIj48ZmVEcm9wU2hhZG93IGR4PSIwIiBkeT0iMTgiIHN0ZERldmlhdGlvbj0iMjIiIGZsb29kLWNvbG9yPSIjMTkxNjEyIiBmbG9vZC1vcGFjaXR5PSIuMjgiLz48L2ZpbHRlcj48bGluZWFyR3JhZGllbnQgaWQ9Imh3IiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNEExRTVBIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMUMwRDI2Ii8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9InNjIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMEU1RTYzIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDgyMDJCIi8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9InNreUMiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMzMwIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMyNDNFNjYiLz48c3RvcCBvZmZzZXQ9Ii42IiBzdG9wLWNvbG9yPSIjN0U2QTgzIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRThBNDVGIi8+PC9saW5lYXJHcmFkaWVudD48cmFkaWFsR3JhZGllbnQgaWQ9Imdsb3dDIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNGRkU3QjgiIHN0b3Atb3BhY2l0eT0iLjk1Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRkZFN0I4IiBzdG9wLW9wYWNpdHk9IjAiLz48L3JhZGlhbEdyYWRpZW50PjxjbGlwUGF0aCBpZD0iY2FyZCI+PHJlY3Qgd2lkdGg9IjM2MCIgaGVpZ2h0PSI1NDAiIHJ4PSIzNCIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUxMiA1NDApIHNjYWxlKDEuMTYpIHRyYW5zbGF0ZSgtNTEyIC01NDApIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzNzIgNTU2KSByb3RhdGUoLTE1KSB0cmFuc2xhdGUoLTE4MCAtMjcwKSIgZmlsdGVyPSJ1cmwoI3NoKSI+PGcgY2xpcC1wYXRoPSJ1cmwoI2NhcmQpIj48cmVjdCB3aWR0aD0iMzYwIiBoZWlnaHQ9IjU0MCIgZmlsbD0idXJsKCNodykiLz48Y2lyY2xlIGN4PSIyNTAiIGN5PSIxMjAiIHI9IjU2IiBmaWxsPSIjRUZFNkM4Ii8+PGNpcmNsZSBjeD0iMjI4IiBjeT0iMTA4IiByPSI1NiIgZmlsbD0iIzNBMTc0OCIvPjxwYXRoIGQ9Ik0wIDU0MFY0MDBjNjAtMzAgMTEwLTI0IDE2MC01MCA1MC0yNiAxMjAtMjQgMjAwLTR2MTk0eiIgZmlsbD0iIzEyMDgxQSIvPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIzNjAiIGhlaWdodD0iMjYiIGZpbGw9IiNCNjYyQ0UiLz48L2c+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY1MiA1NTYpIHJvdGF0ZSgxNSkgdHJhbnNsYXRlKC0xODAgLTI3MCkiIGZpbHRlcj0idXJsKCNzaCkiPjxnIGNsaXAtcGF0aD0idXJsKCNjYXJkKSI+PHJlY3Qgd2lkdGg9IjM2MCIgaGVpZ2h0PSI1NDAiIGZpbGw9InVybCgjc2MpIi8+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNDNDOUEwIiBzdHJva2Utd2lkdGg9IjEyIiBvcGFjaXR5PSIuOCI+PGVsbGlwc2UgY3g9IjE4MCIgY3k9IjIzMCIgcng9IjEzMCIgcnk9IjQ4Ii8+PGVsbGlwc2UgY3g9IjE4MCIgY3k9IjIzMCIgcng9IjEzMCIgcnk9IjQ4IiB0cmFuc2Zvcm09InJvdGF0ZSg2MCAxODAgMjMwKSIvPjxlbGxpcHNlIGN4PSIxODAiIGN5PSIyMzAiIHJ4PSIxMzAiIHJ5PSI0OCIgdHJhbnNmb3JtPSJyb3RhdGUoLTYwIDE4MCAyMzApIi8+PC9nPjxjaXJjbGUgY3g9IjE4MCIgY3k9IjIzMCIgcj0iMjYiIGZpbGw9IiNGMkIzM0QiLz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMzYwIiBoZWlnaHQ9IjI2IiBmaWxsPSIjM0ZBOUI4Ii8+PC9nPjwvZz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MTIgNTIwKSByb3RhdGUoMCkgdHJhbnNsYXRlKC0xODAgLTI3MCkiIGZpbHRlcj0idXJsKCNzaCkiPjxnIGNsaXAtcGF0aD0idXJsKCNjYXJkKSI+PHJlY3Qgd2lkdGg9IjM2MCIgaGVpZ2h0PSI1NDAiIGZpbGw9InVybCgjc2t5QykiLz48Y2lyY2xlIGN4PSIxNTAiIGN5PSIzMzAiIHI9IjEyMCIgZmlsbD0idXJsKCNnbG93QykiIG9wYWNpdHk9Ii42Ii8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMzMwIiByPSI1OCIgZmlsbD0iI0ZGRTBBQyIvPjxyZWN0IHk9IjMyNiIgd2lkdGg9IjM2MCIgaGVpZ2h0PSIyMTQiIGZpbGw9IiMxRjNENUUiLz48cmVjdCB5PSIzMjYiIHdpZHRoPSIzNjAiIGhlaWdodD0iOSIgZmlsbD0iIzNGNkE5MyIvPjxyZWN0IHg9IjEwMCIgeT0iMzYyIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwIiByeD0iNSIgZmlsbD0iI0Y3QzA3QyIgb3BhY2l0eT0iLjg1Ii8+PHJlY3QgeD0iMTE4IiB5PSIzOTQiIHdpZHRoPSI2NCIgaGVpZ2h0PSIxMCIgcng9IjUiIGZpbGw9IiNGN0MwN0MiIG9wYWNpdHk9Ii43Ii8+PHBhdGggZD0iTTIxMCAzMzIgQzI0MCAzMDggMjgwIDMwNCAzMjAgMzA2IEMzNDAgMzA4IDM1MiAzMTggMzYwIDMzMiBaIiBmaWxsPSIjMEUxQTI4Ii8+PHBhdGggZD0iTTI1Mi4wIDMxNCBMMjYwLjAgMjAyLjAgSDI5Mi4wIEwzMDAuMCAzMTQgWiIgZmlsbD0iIzBFMUEyOCIvPjxyZWN0IHg9IjI1MS4yIiB5PSIxOTAuOCIgd2lkdGg9IjQ5LjYiIGhlaWdodD0iMTEuMjAwMDAwMDAwMDAwMDAxIiByeD0iMi40MDAwMDAwMDAwMDAwMDA0IiBmaWxsPSIjMEUxQTI4Ii8+PHJlY3QgeD0iMjYyLjQiIHk9IjE1NC4wIiB3aWR0aD0iMjcuMjAwMDAwMDAwMDAwMDAzIiBoZWlnaHQ9IjM4LjQwMDAwMDAwMDAwMDAwNiIgZmlsbD0iIzBFMUEyOCIvPjxyZWN0IHg9IjI2OC44IiB5PSIxNjAuMzk5OTk5OTk5OTk5OTgiIHdpZHRoPSIxNC40IiBoZWlnaHQ9IjI0LjAiIHJ4PSIyLjQwMDAwMDAwMDAwMDAwMDQiIGZpbGw9IiNGRkQyN0EiLz48cGF0aCBkPSJNMjU3LjYgMTU1LjYgTDI3NiAxMjguMzk5OTk5OTk5OTk5OTggTDI5NC40IDE1NS42IFoiIGZpbGw9IiMwRTFBMjgiLz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMzYwIiBoZWlnaHQ9IjI2IiBmaWxsPSIjRkY2QTNEIi8+PC9nPjwvZz48L2c+PC9zdmc+" alt="" width="34" height="34"><span class="mark">Swansea</span><span class="sub">Grown-Ups</span></div>
   <div class="segmented" role="tablist" aria-label="Views">
-    <button class="tab" role="tab" aria-selected="true" data-view="browse">Browse</button>
-    <button class="tab" role="tab" aria-selected="false" data-view="cal">Calendar</button>
-    <button class="tab" role="tab" aria-selected="false" data-view="post">Post an event</button>
-    <button class="tab" role="tab" aria-selected="false" data-view="src">Sources</button>
+    <button class="tab" role="tab" aria-selected="true" data-view="browse"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" opacity=".35"/><rect x="3" y="4" width="7" height="16" rx="1.5"/><rect x="14" y="4" width="7" height="16" rx="1.5"/></svg><span>Browse</span></button>
+    <button class="tab" role="tab" aria-selected="false" data-view="cal"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span>Calendar</span></button>
+    <button class="tab" role="tab" aria-selected="false" data-view="post"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg><span>Post an event</span></button>
+    <button class="tab" role="tab" aria-selected="false" data-view="src"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg><span>Sources</span></button>
   </div>
   <div class="topmeta" id="topMeta"></div>
 </header>
@@ -3771,6 +3822,116 @@ posthog.init("phc_zJ3C4TbprQaw5u4h9QrUJFhmSC84iF3vTMtxHbEtWXEk",{api_host:"https
   }
   openFromLink();
   window.addEventListener("hashchange", openFromLink);
+})();
+
+/* SWIPE-HINTS v1: hints that rows slide sideways, added to every scrolling row */
+(function(){
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function getKey(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
+  function setKey(k,v){ try { localStorage.setItem(k,v); } catch(e){} }
+  var coachDone = getKey("swipeCoachDone") === "1", coachEl = null, peeked = false;
+  function finishCoach(){
+    if(!coachDone){ coachDone = true; setKey("swipeCoachDone","1"); }
+    if(coachEl){ var c = coachEl; coachEl = null; c.classList.add("out"); setTimeout(function(){ if(c.parentNode) c.parentNode.removeChild(c); }, 350); }
+  }
+  function step(tr, dir){ tr.scrollBy({left: dir * tr.clientWidth * 0.82, behavior: "smooth"}); }
+  function setup(wrap){
+    var tr = wrap.querySelector(".track");
+    if(!tr || wrap.getAttribute("data-sw") === "1") return;
+    wrap.setAttribute("data-sw","1");
+    var head = wrap.querySelector(".rail-head");
+    if(head){
+      var chip = document.createElement("button");
+      chip.type = "button"; chip.className = "swipechip";
+      chip.setAttribute("aria-label","Scroll this row for more");
+      chip.innerHTML = '<span class="sw-t">Swipe for more</span><span class="sw-m">Scroll for more</span> <i aria-hidden="true">&#8250;</i>';
+      chip.addEventListener("click", function(){ step(tr, 1); });
+      head.appendChild(chip);
+    }
+    var fade = document.createElement("span"); fade.className = "swfade"; fade.setAttribute("aria-hidden","true");
+    var nx = document.createElement("button"); nx.type = "button"; nx.className = "swnext"; nx.setAttribute("aria-label","See more in this row"); nx.innerHTML = "&#8250;";
+    var pv = document.createElement("button"); pv.type = "button"; pv.className = "swprev"; pv.setAttribute("aria-label","Back along this row"); pv.innerHTML = "&#8249;";
+    nx.addEventListener("click", function(){ step(tr, 1); });
+    pv.addEventListener("click", function(){ step(tr, -1); });
+    wrap.appendChild(fade); wrap.appendChild(nx); wrap.appendChild(pv);
+    var bar = document.createElement("div"); bar.className = "swbar"; bar.setAttribute("aria-hidden","true"); bar.innerHTML = "<i></i>";
+    tr.parentNode.insertBefore(bar, tr.nextSibling);
+    function place(){
+      var c = tr.querySelector(".art") || tr.firstElementChild; if(!c) return;
+      var wr = wrap.getBoundingClientRect(), cr = c.getBoundingClientRect();
+      if(!cr.height) return;
+      var top = cr.top - wr.top;
+      fade.style.top = top + "px"; fade.style.height = cr.height + "px";
+      nx.style.top = pv.style.top = (top + cr.height/2 - 21) + "px";
+    }
+    function upd(){
+      var max = tr.scrollWidth - tr.clientWidth, can = max > 8;
+      wrap.classList.toggle("sw-can", can);
+      wrap.classList.toggle("sw-start", tr.scrollLeft <= 4);
+      wrap.classList.toggle("sw-end", !can || tr.scrollLeft >= max - 4);
+      var vis = tr.scrollWidth ? tr.clientWidth / tr.scrollWidth : 1, w = Math.max(10, vis*100);
+      bar.firstChild.style.width = w + "%";
+      bar.firstChild.style.marginLeft = (max > 0 ? (tr.scrollLeft/max) * (100 - w) : 0) + "%";
+    }
+    var userTouched = false;
+    ["touchstart","pointerdown","wheel"].forEach(function(t){ tr.addEventListener(t, function(){ userTouched = true; }, {passive:true}); });
+    tr.addEventListener("scroll", function(){ upd(); if(userTouched && tr.scrollLeft > 30) finishCoach(); }, {passive:true});
+    if(window.ResizeObserver){ new ResizeObserver(function(){ place(); upd(); }).observe(wrap); }
+    window.addEventListener("resize", function(){ place(); upd(); });
+    place(); upd();
+    wrap._swPlace = place; wrap._swUpd = upd;
+  }
+  function firstRail(){
+    var all = document.querySelectorAll("#rails .rail-wrap.sw-can");
+    for(var i=0;i<all.length;i++){ if(all[i].getBoundingClientRect().height) return all[i]; }
+    return null;
+  }
+  var watching = null;
+  function coachAndPeek(){
+    var wrap = firstRail(); if(!wrap || watching === wrap) return;
+    watching = wrap;
+    var tr = wrap.querySelector(".track");
+    function showCoach(){
+      if(coachDone || coachEl) return;
+      coachEl = document.createElement("button");
+      coachEl.type = "button"; coachEl.className = "swcoach";
+      coachEl.innerHTML = '<svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17V7.5a2 2 0 0 1 4 0V15"/><path d="M16 14.5v-2a2 2 0 0 1 4 0V16"/><path d="M20 15a2 2 0 0 1 4 0v4.5c0 4.5-3 8-7.5 8h-1c-3 0-4.6-1.4-6.3-3.6l-3-4a2 2 0 0 1 3.1-2.5L12 20"/><path d="M3 6h6M3 6l2.5-2.5M3 6l2.5 2.5M29 6h-6M29 6l-2.5-2.5M29 6l-2.5 2.5"/></svg>'+
+        '<span class="sw-t">Swipe sideways to see more</span><span class="sw-m">Scroll sideways or use the arrows</span>';
+      coachEl.addEventListener("click", function(){ step(tr, 1); finishCoach(); });
+      var c = tr.querySelector(".art") || tr.firstElementChild;
+      var wr = wrap.getBoundingClientRect(), cr = c ? c.getBoundingClientRect() : wr;
+      coachEl.style.top = Math.max(0, (cr.top - wr.top) + cr.height*0.55) + "px";
+      wrap.appendChild(coachEl);
+      var mine = coachEl;
+      setTimeout(function(){ if(coachEl === mine){ coachEl = null; mine.classList.add("out"); setTimeout(function(){ if(mine.parentNode) mine.parentNode.removeChild(mine); }, 350); } }, 8000);
+    }
+    function go(){
+      showCoach();
+      if(peeked || reduce) return;
+      peeked = true;
+      setTimeout(function(){
+        tr.scrollBy({left: 110, behavior: "smooth"});
+        setTimeout(function(){ tr.scrollBy({left: -110, behavior: "smooth"}); }, 750);
+      }, 600);
+    }
+    if("IntersectionObserver" in window){
+      var io = new IntersectionObserver(function(en){
+        if(!en[0].isIntersecting) return; io.disconnect(); go();
+      }, {threshold: 0.6});
+      io.observe(tr);
+    } else setTimeout(go, 1200);
+  }
+  var queued = false;
+  function scan(){
+    queued = false;
+    document.querySelectorAll(".rail-wrap").forEach(setup);
+    document.querySelectorAll(".rail-wrap[data-sw]").forEach(function(w){ if(w._swPlace){ w._swPlace(); w._swUpd(); } });
+    coachAndPeek();
+  }
+  function queue(){ if(!queued){ queued = true; requestAnimationFrame(scan); } }
+  new MutationObserver(queue).observe(document.body, {childList: true, subtree: true});
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(queue);
+  queue();
 })();
 </script>
 <!-- Weather (website only). Added by tools/build_site.py. Forecasts from Open-Meteo (CC BY 4.0),

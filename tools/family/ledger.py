@@ -98,6 +98,8 @@ def page_checks(page, prev):
     if len(ids) != len(set(ids)):
         dup = sorted({i for i in ids if ids.count(i) > 1})
         out.append(f"duplicate event ids: {', '.join(dup[:8])}")
+    if "SWIPE-HINTS v1" not in s:
+        out.append("the swipe hints (row chips, next buttons, icon tabs) are missing: re-run tools/swipe/patch_swipe.py on the page")
     if "function isTot(" in s:
         out.append("the old toddler filter is back in the page (Ashley asked for toddler groups in the date rows)")
     bad = re.findall(r'"src":\s*"(?!https?://)([^"]*)"', s)
