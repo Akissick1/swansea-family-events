@@ -73,4 +73,5 @@ These 11 sources are first in the queue for the next run (tools/family/retry.tsv
 
 ## Self-check
 - ADDED: 72
-- PUSHED and DEPLOYED: see the run's final message.
+- PUSHED: yes, origin main = 1d0fe35 (git ls-remote matched)
+- DEPLOYED: yes, Netlify deploy 6af165cc ready at commit 1d0fe35
