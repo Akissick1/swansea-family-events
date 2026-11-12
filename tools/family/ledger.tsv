@@ -1,39 +1,54 @@
 id	schedule	name	url	status	page_total	read_count	note
-1	MON	museum.wales	https://museum.wales/swansea/whatson/	full	22	22	single page, all future events; no new family events; Little Mice not listed; ages filled from listing
-2	MON	plantasiaswansea.co.uk	https://www.plantasiaswansea.co.uk/whats-on/	full		4	only Dinomania 28 Nov dated, unchanged
-3	MON	oystermouthcastle.org.uk	https://oystermouthcastle.org.uk/whats-on	full		1	only past Spooky Castle 31 Oct; nothing dated ahead
-4	MON	margamcountrypark.co.uk	https://www.margamcountrypark.co.uk/whats-on/	full	13	13	2 pages; all family items already listed (some via npt.gov.uk ids santadeer2/3, elfws3)
-5	MON	wwt.org.uk	https://www.wwt.org.uk/wetland-centres/llanelli/whats-on/	full	7	7	events page; Christmas Fair gone (404); 4 new added; Load more button shown but list ends with Feb 2027
-6	MON	nationaltrust.org.uk	https://www.nationaltrust.org.uk/visit/wales/rhosili-and-south-gower-coast/events	full	0	0	no upcoming events at this place
-7	EVERY	whatsoninswansea.com	https://www.whatsoninswansea.com/events/	blocked		0	WebFetch permission request timed out; Firecrawl: all scraping engines failed. Not readable this run
-8	EVERY	visitswanseabay.com	https://www.visitswanseabay.com/whats-on/	partial		21	Partly readable (script-built). Featured, Christmas pages, community parades, half term, RSS, cultural venues, BBC NOW season page and 1 blog guide read; sitemap not read (WebFetch refused this run). 
-9	EVERY	npt.gov.uk	https://www.npt.gov.uk/culture-and-tourism/whats-on-in-npt/	partial	715	500	Pages 1 to 5 of 8 read in full (9 Nov 2026 to 31 Mar 2027); pages 6 to 8 (April 2027 on) not read. All children's candidates to end of Feb handled.
-10	MON	mumbles-pier.co.uk	https://mumbles-pier.co.uk/whats-on	full	6	6	WebFetch refused (permission not answered); read with Firecrawl. 4 already listed (chopsy gains 10 Dec), Doggy Grotto (for dogs) and Christmas Clay Night (6pm, £30, no age guidance) rejected. Babylove
-11	MON	theatrausirgar.co.uk	https://www.theatrausirgar.co.uk/en/whats-on/	partial		60	3 listing pages (60 items, 6 Nov to 6 Mar) read with Firecrawl; WebFetch refused. Added Robin Hood, The Mab, Dark Crystal PG. Little Women musical, TPF's Got Talent, Cory Band concert not opened (cred
-12	MON	welshwildlife.org	https://www.welshwildlife.org/events	full	5	5	all evening talks, AGMs or quiz, Brecon and Aberystwyth out of area; none family
-13	EVERY	swanseabaynews.com	https://swanseabaynews.com/category/news/in-your-area/swansea/	partial	563		Pages 1 to 3 read; 1 family event article followed (Phenomenal at the Patti). Article pages refuse WebFetch, read with Firecrawl
-14	MON	ospreysrugby.com	https://www.ospreysrugby.com/	full	4	4	Homepage and fixture list (through Dec only): new home game v Harlequins 12 Dec; Leinster 4 Dec and Scarlets 26 Dec unchanged. Defender camps page: No upcoming events.
-14a	MON	botanicgarden.wales	https://botanicgarden.wales/visit/whats-on/	partial		36	pages 1-3 read, page 4 404 (pagination shifts: page 2 said of 3, page 3 said of 4); Family category page read; detail pages not opened, Firecrawl budget
-14b	EVERY	Eventbrite browse pages	https://www.eventbrite.co.uk/b/united-kingdom--swansea/family-and-education/	partial		8	Read 7 of 9 browse pages plus Llanelli and Neath; children-and-youth redirected to family-and-education; holiday/halloween skipped (season past, budget). 4 /e/ pages opened: added Elf Walk and Mission
-14c	MON	events.dobbies.com	https://events.dobbies.com/events-by-venue/?v=49	partial	12	12	listing read; existing 4 still listed; event-detail pages not re-opened, Firecrawl budget
-14d	MON	pembreycountrypark.wales	https://www.pembreycountrypark.wales/whats-on/whats-on/	full	13	13	3 new, tubing page moved
-14e	MON	gwili-railway.co.uk	https://gwili-railway.co.uk/train-rides/	full	9	9	Santa Special and Festive Lights already listed; Murder Mystery adult
-14f	MON	aberglasney.org	https://aberglasney.org/events-exhibitions/	full	8	8	Winter Fair and Carol Service already listed; rest adult workshops, exhibition, retreat
-14g	MON	woodrowscoffee.co.uk	https://www.woodrowscoffee.co.uk/tickets	full	16	16	Tickets page via Firecrawl: all 6 U/PG Christmas films already listed, same dates. Others 12, 15, 18 or adult nights, or past.
-T1	EVERY	circus-zyair.co.uk	https://circus-zyair.co.uk/	full	8	8	Circus Zyair 2027 tour: Glasgow, Hop Farm, Milton Keynes, Nottingham, Southsea, Weston, Salisbury. No Swansea area date
-T2	EVERY	studtsfunfairs.co.uk	https://www.studtsfunfairs.co.uk/events/index.html	full	4	4	Winterland 19 Nov to 3 Jan unchanged; Upside Down House still no opening days; Mumbles Pier and Saundersfoot dates past
-T3	EVERY	swanseawinterwonderland.co.uk	https://swanseawinterwonderland.co.uk/opening-times/	full	1	1	Opening times match winterland26 exactly
-T4	EVERY	visitswanseabay.com	https://www.visitswanseabay.com/spooks/	full	0	0	Spooks in the City will return in 2027, no date
-T5	EVERY	visitswanseabay.com	https://www.visitswanseabay.com/swansea-christmas/christmas-parade/	full	1	1	Parade Sunday 22 November 5pm to about 6.30pm, matches xmasparade
-T6	EVERY	visitswanseabay.com	https://www.visitswanseabay.com/swansea-prom/swansea-bay-rider/	full	0	0	Land train closed for winter, back spring 2027
-T7	EVERY	swanseacitycentre.com	https://www.swanseacitycentre.com/events/christmasmarket	full	1	1	Page still shows 2025 dates (29 Nov to 22 Dec 2025): stale. 2026 market added from VSB event page instead
-T8	EVERY	circusvegas.co.uk	https://www.circusvegas.co.uk/	failed		0	DNS resolution failed for www.circusvegas.co.uk; WebFetch also refused
-T9	EVERY	circus-starr.org.uk	https://www.circus-starr.org.uk/events/map/	partial		20	Map view lists 20 tour dates 14 Jan to 7 Feb 2027 (England, Scotland, Llandudno); none near Swansea. Further dates may sit beyond the first view
-T10	EVERY	walesnationalairshow.com	https://www.walesnationalairshow.com/	full	0	0	Still shows 25 and 26 July 2026 (past); 2027 date not published
-B1	EVERY	Libraries Wales events (rhyme times)	https://llyfrgelloedd.cymru/	partial	6463	12	Libraries Wales events list loads by script (539 pages, 12 shown, pager is script only). All 3 existing src pages 404. Used Swansea Council per-library pages instead: Penlan, St Thomas, Fforestfach, P
-B2	EVERY	NPT Bookstart song and rhyme	https://www.npt.gov.uk/libraries/learning-and-wellbeing/babies-and-toddlers/	full	8	8	Bookstart song and rhyme list unchanged; read with Firecrawl (WebFetch refused)
-B3	MON	Baby Sensory Swansea East timetable	https://www.babysensory.com/swanseaeast/timetable	full	7	7	Swansea East: 7 class rows, autumn/winter term only. Spring 2027 term not published. Term price now £43.75.
-B4	MON	Baby Sensory Swansea West timetable	https://www.babysensory.com/swanseawest/timetable	full	6	6	Swansea West: 6 class rows (Ammanford 3, Penllergaer 3 all wait list). Winter term only. Spring 2027 term not published. Term price now £35.80.
-L1	EVERY	Freedom Leisure Swansea timetables, 6 centres (today only)	https://www.freedom-leisure.co.uk/centres/morriston-leisure-centre/timetables/	limited		6	today only. Mon 9 Nov read at LC, Penlan, Morriston, Penyrheol, Cefn Hengoed, Bishopston. Only child session: Penlan Family Splash 6pm and 7pm (added). LC Toddler Splash is members only.
-L2	EVERY	Wales National Pool Swansea timetable	https://www.swanseabaysportspark.wales/opening-hours/	full	2	2	Timetable updated 6 Nov 2026: Free Splash Sat 2 to 3pm and Family Fun Sun 3 to 4pm unchanged. No Christmas or holiday sessions published yet.
-L3	MON	Celtic Leisure pool programmes (Aberavon, Neath)	https://celticleisure.org/swimming/	full	3	3	Term time PDFs unchanged (Aberavon alf-term-time-autumn26.pdf, Neath Neath-leisure-Centre-Swim-Timetable.pdf, Vale of Neath). October half term PDFs listed, past. No Christmas PDF yet.
+7	EVERY	whatsoninswansea.com	https://www.whatsoninswansea.com/events/	full	0	0	Firecrawl: page says 0 events found (upcoming); only 3 past events shown
+8	EVERY	visitswanseabay.com	https://www.visitswanseabay.com/whats-on/	partial			Featured /whats-on/ (4 events) read; Christmas guide and wales247 roundups are 2025; Carols at the Castle 20 Dec 2026 dated via Firecrawl and added; Christmas, half term pages, RSS and sitemap not read (WebFetch provenance refusals)
+9	EVERY	npt.gov.uk	https://www.npt.gov.uk/culture-and-tourism/whats-on-in-npt/	full	677	677	Firecrawl size=100, pages 1-7 all read (6-7 titles only: adult groups June 2027 on). Nothing new for children; Quiet Lego (Sandfields) has no children's wording. Club and rhyme dates match
+13	EVERY	swanseabaynews.com	https://swanseabaynews.com/category/news/in-your-area/swansea/	full	24	24	Newest 2 pages (24 articles) read with Firecrawl links; only family event is Phenomenal at the Patti, already listed
+14b	EVERY	Eventbrite browse pages	https://www.eventbrite.co.uk/b/united-kingdom--swansea/family-and-education/	failed			Browse pages return Eventbrite's browser-not-supported shell to Firecrawl (markdown and links); WebFetch refused /b/ URLs; amp search page empty
+15	THU	parkrun.org.uk	https://www.parkrun.org.uk/swanseaprom-juniors/	full	1	1	Firecrawl: every Sunday 9am, no cancellations
+16	THU	parkrun.org.uk	https://www.parkrun.org.uk/swanseabay/	full	1	1	Firecrawl: every Saturday 9am, no cancellations
+17	THU	visitswanseabay.com	https://www.visitswanseabay.com/swansea-fireworks-display/	full	1	1	Firecrawl: 5 Nov 2026 display, past
+18	THU	gowerheritagecentre.co.uk	https://www.gowerheritagecentre.co.uk/events/	full	0	0	WebFetch: page says no upcoming events; 3 past events shown
+19	THU	tickets.visitswanseabay.com	https://tickets.visitswanseabay.com/swanseagrandtheatre/website/EventList.aspx	full	57	57	Firecrawl: Nov (7), Dec (18), Jan (11), Feb (21); Q-fforia added (families, 11+); Child's Christmas in Wales, Mellin showcase, Gordon Buchanan no family wording; Tinderella adult
+20	THU	swanseatheatre.co.uk	https://www.swanseatheatre.co.uk/shows	full	6	6	Firecrawl: 6 shows (SIX listed; others not family events)
+21	THU	glynnvivian.co.uk	https://www.glynnvivian.co.uk/	full	19	19	Firecrawl Families (19) and Art Babas (2) categories; added 2 Family Art Clubs and festive wreath making; Young Art Force award courses need enrolment
+22	THU	taliesinartscentre.co.uk	https://www.taliesinartscentre.co.uk/en/all-events	full	51	51	Firecrawl pages 1-6; added Peter Pan, Stagecoach Meaning of Christmas, Nutcracker screening; Frozen, White Christmas, Annie Jr, Matilda Jr already listed
+23	THU	penllergare.org	https://penllergare.org/news-events/	full	13	13	Redirects to /whatson/, same 13 events as 37g
+24	THU	orielscience.co.uk	https://www.orielscience.co.uk/city-centre-venue	full	0	0	Firecrawl both pages: upcoming page lists past events only; venue open Sat and Sun 10am-4pm
+25	THU	dylanthomasbirthplace.com	https://www.dylanthomasbirthplace.com/events/	full	2	2	Firecrawl: Susanna Warren gig and A Child's Christmas in Wales (17, 19 Dec), parlour events with no family wording
+26	THU	letsgowiththechildren.co.uk	https://letsgowiththechildren.co.uk/events/swansea/	full	2	2	Firecrawl: Dinomania at Plantasia and Dobbies Christmas, both already listed
+27	THU	westwalesfamilylife.co.uk	https://www.westwalesfamilylife.co.uk/whats-on-in-swansea/	full	8	8	Firecrawl: 8 events; Llanelli Christmas Carnival (20 Nov 2026) added from its event page
+28	THU	clynefarm.com	https://clynefarm.com/whats-on-in-swansea-in-2026/	full	12	12	WebFetch: 12 dated items; Carols at the Castle dated on VSB and added; rest listed or adult concerts
+29	THU	screamtime.co.uk	https://screamtime.co.uk/family/	full	0	0	Firecrawl: 'Thank you for joining us in 2026', no new dates
+30	THU	swansea.ac.uk	https://www.swansea.ac.uk/swansea-science-festival/	full	0	0	Firecrawl: festival was 30-31 Oct 2026
+31	THU	swanseaminster.org.uk	https://swanseaminster.org.uk/	full	0	0	Firecrawl: homepage points to Advent services; no family events dated
+32	THU	cadw.gov.wales	https://cadw.gov.wales/visit/whats-on/find-a-cadw-event	partial			Main Cadw event finder not read; search found Kidwelly Christmas Trail (listed, unchanged)
+33	THU	visitwales.com	https://www.visitwales.com/things-do/events	partial			Visit Wales national events finder not read this run
+34	THU	ents24.com	https://www.ents24.com/swansea-events/singleton-park	full	1	1	Firecrawl: one concert, 20 Aug 2027
+35	THU	songkick.com	https://www.songkick.com/venues/16114-singleton-park	full	1	1	Firecrawl: one concert, 20 Aug 2027
+36	THU	swansea-arena.co.uk	https://www.swansea-arena.co.uk/whats-on	full	46	46	Firecrawl: 46 shows; Disney Princess and Brian Cox pages show no date; family shows already listed
+37	THU	school-term-dates.co.uk	https://school-term-dates.co.uk/wales/swansea-school-term-dates/	full	1	1	Welsh Government 2026-27 direction confirms Christmas 21 Dec-1 Jan and half term 8-12 Feb; HOLS unchanged (school-term-dates page not opened)
+37a	THU	pontardaweartscentre.com	https://pontardaweartscentre.com/	full	46	46	Firecrawl: 46 shows; family ones already listed
+37b	THU	freedom-leisure.co.uk	https://www.freedom-leisure.co.uk/news/swansea-school-holidays/	full	6	6	Firecrawl: hub still shows October half term; no Christmas programme yet
+37c	THU	showcaveschristmas.co.uk	https://showcaveschristmas.co.uk/before-you-visit.php	full	10	10	Firecrawl: 10 Santa dates 5-24 Dec match the listed record
+37d	THU	folly-farm.co.uk	https://www.folly-farm.co.uk/plan-your-day/whats-on/	full	1	1	Firecrawl: only Santa's Grotto, covered by follyxmas; Heatherton not opened
+37e	THU	bunkersuk.com	https://bunkersuk.com/location/swansea/	full	0	0	Firecrawl: no dated family deals
+37f	THU	zipworld.co.uk	https://www.zipworld.co.uk/monsters-of-the-mine	full	0	0	Firecrawl homepage: no Christmas event at Tower named
+37g	THU	penllergare.org	https://penllergare.org/whatson/	full	13	13	Firecrawl: 13 events; added November Nature Club, Christmas Craft, Parti Nadolig (caveat: list says 16 Dec, page 13 Dec); Log Reindeer now sold out
+37h	THU	visitbridgend.co.uk	https://www.visitbridgend.co.uk/events/	failed			visitbridgend.co.uk/events now 404; Bryngarw event pages found are undated or 2022/2024
+T1	EVERY	circus-zyair.co.uk	https://circus-zyair.co.uk/	full	7	7	Firecrawl: 2027 tour, none in Wales
+T2	EVERY	studtsfunfairs.co.uk	https://www.studtsfunfairs.co.uk/events/index.html	partial			Firecrawl: events list loads by script; Winterland listed
+T3	EVERY	swanseawinterwonderland.co.uk	https://swanseawinterwonderland.co.uk/opening-times/	full	1	1	Firecrawl: 19 Nov-3 Jan, matches
+T4	EVERY	visitswanseabay.com	https://www.visitswanseabay.com/spooks/	partial			Not reopened: Spooks in the City (31 Oct) passed
+T5	EVERY	visitswanseabay.com	https://www.visitswanseabay.com/swansea-christmas/christmas-parade/	full	1	1	Firecrawl: Sunday 22 Nov 5pm, matches
+T6	EVERY	visitswanseabay.com	https://www.visitswanseabay.com/swansea-prom/swansea-bay-rider/	full	0	0	Firecrawl: no dated winter running
+T7	EVERY	swanseacitycentre.com	https://www.swanseacitycentre.com/events/christmasmarket	full	1	1	Firecrawl: 21 Nov-22 Dec 2026, matches
+T8	EVERY	circusvegas.co.uk	https://www.circusvegas.co.uk/	blocked			Domain does not resolve (Firecrawl DNS failure)
+T9	EVERY	circus-starr.org.uk	https://www.circus-starr.org.uk/events/map/	full	20	20	Firecrawl: 20 tour venues, none in South Wales
+T10	EVERY	walesnationalairshow.com	https://www.walesnationalairshow.com/	full	0	0	Firecrawl: still the July 2026 airshow
+B1	EVERY	Libraries Wales events (rhyme times)	https://llyfrgelloedd.cymru/	partial			Not opened: Libraries Wales list loads by script; Swansea rhyme time records rolled on stated patterns
+B2	EVERY	NPT Bookstart song and rhyme	https://www.npt.gov.uk/libraries/learning-and-wellbeing/babies-and-toddlers/	full	7	7	Firecrawl: 7 library lines, unchanged, term time only
+L1	EVERY	Freedom Leisure Swansea timetables, 6 centres (today only)	https://www.freedom-leisure.co.uk/centres/morriston-leisure-centre/timetables/	limited			today only (known limit). Centre timetable pages not opened this run
+L2	EVERY	Wales National Pool Swansea timetable	https://www.swanseabaysportspark.wales/opening-hours/	full	2	2	Firecrawl: Free Splash and Family Fun unchanged
+11	MON	theatrausirgar.co.uk	https://www.theatrausirgar.co.uk/en/whats-on/	full	60	60	Carried-over pages opened with Firecrawl: Little Women, TPF's Got Talent, Tim's Carol added; listing of 60 read 9 Nov, links rechecked today (Cory Band concert not opened)
+14a	MON	botanicgarden.wales	https://botanicgarden.wales/visit/whats-on/	full	28	28	WebFetch: pages 1-3 (12+12+4); added Festive Fayre; Bee Creative and Community Christmas Evening updated; Storytime with Santa page is 2025, left out
+14c	MON	events.dobbies.com	https://events.dobbies.com/events-by-venue/?v=49	full	12	12	Listing of 12 read 9 Nov; grotto and quiet grotto detail pages re-opened today, Swansea still listed; Meet Santa 2026 not at Swansea
