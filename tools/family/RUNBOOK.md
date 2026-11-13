@@ -182,7 +182,7 @@ TIER 2 [THU]. Thursdays. On Mondays skip it, unless KEEPING THE PAGE FULL or THE
 37e https://bunkersuk.com/location/swansea/ (crazy golf; school holiday family deals print dates with the year)
 37f https://www.zipworld.co.uk/monsters-of-the-mine and https://www.zipworld.co.uk/ (Zip World Tower, Aberdare, about 40 minutes. Halloween event is 9+ only, list with that warning; look for Christmas events)
 37g https://penllergare.org/whatson/ (the full events list for Penllergare, every event page has the year)
-37h https://www.visitbridgend.co.uk/events/ and https://bryngarwcountrypark.co.uk/ (Bridgend, about 30 minutes. Only pages that date the current year)
+37h https://www.visitbridgend.co.uk/whats-on and https://bryngarwcountrypark.co.uk/ (Bridgend, about 30 minutes. Only pages that date the current year. The old /events/ address gives 404 since November 2026; whats-on lists about 40 dated events on one page)
 
 TIER 3, RETRY MONTHLY (first run of each calendar month). These block or starve automated reading. If one starts producing dated events, move it up and say so.
 38 https://www.swansea.gov.uk/whatson
@@ -202,12 +202,12 @@ These are the organisers' own websites for touring shows (circuses, funfairs) an
 T1 https://circus-zyair.co.uk/
 T2 https://www.studtsfunfairs.co.uk/events/index.html
 T3 https://swanseawinterwonderland.co.uk/opening-times/
-T4 https://www.visitswanseabay.com/spooks/
+T4 https://www.visitswanseabay.com/spooks/ (yearly Halloween event: check on the first run of each month only, not every run. It returns in 2027 with no date yet)
 T5 https://www.visitswanseabay.com/swansea-christmas/christmas-parade/
 T6 https://www.visitswanseabay.com/swansea-prom/swansea-bay-rider/
 T7 https://www.swanseacitycentre.com/events/christmasmarket
-T8 https://www.circusvegas.co.uk/
 T9 https://www.circus-starr.org.uk/events/map/
+(Circus Vegas, formerly T8, was removed on 13 November 2026: its website address no longer exists. Add it back only if a new official site appears.)
 T10 https://www.walesnationalairshow.com/
 THE SWANSEA RULE FOR THIS GROUP: add an event only when the organiser's own page names a venue in Swansea county or the surrounding areas AND states the date with the year, or the page is clearly headed with that year. A touring organiser's dates in other towns never go in. Never use the organiser's Facebook page, and never use a third party copy of a page that blocks automated reading: that organiser simply stays "blocked".
 

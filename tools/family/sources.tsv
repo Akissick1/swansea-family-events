@@ -50,7 +50,7 @@ id	schedule	name	url
 37e	THU	bunkersuk.com	https://bunkersuk.com/location/swansea/
 37f	THU	zipworld.co.uk	https://www.zipworld.co.uk/monsters-of-the-mine
 37g	THU	penllergare.org	https://penllergare.org/whatson/
-37h	THU	visitbridgend.co.uk	https://www.visitbridgend.co.uk/events/
+37h	THU	visitbridgend.co.uk	https://www.visitbridgend.co.uk/whats-on
 38	MONTHLY	swansea.gov.uk	https://www.swansea.gov.uk/whatson
 39	MONTHLY	swansea.gov.uk	https://www.swansea.gov.uk/article/23504/COAST---Children-and-young-people-events-calendar
 40	MONTHLY	swanseamuseum.co.uk	http://www.swanseamuseum.co.uk/whats-on/
@@ -65,11 +65,10 @@ id	schedule	name	url
 T1	EVERY	circus-zyair.co.uk	https://circus-zyair.co.uk/
 T2	EVERY	studtsfunfairs.co.uk	https://www.studtsfunfairs.co.uk/events/index.html
 T3	EVERY	swanseawinterwonderland.co.uk	https://swanseawinterwonderland.co.uk/opening-times/
-T4	EVERY	visitswanseabay.com	https://www.visitswanseabay.com/spooks/
+T4	MONTHLY	visitswanseabay.com	https://www.visitswanseabay.com/spooks/
 T5	EVERY	visitswanseabay.com	https://www.visitswanseabay.com/swansea-christmas/christmas-parade/
 T6	EVERY	visitswanseabay.com	https://www.visitswanseabay.com/swansea-prom/swansea-bay-rider/
 T7	EVERY	swanseacitycentre.com	https://www.swanseacitycentre.com/events/christmasmarket
-T8	EVERY	circusvegas.co.uk	https://www.circusvegas.co.uk/
 T9	EVERY	circus-starr.org.uk	https://www.circus-starr.org.uk/events/map/
 T10	EVERY	walesnationalairshow.com	https://www.walesnationalairshow.com/
 H1	MONTHLY	Happity Swansea, all 7 weekday pages	https://www.happity.co.uk/swansea/baby-toddler-classes

@@ -3,8 +3,6 @@ id	schedule	name	url	status	page_total	read_count	note
 14b	EVERY	Eventbrite browse pages	https://www.eventbrite.co.uk/b/united-kingdom--swansea/family-and-education/	failed			Browse pages return Eventbrite's browser-not-supported shell to Firecrawl (markdown and links); WebFetch refused /b/ URLs; amp search page empty
 32	THU	cadw.gov.wales	https://cadw.gov.wales/visit/whats-on/find-a-cadw-event	partial			Main Cadw event finder not read; search found Kidwelly Christmas Trail (listed, unchanged)
 33	THU	visitwales.com	https://www.visitwales.com/things-do/events	partial			Visit Wales national events finder not read this run
-37h	THU	visitbridgend.co.uk	https://www.visitbridgend.co.uk/events/	failed			visitbridgend.co.uk/events now 404; Bryngarw event pages found are undated or 2022/2024
+37h	THU	visitbridgend.co.uk	https://www.visitbridgend.co.uk/whats-on	failed			Moved: old /events/ address is 404; new listing at /whats-on (43 dated events on 13 Nov)
 T2	EVERY	studtsfunfairs.co.uk	https://www.studtsfunfairs.co.uk/events/index.html	partial			Firecrawl: events list loads by script; Winterland listed
-T4	EVERY	visitswanseabay.com	https://www.visitswanseabay.com/spooks/	partial			Not reopened: Spooks in the City (31 Oct) passed
-T8	EVERY	circusvegas.co.uk	https://www.circusvegas.co.uk/	blocked			Domain does not resolve (Firecrawl DNS failure)
 B1	EVERY	Libraries Wales events (rhyme times)	https://llyfrgelloedd.cymru/	partial			Not opened: Libraries Wales list loads by script; Swansea rhyme time records rolled on stated patterns

@@ -98,6 +98,23 @@ def page_checks(page, prev):
     if len(ids) != len(set(ids)):
         dup = sorted({i for i in ids if ids.count(i) > 1})
         out.append(f"duplicate event ids: {', '.join(dup[:8])}")
+    try:  # same event listed twice (same title, venue and day), added 13 November 2026
+        i = s.index("var EVENTS = ["); block = s[i:]; block = block[:block.index("\n  ];")]
+        ev = [json.loads(l.strip().rstrip(",")) for l in block.splitlines()[1:] if l.strip().startswith("{")]
+        norm = lambda x, k=None: (re.sub(r"[^a-z0-9]", "", (x or "").lower()))[:k]
+        seen, pairs = {}, set()
+        for e in ev:
+            for day in e.get("days", []):
+                k = (norm(e.get("t")), norm(e.get("venue"), 10), day)
+                if k in seen and seen[k] != e["id"]:
+                    pairs.add(tuple(sorted((seen[k], e["id"]))))
+                    break
+                seen[k] = e["id"]
+        if pairs:
+            out.append(f"{len(pairs)} event{'s' if len(pairs) > 1 else ''} listed twice (same title, venue and day): " +
+                       "; ".join(f"{a} and {b}" for a, b in sorted(pairs)[:6]) + ". Keep the older one.")
+    except Exception as e:
+        out.append(f"the EVENTS block could not be checked for repeats ({e})")
     if "SWIPE-HINTS v1" not in s:
         out.append("the swipe hints (row chips, next buttons, icon tabs) are missing: re-run tools/swipe/patch_swipe.py on the page")
     if "function isTot(" in s:
