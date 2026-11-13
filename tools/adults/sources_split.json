@@ -395,7 +395,7 @@
     "n": "Eventbrite Mumbles",
     "u": "https://www.eventbrite.co.uk/d/united-kingdom--mumbles/all-events/",
     "s": "blocked",
-    "note": "Refused automatic reading on 31 October.",
+    "note": "13 November: the Mumbles location page now says page not found.",
     "group": "swansea",
     "half": "Friday"
   },
@@ -426,8 +426,8 @@
   {
     "n": "Swansea Bay News what's on",
     "u": "https://swanseabaynews.com/whats-on/",
-    "s": "blocked",
-    "note": "Refused automatic reading on 31 October.",
+    "s": "watch",
+    "note": "13 November: the page loads again but says page not found, so the what's on section has moved or gone.",
     "group": "swansea",
     "half": "Friday"
   },
@@ -442,8 +442,8 @@
   {
     "n": "Swansea University public events",
     "u": "https://www.swansea.ac.uk/events/",
-    "s": "blocked",
-    "note": "Refused automatic reading on 31 October.",
+    "s": "watch",
+    "note": "13 November: the events address loads but says page not found; the listing has moved.",
     "group": "swansea",
     "half": "Friday"
   },
@@ -569,9 +569,9 @@
   },
   {
     "n": "Aberglasney Gardens",
-    "u": "https://www.aberglasney.org/whats-on/",
-    "s": "blocked",
-    "note": "Old what's on address now gives page not found (6 November). Events seem to have moved to aberglasney.org/events-exhibitions/.",
+    "u": "https://www.aberglasney.org/events-exhibitions/",
+    "s": "live",
+    "note": "13 November: working again at its new events address (aberglasney.org/events-exhibitions). Winter fair, workshops and carol service.",
     "group": "nearby",
     "half": "Friday"
   },
@@ -746,8 +746,8 @@
   {
     "n": "Cardiff Philharmonic Orchestra",
     "u": "https://www.cardiffphilharmonic.co.uk/",
-    "s": "watch",
-    "note": "No dated concerts on 31 October.",
+    "s": "blocked",
+    "note": "Could not be read on 13 November.",
     "group": "touring",
     "half": "Friday"
   },
@@ -810,8 +810,8 @@
   {
     "n": "Welsh National Opera",
     "u": "https://wno.org.uk/whats-on",
-    "s": "watch",
-    "note": "No Cardiff or Swansea dates listed on 31 October.",
+    "s": "live",
+    "note": "13 November: three Cardiff concerts listed in December 2026.",
     "group": "touring",
     "half": "Friday"
   },
@@ -874,8 +874,8 @@
   {
     "n": "Royal Institution of South Wales",
     "u": "https://risw.org/events-and-activities.htm",
-    "s": "watch",
-    "note": "Evening talks at Swansea Museum. Added 3 November from Swansea Scoop; to be read directly next run.",
+    "s": "live",
+    "note": "13 November: readable again; free evening talks at Swansea Museum listed to April 2027.",
     "group": "swansea",
     "half": "Friday"
   },
@@ -902,5 +902,13 @@
     "note": "Added 7 November 2026. 12, 15 and 18 rated films and Friday Lego, quiz and game nights go here; U and PG films go on the family guide. Event pages have year, time and price; some refuse WebFetch.",
     "group": "swansea",
     "half": "Tuesday"
+  },
+  {
+    "n": "Hangar 18 events page (ticket247)",
+    "u": "https://ticket247.co.uk/Page?id=2",
+    "s": "live",
+    "note": "Added 13 November 2026. Hangar 18's own events page on ticket247; it listed Return To Ozz (12 December) when the venue page did not.",
+    "group": "swansea",
+    "half": "Friday"
   }
 ]
