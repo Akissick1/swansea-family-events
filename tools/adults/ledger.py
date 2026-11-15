@@ -34,7 +34,7 @@ HISTORY = os.path.join(HERE, "source_history.tsv")
 COLS = ["id", "half", "name", "url", "status", "page_total", "read_count", "note"]
 EVERY_RUN = re.compile(r"mumbles\.life|swansea-arena\.co\.uk|swanseascoop\.com")
 MUST_HAVE = ['id="modebar"', "This weekend", "Book ahead", "Murder mysteries", "Food & drink",
-             "Classes & activities", "Mumbles", "Regular nights", "SWIPE-HINTS v1"]
+             "Classes & activities", "Mumbles", "Regular nights", "SWIPE-HINTS v1", "PER-DATE-LINKS v1"]
 
 
 def slug(name):
