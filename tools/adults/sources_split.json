@@ -226,8 +226,8 @@
   {
     "n": "Swansea Fringe",
     "u": "https://www.swanseafringe.com/schedule",
-    "s": "live",
-    "note": "26 to 29 November across Urban HQ, The Bunkhouse, Hippos, Down By Here, Sessions by Mumbles Brewery and the Glynn Vivian. Year comes from the ticket link.",
+    "s": "watch",
+    "note": "17 November: the schedule page gives page not found.",
     "group": "swansea",
     "half": "Tuesday"
   },
@@ -386,8 +386,8 @@
   {
     "n": "Ents24 Swansea",
     "u": "https://www.ents24.com/whatson/swansea",
-    "s": "blocked",
-    "note": "Loads by script; nothing readable automatically.",
+    "s": "live",
+    "note": "17 November: readable again; dates and venues only, no times or prices.",
     "group": "swansea",
     "half": "Tuesday"
   },
@@ -402,8 +402,8 @@
   {
     "n": "Oystermouth Castle",
     "u": "https://www.oystermouthcastle.org.uk/whats-on",
-    "s": "blocked",
-    "note": "Blocks automatic reading; its evening tours come through Allevents.",
+    "s": "live",
+    "note": "17 November: readable again; nothing for adults listed.",
     "group": "swansea",
     "half": "Tuesday"
   },
@@ -411,15 +411,15 @@
     "n": "Sin City",
     "u": "https://www.sincityswansea.co.uk/",
     "s": "blocked",
-    "note": "Blocks automatic reading. Its gigs come through Songkick and Allevents.",
+    "note": "17 November: the address no longer resolves. Its gigs come through Ents24, Songkick and Allevents.",
     "group": "swansea",
     "half": "Friday"
   },
   {
     "n": "Skiddle Swansea",
     "u": "https://www.skiddle.com/whats-on/Swansea/",
-    "s": "blocked",
-    "note": "Loads by script; nothing readable automatically.",
+    "s": "live",
+    "note": "17 November: readable again (hub sample only).",
     "group": "swansea",
     "half": "Tuesday"
   },
@@ -434,8 +434,8 @@
   {
     "n": "Swansea Minster",
     "u": "https://www.swanseaminster.org.uk/",
-    "s": "blocked",
-    "note": "Blocks automatic reading. Its organ evenings come through Eventslist.",
+    "s": "live",
+    "note": "17 November: readable again; dates only appear in Instagram posts on the home page.",
     "group": "swansea",
     "half": "Tuesday"
   },
@@ -466,8 +466,8 @@
   {
     "n": "TicketSource Swansea",
     "u": "https://www.ticketsource.co.uk/whats-on/swansea",
-    "s": "blocked",
-    "note": "Refused automatic reading on 31 October.",
+    "s": "live",
+    "note": "17 November: readable again.",
     "group": "swansea",
     "half": "Tuesday"
   },
@@ -475,7 +475,7 @@
     "n": "Tŷ Tawe",
     "u": "https://www.tytawe.cymru/",
     "s": "blocked",
-    "note": "Welsh-language centre; blocks automatic reading. Its gigs come through Songkick.",
+    "note": "17 November: the address no longer resolves. Its gigs come through Songkick.",
     "group": "swansea",
     "half": "Friday"
   },
@@ -563,7 +563,7 @@
     "n": "Princess Royal Theatre, Port Talbot",
     "u": "https://www.npt.gov.uk/1411?venue=3",
     "s": "watch",
-    "note": "No readable listing of its own on 31 October (council page empty, Skiddle blocked). Run by Celtic Leisure like the Gwyn Hall.",
+    "note": "17 November: the venue filter now shows the Gwyn Hall; the Princess Royal Theatre is not in the venue list.",
     "group": "nearby",
     "half": "Tuesday"
   },
@@ -578,8 +578,8 @@
   {
     "n": "Awen box office (Grand Pavilion Porthcawl, Maesteg Town Hall)",
     "u": "https://awenboxoffice.com/whats-on",
-    "s": "blocked",
-    "note": "Listing loads by script. The Grand Pavilion is closed for redevelopment.",
+    "s": "live",
+    "note": "17 November: readable again (first page). The Grand Pavilion is closed for redevelopment.",
     "group": "nearby",
     "half": "Tuesday"
   },
@@ -755,7 +755,7 @@
     "n": "Chapter Arts Centre",
     "u": "https://www.chapter.org/whats-on/",
     "s": "watch",
-    "note": "Page shows no dates for live events on 31 October.",
+    "note": "17 November: chapter.org now redirects to an unrelated site that gives page not found.",
     "group": "touring",
     "half": "Tuesday"
   },
@@ -827,7 +827,7 @@
     "n": "Cardiff Christmas Market",
     "u": "https://www.cardiffchristmasmarket.co.uk/",
     "s": "blocked",
-    "note": "Blocks automatic reading.",
+    "note": "17 November: the address no longer resolves.",
     "group": "touring",
     "half": "Friday"
   },
@@ -850,8 +850,8 @@
   {
     "n": "New Theatre Cardiff",
     "u": "https://www.newtheatrecardiff.co.uk/whats-on/",
-    "s": "blocked",
-    "note": "The site blocks automatic reading.",
+    "s": "live",
+    "note": "17 November: readable again; redirects to Trafalgar Tickets.",
     "group": "touring",
     "half": "Tuesday"
   },
