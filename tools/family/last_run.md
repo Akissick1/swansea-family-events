@@ -81,3 +81,8 @@ ATTENTION: circus-starr.org.uk only partly read (20 of 20). Circus Starr map/lis
 ATTENTION: Libraries Wales events (rhyme times) only partly read. Not opened: Libraries Wales list loads by script (WebFetch needs search provenance). Swansea rhyme time records rolled on their stated weekly patterns
 These 15 sources are first in the queue for the next run (tools/family/retry.tsv).
 ```
+
+## Self-check
+- Added: 31 records with added = 2026-11-19.
+- Pushed: yes, origin main = local HEAD 9c80aa5 (git ls-remote).
+- Deployed: yes, Netlify deploy 6afe97a4 state ready, commit_ref 9c80aa5.
