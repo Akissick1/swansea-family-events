@@ -1,17 +1,23 @@
 id	schedule	name	url	status	page_total	read_count	note
-2	MON	plantasiaswansea.co.uk	https://www.plantasiaswansea.co.uk/whats-on/	partial	3	3	Calendar widget loads by JS and was not readable. Dinomania 28 Nov already listed. Santa and his Elves has no published dates (FareHarbor item page also gave none).
-8	EVERY	visitswanseabay.com	https://www.visitswanseabay.com/whats-on/	partial	192	15	Only page 1 of whats-on read plus Christmas, cultural-venues, half-term pages; family-friendly page 15 of 32.
-13	EVERY	swanseabaynews.com	https://swanseabaynews.com/category/news/in-your-area/swansea/	partial	1	1	First page of Swansea category read (10 posts, no family event with organiser date other than Snow White (listed) and Gordon Buchanan adult-facing talk 9 Feb 2027 at the Grand, not stated as family, skipped). Page 2 not 
-14b	EVERY	Eventbrite browse pages	https://www.eventbrite.co.uk/b/united-kingdom--swansea/family-and-education/	partial	Swansea family-and-education page 1 (9 items), holiday and holiday/christmas OK, Llanelli and Neath OK, Swansea community page empty.		
-T10	EVERY	walesnationalairshow.com	https://www.walesnationalairshow.com/	partial	1	1	Page title says 24 and 25 July 2027; meta description still says 25 and 26 July 2026. Body text not returned. Added with a note.
-L1	EVERY	Freedom Leisure Swansea timetables, 6 centres (today only)	https://www.freedom-leisure.co.uk/centres/morriston-leisure-centre/timetables/	todo			
-L3	MON	Celtic Leisure pool programmes (Aberavon, Neath)	https://celticleisure.org/swimming/	failed	0	0	Firecrawl failed on all engines, WebFetch refused. Timetable URLs found by search: nlc.celticleisure.org and alf.celticleisure.org swimming-pool-timetable-school-holidays.
-20	THU	swanseatheatre.co.uk	https://www.swanseatheatre.co.uk/shows	partial	Thursday source carried over; not reread this run		
-21	THU	glynnvivian.co.uk	https://www.glynnvivian.co.uk/	partial	Carried over; not reread this run		
-31	THU	swanseaminster.org.uk	https://swanseaminster.org.uk/	partial	Carried over; not reread this run		
-32	THU	cadw.gov.wales	https://cadw.gov.wales/visit/whats-on/find-a-cadw-event	partial	Carried over; not reread this run		
-33	THU	visitwales.com	https://www.visitwales.com/things-do/events	partial	Carried over; not reread this run		
-36	THU	swansea-arena.co.uk	https://www.swansea-arena.co.uk/whats-on	partial	Carried over; not reread this run		
-37a	THU	pontardaweartscentre.com	https://pontardaweartscentre.com/	partial	Carried over; not reread this run		
-37b	THU	freedom-leisure.co.uk	https://www.freedom-leisure.co.uk/news/swansea-school-holidays/	partial	Carried over; not reread this run		
-37d	THU	folly-farm.co.uk	https://www.folly-farm.co.uk/plan-your-day/whats-on/	partial	Carried over; not reread this run		
+8	EVERY	visitswanseabay.com	https://www.visitswanseabay.com/whats-on/	partial	194	98	Pager is script only. Family-friendly 23 of 33, keyword filters about 75 of 194. 16 candidates: 9 dated and added, 2 changes, 1 left out, 4 undated or 404.
+14b	EVERY	Eventbrite browse pages	https://www.eventbrite.co.uk/b/united-kingdom--swansea/family-and-education/	partial	8	8	8 browse pages and 6 event pages read; children-and-youth sub-category slug changed (children-and-youth-), not read. 2 added.
+18	THU	gowerheritagecentre.co.uk	https://www.gowerheritagecentre.co.uk/events/	partial	42	14	Month view shows to 6 Dec only; later December to February not seen.
+19	THU	tickets.visitswanseabay.com	https://tickets.visitswanseabay.com/swanseagrandtheatre/website/EventList.aspx	partial	4	3	December, January, February lists read in full; November not read (4 days left). Nothing new family.
+20	THU	swanseatheatre.co.uk	https://www.swanseatheatre.co.uk/shows	partial	33	6	Only first batch of 33 loads (Load more by script). Nothing new.
+21	THU	glynnvivian.co.uk	https://www.glynnvivian.co.uk/	partial	5	1	What's on page 1 of 5 read only (helper cap).
+22	THU	taliesinartscentre.co.uk	https://www.taliesinartscentre.co.uk/en/all-events	partial	5	4	Pages 1 to 4 read (to March); page 5 (April on) not read. All family shows already listed.
+27	THU	westwalesfamilylife.co.uk	https://www.westwalesfamilylife.co.uk/whats-on-in-swansea/	partial	11	8	Load More not followed; all 8 seen covered or out of range.
+31	THU	swanseaminster.org.uk	https://swanseaminster.org.uk/	partial	2	2	Christmas services only in PDF posters, not opened.
+32	THU	cadw.gov.wales	https://cadw.gov.wales/visit/whats-on/find-a-cadw-event	partial	21	21	Listing gives titles only, no site or date; Christmas items not matched to nearby sites.
+36	THU	swansea-arena.co.uk	https://www.swansea-arena.co.uk/whats-on	partial	45	1	Listings read; SIX page re-read (no change). Christmas show pages not opened for age guidance.
+37b	THU	freedom-leisure.co.uk	https://www.freedom-leisure.co.uk/news/swansea-school-holidays/	partial	6	3	Hub still October text; Penyrheol page 404. Christmas camps added from Freedom Leisure Christmas news page.
+37c	THU	showcaveschristmas.co.uk	https://showcaveschristmas.co.uk/before-you-visit.php	partial	2	1	Christmas dates confirmed; showcavesbookings not opened.
+37g	THU	penllergare.org	https://penllergare.org/whatson/	partial	5	5	Paint Along 7 Dec not opened; Parti Nadolig caveat lifted.
+37h	THU	visitbridgend.co.uk	https://www.visitbridgend.co.uk/whats-on	partial	45	3	Whats-on 45 items listed, 2 event pages opened; about 10 family candidates not opened; Bryngarw not opened.
+T2	EVERY	studtsfunfairs.co.uk	https://www.studtsfunfairs.co.uk/events/index.html	partial	4	4	Winterland matches; Upside Down House page not opened.
+T9	EVERY	circus-starr.org.uk	https://www.circus-starr.org.uk/events/map/	failed	0	0	Not opened, helper Firecrawl cap reached; search found no dates near Swansea.
+T10	EVERY	walesnationalairshow.com	https://www.walesnationalairshow.com/	failed	0	0	Not opened, helper Firecrawl cap reached.
+B1	EVERY	Libraries Wales events (rhyme times)	https://llyfrgelloedd.cymru/	partial	20	0	Homepage today's items only; library names not shown; event pages not opened.
+2	MON	plantasiaswansea.co.uk	https://www.plantasiaswansea.co.uk/whats-on/	partial	5	5	Firecrawl: 5 items; Santa and his Elves still undated, FareHarbor item failed to load. Dinomania confirmed.
+L3	MON	Celtic Leisure pool programmes (Aberavon, Neath)	https://celticleisure.org/swimming/	partial	6	1	celticleisure.org/swimming lists the same term-time PDFs as the records; PDF sentences not re-read (helper Firecrawl cap). No Christmas PDFs yet.
+14	MON	ospreysrugby.com	https://www.ospreysrugby.com/	partial	1	1	Only Christmas camp page found is 2018; fixtures not re-checked.

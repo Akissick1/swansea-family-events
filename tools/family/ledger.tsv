@@ -1,46 +1,52 @@
 id	schedule	name	url	status	page_total	read_count	note
-1	MON	museum.wales	https://museum.wales/swansea/whatson/	full	21	21	Museum listing single page, all future events. Existing records match. Rejected adult/dementia/16+ items.
-2	MON	plantasiaswansea.co.uk	https://www.plantasiaswansea.co.uk/whats-on/	partial	3	3	Calendar widget loads by JS and was not readable. Dinomania 28 Nov already listed. Santa and his Elves has no published dates (FareHarbor item page also gave none).
-3	MON	oystermouthcastle.org.uk	https://oystermouthcastle.org.uk/whats-on	full	1	1	Only Spooky Castle 31 Oct 2026, already past.
-4	MON	margamcountrypark.co.uk	https://www.margamcountrypark.co.uk/whats-on/	full	14	14	Two listing pages (12 + 2). Opened pages for the new candidates; others already listed or adult.
-5	MON	wwt.org.uk	https://www.wwt.org.uk/wetland-centres/llanelli/whats-on/	full	6	6	All six already listed (dates unchanged).
-6	MON	nationaltrust.org.uk	https://www.nationaltrust.org.uk/visit/wales/rhosili-and-south-gower-coast/events	full	0	0	Page says no upcoming events at Rhosili.
-7	EVERY	whatsoninswansea.com	https://www.whatsoninswansea.com/events/	full	2	2	Page states '2 events found': Rob Brydon book signing 28 Nov (store not stated, not opened) and Mark Thomas comedy 5 Dec (adult). None added.
-8	EVERY	visitswanseabay.com	https://www.visitswanseabay.com/whats-on/	partial	192	15	Only page 1 of whats-on read plus Christmas, cultural-venues, half-term pages; family-friendly page 15 of 32.
-9	EVERY	npt.gov.uk	https://www.npt.gov.uk/culture-and-tourism/whats-on-in-npt/	full	715	715	8 of 8 pages. Pages beyond early Jan 2027 mostly adult items.
-10	MON	mumbles-pier.co.uk	https://mumbles-pier.co.uk/whats-on	full	7	7	All 7 listings read; existing records match dates. Clay night and Doggy Grotto rejected.
-11	MON	theatrausirgar.co.uk	https://www.theatrausirgar.co.uk/en/whats-on/	full	89	89	Pages 1 to 5 read (20+20+20+20+9 listings); page 5 ends 16 Oct 2027 and no page total is printed. Opened 5 show pages.
-12	MON	welshwildlife.org	https://www.welshwildlife.org/events	full	21	21	3 pages (10+10+1). Only family items are at Welsh Wildlife Centre, Cardigan area, too far.
-13	EVERY	swanseabaynews.com	https://swanseabaynews.com/category/news/in-your-area/swansea/	partial	1	1	First page of Swansea category read (10 posts, no family event with organiser date other than Snow White (listed) and Gordon Buchanan adult-facing talk 9 Feb 2027 at the Grand, not stated as family, skipped). Page 2 not 
-14	MON	ospreysrugby.com	https://www.ospreysrugby.com/	limited	3	3	Homepage fixtures and news only; no family/community/camp items with dates found. Legends v Trebanos XV was Sunday 22 Nov, already past.
-14a	MON	botanicgarden.wales	https://botanicgarden.wales/visit/whats-on/	full	3	27	27 dated listings across pages 1 to 3 (12+12+3).
-14b	EVERY	Eventbrite browse pages	https://www.eventbrite.co.uk/b/united-kingdom--swansea/family-and-education/	partial	Swansea family-and-education page 1 (9 items), holiday and holiday/christmas OK, Llanelli and Neath OK, Swansea community page empty.		
-14c	MON	events.dobbies.com	https://events.dobbies.com/events-by-venue/?v=49	full	10	10	Venue page lists 10 events. Opened 3 new candidates (4447, 4416, 4440); skipped restaurant, afternoon tea, coach booking and wreath workshop (adult craft). Existing 4441, 4442, 4443 not reopened.
-14d	MON	pembreycountrypark.wales	https://www.pembreycountrypark.wales/whats-on/whats-on/	full	13	13	13 listings; all family ones already listed. Rejected: ski training, cyclocross, CaniX (dogs), wreath making.
-14e	MON	gwili-railway.co.uk	https://gwili-railway.co.uk/train-rides/	full	1	1	Train rides page and Santa Special page opened. Santa Special page lists trains on Sat 12, Sun 13, Sat 19, Sun 20, Mon 21, Tue 22 Dec; headline 'Saturdays and Sundays in December' is generic. Existing gwilisanta record (
-14f	MON	aberglasney.org	https://aberglasney.org/events-exhibitions/	full	6	6	6 events found; Winter Fair and Carol Service already listed; wreath and table-top workshops £75 adult craft, exhibition, retreat rejected.
-14g	MON	woodrowscoffee.co.uk	https://www.woodrowscoffee.co.uk/tickets	full	1	1	Tickets page read; all Christmas U/PG films already listed (Elf, Muppet Christmas Carol, White Christmas, Grinch, Miracle on 34th Street, It's A Wonderful Life). Others 12/15/18, rejected; Lego Night 13 Nov past.
-T1	EVERY	circus-zyair.co.uk	https://circus-zyair.co.uk/	full	8	8	Circus Zyair 2027 tour: Glasgow, Paddock Wood, Milton Keynes, Nottingham, Southsea, Weston-super-Mare, Salisbury. No Swansea-area date.
-T2	EVERY	studtsfunfairs.co.uk	https://www.studtsfunfairs.co.uk/events/index.html	full	4	4	Studt's events: Mumbles Pier (to 27 Sep 2026, past), Upside Down House (13 Feb to 31 Dec 2026, no venue named), Big Bang Saundersfoot (past), Swansea Waterfront Winterland (already listed as winterland26).
-T3	EVERY	swanseawinterwonderland.co.uk	https://swanseawinterwonderland.co.uk/opening-times/	full	1	1	Opening times match existing winterland26 record; no change.
-T5	EVERY	visitswanseabay.com	https://www.visitswanseabay.com/swansea-christmas/christmas-parade/	full	1	1	Parade Sunday 22 Nov 5pm, now past.
-T6	EVERY	visitswanseabay.com	https://www.visitswanseabay.com/swansea-prom/swansea-bay-rider/	full	1	1	Land train closed for winter, back spring 2027. No dated event.
-T7	EVERY	swanseacitycentre.com	https://www.swanseacitycentre.com/events/christmasmarket	full	1	1	Christmas market 21 Nov to 22 Dec 2026, matches xmasmarket26 (listed). Merry Marquee weekends 5-6, 12-13, 19-20 Dec already in desc. Mistletoe and Markets and Fire and Ice already listed.
-T9	EVERY	circus-starr.org.uk	https://www.circus-starr.org.uk/events/map/	full	20	20	Circus Starr list ends 7 Feb 2027 (14 Jan to 7 Feb): no Swansea area date (nearest Llandudno, Telford).
-T10	EVERY	walesnationalairshow.com	https://www.walesnationalairshow.com/	partial	1	1	Page title says 24 and 25 July 2027; meta description still says 25 and 26 July 2026. Body text not returned. Added with a note.
-B1	EVERY	Libraries Wales events (rhyme times)	https://llyfrgelloedd.cymru/	full	Homepage and Pontarddulais Rhyme Time page read.		
-B2	EVERY	NPT Bookstart song and rhyme	https://www.npt.gov.uk/libraries/learning-and-wellbeing/babies-and-toddlers/	full	Bookstart page read; all weekly sessions still listed.		
-B3	MON	Baby Sensory Swansea East timetable	https://www.babysensory.com/swanseaeast/timetable	full	Terms match existing; no spring 2027 term published.		
-B4	MON	Baby Sensory Swansea West timetable	https://www.babysensory.com/swanseawest/timetable	full	Terms match existing; Baby's First Christmas sessions have no dates.		
-L1	EVERY	Freedom Leisure Swansea timetables, 6 centres (today only)	https://www.freedom-leisure.co.uk/centres/morriston-leisure-centre/timetables/	todo			
-L2	EVERY	Wales National Pool Swansea timetable	https://www.swanseabaysportspark.wales/opening-hours/	full	Free Splash Sat 2pm and Family Fun Sun 3pm still listed; no Christmas holiday sessions yet; stale banner about Sunday 19th.		
-L3	MON	Celtic Leisure pool programmes (Aberavon, Neath)	https://celticleisure.org/swimming/	failed	0	0	Firecrawl failed on all engines, WebFetch refused. Timetable URLs found by search: nlc.celticleisure.org and alf.celticleisure.org swimming-pool-timetable-school-holidays.
-20	THU	swanseatheatre.co.uk	https://www.swanseatheatre.co.uk/shows	partial	Thursday source carried over; not reread this run		
-21	THU	glynnvivian.co.uk	https://www.glynnvivian.co.uk/	partial	Carried over; not reread this run		
-31	THU	swanseaminster.org.uk	https://swanseaminster.org.uk/	partial	Carried over; not reread this run		
-32	THU	cadw.gov.wales	https://cadw.gov.wales/visit/whats-on/find-a-cadw-event	partial	Carried over; not reread this run		
-33	THU	visitwales.com	https://www.visitwales.com/things-do/events	partial	Carried over; not reread this run		
-36	THU	swansea-arena.co.uk	https://www.swansea-arena.co.uk/whats-on	partial	Carried over; not reread this run		
-37a	THU	pontardaweartscentre.com	https://pontardaweartscentre.com/	partial	Carried over; not reread this run		
-37b	THU	freedom-leisure.co.uk	https://www.freedom-leisure.co.uk/news/swansea-school-holidays/	partial	Carried over; not reread this run		
-37d	THU	folly-farm.co.uk	https://www.folly-farm.co.uk/plan-your-day/whats-on/	partial	Carried over; not reread this run		
+7	EVERY	whatsoninswansea.com	https://www.whatsoninswansea.com/events/	full	2	2	2 events listed; Rob Brydon signing 28 Nov added, adult comedy rejected.
+8	EVERY	visitswanseabay.com	https://www.visitswanseabay.com/whats-on/	partial	194	98	Pager is script only. Family-friendly 23 of 33, keyword filters about 75 of 194. 16 candidates: 9 dated and added, 2 changes, 1 left out, 4 undated or 404.
+9	EVERY	npt.gov.uk	https://www.npt.gov.uk/culture-and-tourism/whats-on-in-npt/	full	400	400	Window to end of February is pages 1 to 4 (400 of 691 entries); pages 5 to 7 are after the window. 7 added, club dates reset, 3 removed.
+13	EVERY	swanseabaynews.com	https://swanseabaynews.com/category/news/in-your-area/swansea/	full	2	22	Pages 1 and 2 read (22 articles); no upcoming dated family or council events.
+14b	EVERY	Eventbrite browse pages	https://www.eventbrite.co.uk/b/united-kingdom--swansea/family-and-education/	partial	8	8	8 browse pages and 6 event pages read; children-and-youth sub-category slug changed (children-and-youth-), not read. 2 added.
+15	THU	parkrun.org.uk	https://www.parkrun.org.uk/swanseaprom-juniors/	full	1	1	Juniors every Sunday 9am, no cancellation notice.
+16	THU	parkrun.org.uk	https://www.parkrun.org.uk/swanseabay/	full	1	1	Every Saturday 9am, no cancellation notice.
+17	THU	visitswanseabay.com	https://www.visitswanseabay.com/swansea-fireworks-display/	full	1	1	Fireworks 5 Nov, past.
+18	THU	gowerheritagecentre.co.uk	https://www.gowerheritagecentre.co.uk/events/	partial	42	14	Month view shows to 6 Dec only; later December to February not seen.
+19	THU	tickets.visitswanseabay.com	https://tickets.visitswanseabay.com/swanseagrandtheatre/website/EventList.aspx	partial	4	3	December, January, February lists read in full; November not read (4 days left). Nothing new family.
+20	THU	swanseatheatre.co.uk	https://www.swanseatheatre.co.uk/shows	partial	33	6	Only first batch of 33 loads (Load more by script). Nothing new.
+21	THU	glynnvivian.co.uk	https://www.glynnvivian.co.uk/	partial	5	1	What's on page 1 of 5 read only (helper cap).
+22	THU	taliesinartscentre.co.uk	https://www.taliesinartscentre.co.uk/en/all-events	partial	5	4	Pages 1 to 4 read (to March); page 5 (April on) not read. All family shows already listed.
+23	THU	penllergare.org	https://penllergare.org/news-events/	full	5	5	Redirects to /whatson/; same list as 37g.
+24	THU	orielscience.co.uk	https://www.orielscience.co.uk/city-centre-venue	full	2	2	Open weekends 10am to 4pm; no upcoming events published.
+25	THU	dylanthomasbirthplace.com	https://www.dylanthomasbirthplace.com/events/	full	1	1	A Child's Christmas in Wales readings, adult, left out.
+26	THU	letsgowiththechildren.co.uk	https://letsgowiththechildren.co.uk/events/swansea/	full	3	3	All 3 already listed.
+27	THU	westwalesfamilylife.co.uk	https://www.westwalesfamilylife.co.uk/whats-on-in-swansea/	partial	11	8	Load More not followed; all 8 seen covered or out of range.
+28	THU	clynefarm.com	https://clynefarm.com/whats-on-in-swansea-in-2026/	full	13	13	All covered, adult or past; Step Into Christmas not opened.
+29	THU	screamtime.co.uk	https://screamtime.co.uk/family/	full	1	1	Season over, 2027 dates awaited.
+30	THU	swansea.ac.uk	https://www.swansea.ac.uk/swansea-science-festival/	full	1	1	Festival past, no 2027 dates.
+31	THU	swanseaminster.org.uk	https://swanseaminster.org.uk/	partial	2	2	Christmas services only in PDF posters, not opened.
+32	THU	cadw.gov.wales	https://cadw.gov.wales/visit/whats-on/find-a-cadw-event	partial	21	21	Listing gives titles only, no site or date; Christmas items not matched to nearby sites.
+33	THU	visitwales.com	https://www.visitwales.com/things-do/events	full	16	16	Winter and spring lists read; Swansea items already listed or adult.
+34	THU	ents24.com	https://www.ents24.com/swansea-events/singleton-park	full	2	2	Two August 2027 concerts, not family.
+35	THU	songkick.com	https://www.songkick.com/venues/16114-singleton-park	full	2	2	Same two concerts.
+36	THU	swansea-arena.co.uk	https://www.swansea-arena.co.uk/whats-on	partial	45	1	Listings read; SIX page re-read (no change). Christmas show pages not opened for age guidance.
+37	THU	school-term-dates.co.uk	https://school-term-dates.co.uk/wales/swansea-school-term-dates/	full	1	1	Term dates confirmed; Easter 22 Mar to 2 Apr 2027, May half term 31 May to 4 Jun 2027.
+37a	THU	pontardaweartscentre.com	https://pontardaweartscentre.com/	full	60	60	Listing read; Muppet Christmas Carol added, Polar Express dates updated; 4 more U/PG films need their pages opened.
+37b	THU	freedom-leisure.co.uk	https://www.freedom-leisure.co.uk/news/swansea-school-holidays/	partial	6	3	Hub still October text; Penyrheol page 404. Christmas camps added from Freedom Leisure Christmas news page.
+37c	THU	showcaveschristmas.co.uk	https://showcaveschristmas.co.uk/before-you-visit.php	partial	2	1	Christmas dates confirmed; showcavesbookings not opened.
+37d	THU	folly-farm.co.uk	https://www.folly-farm.co.uk/plan-your-day/whats-on/	full	2	2	Folly Farm and Heatherton grottos confirmed.
+37e	THU	bunkersuk.com	https://bunkersuk.com/location/swansea/	full	1	1	Only past Halloween offer.
+37f	THU	zipworld.co.uk	https://www.zipworld.co.uk/monsters-of-the-mine	full	1	1	Tower Grotto 21 Nov to 24 Dec added.
+37g	THU	penllergare.org	https://penllergare.org/whatson/	partial	5	5	Paint Along 7 Dec not opened; Parti Nadolig caveat lifted.
+37h	THU	visitbridgend.co.uk	https://www.visitbridgend.co.uk/whats-on	partial	45	3	Whats-on 45 items listed, 2 event pages opened; about 10 family candidates not opened; Bryngarw not opened.
+T1	EVERY	circus-zyair.co.uk	https://circus-zyair.co.uk/	full	7	7	2027 tour, none near Swansea.
+T2	EVERY	studtsfunfairs.co.uk	https://www.studtsfunfairs.co.uk/events/index.html	partial	4	4	Winterland matches; Upside Down House page not opened.
+T3	EVERY	swanseawinterwonderland.co.uk	https://swanseawinterwonderland.co.uk/opening-times/	full	1	1	19 Nov to 3 Jan confirmed.
+T5	EVERY	visitswanseabay.com	https://www.visitswanseabay.com/swansea-christmas/christmas-parade/	full	1	1	Parade 22 Nov past.
+T6	EVERY	visitswanseabay.com	https://www.visitswanseabay.com/swansea-prom/swansea-bay-rider/	full	1	1	Closed for winter, back spring 2027.
+T7	EVERY	swanseacitycentre.com	https://www.swanseacitycentre.com/events/christmasmarket	full	1	1	Christmas market 21 Nov to 22 Dec confirmed.
+T9	EVERY	circus-starr.org.uk	https://www.circus-starr.org.uk/events/map/	failed	0	0	Not opened, helper Firecrawl cap reached; search found no dates near Swansea.
+T10	EVERY	walesnationalairshow.com	https://www.walesnationalairshow.com/	failed	0	0	Not opened, helper Firecrawl cap reached.
+B1	EVERY	Libraries Wales events (rhyme times)	https://llyfrgelloedd.cymru/	partial	20	0	Homepage today's items only; library names not shown; event pages not opened.
+B2	EVERY	NPT Bookstart song and rhyme	https://www.npt.gov.uk/libraries/learning-and-wellbeing/babies-and-toddlers/	full	7	7	Bookstart sessions confirmed; Glynneath time 10.30am on this page vs 11.30am on listing, kept 11.30am.
+L1	EVERY	Freedom Leisure Swansea timetables, 6 centres (today only)	https://www.freedom-leisure.co.uk/centres/morriston-leisure-centre/timetables/	limited	6	1	today only: Penlan read (Fun Float added); other 5 centres not read.
+L2	EVERY	Wales National Pool Swansea timetable	https://www.swanseabaysportspark.wales/opening-hours/	full	1	1	Free Splash and Family Fun confirmed (updated 24 Nov).
+2	MON	plantasiaswansea.co.uk	https://www.plantasiaswansea.co.uk/whats-on/	partial	5	5	Firecrawl: 5 items; Santa and his Elves still undated, FareHarbor item failed to load. Dinomania confirmed.
+L3	MON	Celtic Leisure pool programmes (Aberavon, Neath)	https://celticleisure.org/swimming/	partial	6	1	celticleisure.org/swimming lists the same term-time PDFs as the records; PDF sentences not re-read (helper Firecrawl cap). No Christmas PDFs yet.
+14	MON	ospreysrugby.com	https://www.ospreysrugby.com/	partial	1	1	Only Christmas camp page found is 2018; fixtures not re-checked.
