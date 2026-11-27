@@ -331,7 +331,7 @@
     "n": "Mumbles Events",
     "u": "https://www.mumbles.events/",
     "s": "watch",
-    "note": "Checked 31 October: no dated events published.",
+    "note": "27 November: the domain now redirects to an unrelated shop; no events.",
     "group": "swansea",
     "half": "Friday"
   },
@@ -561,9 +561,9 @@
   },
   {
     "n": "Princess Royal Theatre, Port Talbot",
-    "u": "https://www.npt.gov.uk/1411?venue=3",
+    "u": "https://www.npt.gov.uk/1411?venue=2",
     "s": "watch",
-    "note": "17 November: the venue filter now shows the Gwyn Hall; the Princess Royal Theatre is not in the venue list.",
+    "note": "27 November: the theatre is venue=2 on the council listing, which shows no events.",
     "group": "nearby",
     "half": "Tuesday"
   },
@@ -593,9 +593,9 @@
   },
   {
     "n": "National Botanic Garden of Wales",
-    "u": "https://botanicgarden.wales/whats-on/",
-    "s": "blocked",
-    "note": "Site refused automatic reading on 31 October.",
+    "u": "https://botanicgarden.wales/visit/whats-on/",
+    "s": "live",
+    "note": "27 November: read /visit/whats-on/ (first 12 items); the old /whats-on/ address is dead.",
     "group": "nearby",
     "half": "Tuesday"
   },
@@ -833,17 +833,17 @@
   },
   {
     "n": "Cardiff Students' Union (Great Hall)",
-    "u": "https://www.cardiffstudents.com/whats-on/",
-    "s": "blocked",
-    "note": "Refused automatic reading on 31 October.",
+    "u": "https://www.cardiffstudents.com/whatson/",
+    "s": "live",
+    "note": "27 November: readable again at /whatson/; Live Music list read in full.",
     "group": "touring",
     "half": "Tuesday"
   },
   {
     "n": "Football Association of Wales fixtures",
-    "u": "https://www.faw.cymru/en/fixtures/",
-    "s": "blocked",
-    "note": "Refused automatic reading on 31 October.",
+    "u": "https://faw.cymru/match-centre/",
+    "s": "live",
+    "note": "27 November: old fixtures page is gone; the match centre is readable.",
     "group": "touring",
     "half": "Friday"
   },
@@ -857,9 +857,9 @@
   },
   {
     "n": "Principality Stadium",
-    "u": "https://www.principalitystadium.wales/events",
-    "s": "blocked",
-    "note": "Refused automatic reading. Wales internationals come from the fixture list.",
+    "u": "https://www.principalitystadium.wales/events-and-ticket-information/",
+    "s": "live",
+    "note": "27 November: old /events page is gone; this events page is readable.",
     "group": "touring",
     "half": "Friday"
   },
